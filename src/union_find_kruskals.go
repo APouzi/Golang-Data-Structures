@@ -3,31 +3,34 @@ package main
 import "fmt"
 
 func main() {
-	//Vertices and their Edges
+	//Union-Find Version 1
 	tempGraph := []int{1, 2, 3, 4, 5}
 	edges := [][]int{{1, 2}, {2, 3}, {3, 4}, {0, 4}}
 
-	stringGraph := []byte{'a', 'b', 'c', 'p', 'f', 'g'}
-	edgesString := [][]byte{{'a', 'c'}, {'a', 'b'}, {'p', 'f'}}
 	lenOfVert := len(tempGraph)
 	Uni := UnionObject{componentsNum: lenOfVert}
 	Uni.componentSize = make([]int, lenOfVert)
 	Uni.representiveOfComponent = make([]int, lenOfVert)
-	Uni2 := UnionObjectString{componentsNum: len(stringGraph)}
-	Uni2.componentSize = make(map[byte]int)
-	Uni2.representiveOfComponent = make(map[byte]byte)
-	//Here we have to 0 the components
+	//Setup: Here we have to 1 the components to represent that they are the root of themselves.
 	for i := 0; i < lenOfVert; i++ {
-		Uni.componentSize[i] = 1 // Here we are going to
+		Uni.componentSize[i] = 1
 		Uni.representiveOfComponent[i] = i
 	}
-	// fmt.Println(Uni.componentSize, Uni.representiveOfComponent)
 
 	for _, v := range edges {
 		Uni.Union(v[0], v[1])
 	}
+	fmt.Println("number of coponents",Uni.componentsNum)
 
-	fmt.Println(Uni.componentsNum)
+
+	//Vertices and their Edges for "Uni2" notice it's any element
+	stringGraph := []byte{'a', 'b', 'c', 'p', 'f', 'g'}
+	edgesString := [][]byte{{'a', 'c'}, {'a', 'b'}, {'p', 'f'}}
+	Uni2 := UnionObjectString{componentsNum: len(stringGraph)}
+	Uni2.componentSize = make(map[byte]int)
+	Uni2.representiveOfComponent = make(map[byte]byte)
+
+	// fmt.Println(Uni.componentSize, Uni.representiveOfComponent)
 
 	for i := 0; i < len(stringGraph); i++ {
 		Uni2.componentSize[stringGraph[i]] = 1 // Here we are going to
@@ -36,7 +39,7 @@ func main() {
 	for _, v := range edgesString {
 		Uni2.Union(v[0], v[1])
 	}
-	fmt.Println(Uni2.componentsNum)
+	fmt.Println("Number of components, Union 2",Uni2.componentsNum)
 
 	// Matrix
 
@@ -65,6 +68,7 @@ func (union *UnionObjectString) Find(vert byte) byte {
 	for root != union.representiveOfComponent[root] {
 		root = union.representiveOfComponent[root]
 	}
+	// Path Compression
 	for vert != root {
 		next := union.representiveOfComponent[vert]
 		union.representiveOfComponent[vert] = root
@@ -101,7 +105,7 @@ func (union *UnionObjectString) Union(vert byte, vert2 byte) {
 type UnionObject struct {
 	componentSize           []int
 	representiveOfComponent []int
-	componentsNum           int // These only go down and is used commonly for different algorithims.
+	componentsNum           int // This componentsNum count only go down and is used commonly for different algorithims.
 }
 
 func (union *UnionObject) Find(vert int) int {
@@ -111,6 +115,7 @@ func (union *UnionObject) Find(vert int) int {
 	for root != union.representiveOfComponent[root] {
 		root = union.representiveOfComponent[root]
 	}
+	// Path Compression
 	for vert != root {
 		next := union.representiveOfComponent[vert]
 		union.representiveOfComponent[vert] = root
@@ -179,11 +184,11 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 	fmt.Println(union.parent)
 
 }
-
+// Bijection
 func (union *UnionFindMatrix) getXY(x int, y int) int {
 	return (x * union.columnSize) + y
 }
-
+// Path Compression
 func (union *UnionFindMatrix) Find(arrXY int) int {
 	root := arrXY
 	for root != union.parent[root] {
