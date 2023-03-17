@@ -13,6 +13,12 @@ func main() {
 	binaryTree.insertNode(6)
 	binaryTree.insertNode(7)
 	binaryTree.insertNode(9)
+	//		   5
+	// 		3     4
+	//               8
+	//                  7
+	//                     8
+	//                        9
 
 	binaryTreeValidate := BST{}
 	binaryTreeValidate.node = &Node{val: 11}
@@ -30,6 +36,7 @@ func main() {
 	// listofLists := [][]int{}
 	// checkSumRecur(binaryTree.node, 26, 0, []int{}, listofLists)
 	fmt.Println("validate binary tree:", validateTreeInit(binaryTreeValidate.node))
+	InOrderTraversal(binaryTree.node)
 
 }
 
@@ -247,4 +254,36 @@ func validateTree(node *Node, min int, max int) bool {
 
 func rightSide(node *Node, min int, max int) bool {
 	return true
+}
+
+
+func InOrderTraversal(node *Node){
+	if node.left != nil{
+		InOrderTraversal(node.left)
+	}
+	fmt.Println(node.val)
+	if node.right != nil {
+		InOrderTraversal(node.right)
+	}
+
+}
+
+func PostOrderTraversal(node *Node){
+	if node.right != nil{
+		PostOrderTraversal(node)
+	}
+	if node.left != nil{
+		PostOrderTraversal(node)
+	}
+	fmt.Println(node.val)
+}
+
+func PreOrderTraversal(node *Node){
+	fmt.Println(node.val)
+	if node.right != nil{
+		PostOrderTraversal(node)
+	}
+	if node.left != nil{
+		PostOrderTraversal(node)
+	}
 }

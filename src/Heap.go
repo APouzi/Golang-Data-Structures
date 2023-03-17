@@ -44,7 +44,7 @@ func main() {
 	h.insert(4)
 	h.insert(5)
 	h.insert(6)
-	fmt.Println(h.array)
+	fmt.Println("final ans:", h.array)
 
 	for range h.array {
 		fmt.Println(h.pop())
@@ -70,6 +70,7 @@ type Heap struct {
 }
 
 func (h *Heap) insert(num int) {
+	fmt.Print(num, " ")
 	if h.array == nil {
 		h.array = []int{}
 	}

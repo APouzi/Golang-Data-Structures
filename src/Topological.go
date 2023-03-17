@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	graph := Graph{}
@@ -28,6 +30,15 @@ func main() {
 	list := &[][]int{}
 	topologicalSort(graph.vertices[0], seen, list, []int{})
 	fmt.Println(list)
+	// prereq := [][]int{{0,1},{1,2},{2,3},{3,4}}
+	// 0 > 1 > 2 > 3 > 4
+	prereq2 := [][]int{{0,1},{1,2},{1,3},{3,4},{5,6}}
+	// 1 >
+	// 		0 
+	// 2 >
+	// prereq3Backwards := [][]int{{1,0},{2,1},{3,2},{4,3}}
+	
+	topologicalSort2(5, prereq2)
 
 }
 
@@ -70,7 +81,6 @@ func (g *Graph) insertEdges(start int, end int) bool {
 		}
 		startNode.adj = append(startNode.adj, endNode)
 		if startNode.val == 1 {
-			fmt.Println(startNode.adj)
 		}
 		return true
 	}
@@ -90,7 +100,6 @@ func topologicalSort(node *Node, seen map[*Node]int, list *[][]int, temp []int) 
 
 	seen[node] = 2
 	temp = append(temp, node.val)
-	fmt.Println(node.adj)
 	for _, v := range node.adj {
 		if topologicalSort(v, seen, list, temp) == false {
 			return false
@@ -99,6 +108,70 @@ func topologicalSort(node *Node, seen map[*Node]int, list *[][]int, temp []int) 
 	seen[node] = 1
 	if len(node.adj) == 0 {
 		*list = append(*list, temp)
+	}
+
+	return true
+}
+
+
+func topologicalSort2( numCourses int, prerequesities [][]int){
+	graph := make(map[int][]int)
+	seen := make(map[int]int)
+	topo := []int{}
+	prereqTrack := [][]int{}
+
+	// for i :=0; i < numCourses; i++{
+	// 	graph[i] = []int{}
+	// }
+
+	for _,v := range prerequesities{
+		graph[v[0]] = append(graph[v[0]], v[1]) 
+	}
+	fmt.Println(graph)
+	for i := range graph{
+		if DFS(i, graph, seen, &topo, &prereqTrack) == false{
+			topo = []int{}
+			break
+		}
+	}
+
+	if len(topo) < numCourses{
+		fmt.Println("can't complete classes")
+		// return
+	}
+
+	fmt.Println("final",topo)
+	fmt.Println("final", prereqTrack)
+}
+
+func DFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int, list *[][]int)bool{
+	fmt.Println(curr)
+	if seen[curr] == 2{
+		fmt.Println("cycle hit")
+		return false
+	}
+
+	if seen[curr] ==1 {
+		return true
+	}
+
+	seen[curr] = 2 
+	//PostOrder
+	// *topo = append(*topo, curr)
+	// if len(graph[curr]) == 0{    //This could also be pretty awesome
+	// 	*list = append(*list, *topo)
+	// }
+	for _,i := range graph[curr]{
+		if DFS(i, graph, seen, topo, list) == false {
+			return false
+		}
+	}
+	seen[curr] = 1
+	// PreOrder
+	*topo = append(*topo, curr)
+	if len(graph[curr]) == 0 || graph[curr]== nil{
+		*list = append(*list, *topo)
+		
 	}
 
 	return true

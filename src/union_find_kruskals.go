@@ -85,10 +85,11 @@ func (union *UnionObjectString) Union(vert byte, vert2 byte) {
 		fmt.Println("vertice is in the same component")
 		return
 	}
-
+	//Finds the root of given vertice and does path compression to achieve O(1) look up time for repeated roots(roots already compressed)
 	root1 := union.Find(vert)
 	root2 := union.Find(vert2)
 
+	// This is the actual Union step here. What we want to do is Union the components to the biggest component size. If root1 has bigger component size, then we want to join root2 and it's component family to that root1 component. 
 	if union.componentSize[root1] > union.componentSize[root2] {
 		union.componentSize[root1] += union.componentSize[root2]
 		union.representiveOfComponent[root2] = root1
@@ -223,3 +224,33 @@ func (union *UnionFindMatrix) Union(x int, y int) bool {
 	// fmt.Println(union.parent)
 	return true
 }
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------
+// Practice
+
+type UnionPrac struct{
+	componentSize map[byte]int
+	componentParent map[byte]byte
+	componentNumber int
+}
+
+func (union *UnionPrac) Find(vert byte) byte{
+
+	root := vert
+	// This is looking for the root of the given vertice, this is achieved when the root 
+	for root != union.componentParent[root]{
+		root = union.componentParent[root]
+	}
+
+	for vert != root{
+		next := union.componentParent[vert]
+		union.componentParent[next] = root
+		vert = next
+	}
+
+	return root
+} 
+

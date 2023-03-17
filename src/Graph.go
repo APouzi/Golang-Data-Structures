@@ -47,6 +47,15 @@ type Node struct {
 	val int
 	adj []*Node
 }
+// Graph using hashmaps
+type GraphHash struct {
+	vertices map[int]*NodeHash
+}
+
+type NodeHash struct {
+	val int
+	adj map[int][]int
+}
 
 func (g *Graph) insertVerts(num int) {
 	if g.vertices == nil {
