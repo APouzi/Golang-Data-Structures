@@ -44,12 +44,24 @@ func main() {
 	// Matrix
 
 	matrix := [][]int{
-		{1, 1, 0, 0},
-		{1, 1, 0, 0},
-	}
 
+		//  0,1,2,3,4,5,6,7
+		// [1 5 2 3 5 5 6 7]
+		// 0,1,2,3
+		// 4,5,6,7
+		{1, 1, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{1, 1, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{1, 1, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1, 1, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+	}
+	// 2DArrays
 	matrixUnion := UnionFindMatrix{}
 	matrixUnion.UnionFind(matrix)
+	// fmt.Println("matrix parent:",matrixUnion.parentBijection)
+	// fmt.Println("matrix components:", matrixUnion.size)
+	fmt.Println("component size", matrixUnion.componentSize)
+
+	//MST
 
 }
 
@@ -153,79 +165,94 @@ func (union *UnionObject) Union(vert int, vert2 int) {
 
 type UnionFindMatrix struct {
 	columnSize int
-	parent     []int
+	parentBijection     []int
 	size       []int
+	componentSize int
+
 }
 
 func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 	union.columnSize = len(matrix[0])
-	union.parent = make([]int, len(matrix[0])*len(matrix))
+	union.parentBijection = make([]int, len(matrix[0])*len(matrix))
 	union.size = make([]int, len(matrix[0])*len(matrix))
-	// for x, v := range matrix {
-	// 	for y, _ := range v {
-	// 		union.parent[union.getXY(x, y)] = union.getXY(x, y)
-	// 		union.size[union.getXY(x, y)] = 1
-	// 	}
-	// }
-
-	for i := 0; i < (len(matrix) * len(matrix[0])); i++ {
-		union.parent[i] = i
-	}
-	fmt.Println("UnionFind method", union.parent)
-
+	union.componentSize = 0
 	for x, v := range matrix {
-		for y, value := range v {
-			if value == 1 {
-				fmt.Println("hit", x, y, union.getXY(x, y))
-				union.Union(x, y)
-			}
+		for y, _ := range v {
+			union.parentBijection[union.getXY(x, y)] = union.getXY(x, y)
+			union.size[union.getXY(x, y)] = 1
+			union.componentSize++
 		}
 	}
 
-	fmt.Println(union.parent)
+	// // for i := 0; i < (len(matrix) * len(matrix[0])); i++ {
+	// // 	union.parentBijection[i] = i
+	// // }
+	// fmt.Println("UnionFind method", union.parentBijection)
+	row := len(matrix)-1
+	col := len(matrix[0])-1
+	for x, v := range matrix {
+		for y, value := range v {
+				
+				if x < row && value == matrix[x+1][y] {
+					union.Union(union.getXY(x, y), union.getXY(x+1, y))
+					
+				}
+				if y < col && value == matrix[x][y+1]{
+					union.Union(union.getXY(x, y), union.getXY(x, y+1))
+				}
+		}
+	}
+
 
 }
 // Bijection
 func (union *UnionFindMatrix) getXY(x int, y int) int {
 	return (x * union.columnSize) + y
 }
-// Path Compression
+
 func (union *UnionFindMatrix) Find(arrXY int) int {
+	
 	root := arrXY
-	for root != union.parent[root] {
-		root = union.parent[root]
+	for root != union.parentBijection[root] {
+		root = union.parentBijection[root]
 	}
 
-	// for arrXY != root {
-	// 	next := union.parent[arrXY]
-	// 	union.parent[arrXY] = root
-	// 	arrXY = next
-	// }
+	for arrXY != root {
+		next := union.parentBijection[arrXY]
+		union.parentBijection[arrXY] = root
+		arrXY = next
+	}
 	return root
 }
 
 func (union *UnionFindMatrix) Union(x int, y int) bool {
 	root1 := union.Find(x)
 	root2 := union.Find(y)
-
 	if root1 == root2 {
 		return false
 	}
 
 	if union.size[root1] > union.size[root2] {
-		union.parent[y] = root1
-		union.size[y] += union.size[x]
-		union.size[x] = 0
+		union.parentBijection[root2] = root1
+		union.size[root1] += union.size[root2]
+		union.size[root2] = 0
+		// union.componentSize--
 	} else {
-		union.parent[x] = root2
-		union.size[x] += union.size[y]
-		union.size[y] = 0
+		union.parentBijection[root1] = root2
+		union.size[root2] += union.size[root1]
+		union.size[root1] = 0
+		// union.componentSize--
 	}
+	union.componentSize--
 	// fmt.Println(union.parent)
 	return true
 }
 
+// ================================================Minimum Spanning Tree (Kruskals Algorithim)========================================
 
+func Kruskals (){
+	// Get edges, sort them and then perform UnionFind on the edges. This will create the MST
+}
 
 
 // ------------------------------------------------------------------------------------------------------------------------------
