@@ -38,7 +38,7 @@ func main() {
 	// 2 >
 	// prereq3Backwards := [][]int{{1,0},{2,1},{3,2},{4,3}}
 	
-	topologicalSort2(5, prereq2)
+	topologicalSort2(6, prereq2)
 
 }
 
@@ -128,7 +128,7 @@ func topologicalSort2( numCourses int, prerequesities [][]int){
 		graph[v[0]] = append(graph[v[0]], v[1]) 
 	}
 	fmt.Println(graph)
-	for i := range graph{
+	for i := 0; i<numCourses; i++{
 		if DFS(i, graph, seen, &topo, &prereqTrack) == false{
 			topo = []int{}
 			break
@@ -157,7 +157,7 @@ func DFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int, list *[][
 
 	seen[curr] = 2 
 	//PostOrder
-	// *topo = append(*topo, curr)
+	*topo = append(*topo, curr)
 	// if len(graph[curr]) == 0{    //This could also be pretty awesome
 	// 	*list = append(*list, *topo)
 	// }
@@ -168,7 +168,7 @@ func DFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int, list *[][
 	}
 	seen[curr] = 1
 	// PreOrder
-	*topo = append(*topo, curr)
+	// *topo = append(*topo, curr)
 	if len(graph[curr]) == 0 || graph[curr]== nil{
 		*list = append(*list, *topo)
 		

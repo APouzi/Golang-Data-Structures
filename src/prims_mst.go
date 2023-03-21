@@ -8,6 +8,8 @@ func main() {
 
 func () prims_algorithim() {}
 
+func () add_edges() {}
+
 type Graph struct {
 	vertices map[int]*Node
 	// We have this here because we need to have the same
