@@ -4,11 +4,89 @@ func main() {
 
 }
 
+type Heap struct{
+	heap []*Edge
+	priority map[*Edge]int
+	size int
+}
+
+func (heap *Heap) Insert(edge *Edge){
+	heap.heap = append(heap.heap, edge)
+	heap.priority[edge]=edge.weight
+	heap.HeapifyUp()
+}
+
+func(heap *Heap) HeapifyUp(){
+	index := 0
+
+	for heap.heap[Parent(index)].weight > heap.heap[index].weight{
+		heap.swap(Parent(index), index)
+		index = Parent(index)
+	}
+}
+
+func (heap *Heap) HeapifyDown(node *Node){
+	
+	index := len(heap.heap)-1
+
+	for LeftChild(index) < len(heap.heap){
+		smallest := LeftChild(index)
+		if RightChild(index) < len(heap.heap){
+			if heap.priority[heap.heap[RightChild(index)]] < heap.priority[heap.heap[LeftChild(index)]] {
+				smallest = RightChild(index)
+			} 
+		}
+
+		if heap.priority[heap.heap[index]] < heap.priority[heap.heap[smallest]]{
+			heap.swap(index, smallest)
+		}else{
+			break
+		}
+
+		index = smallest
+	}
+}
+
+func Parent(index int) int{
+	return (index-1)/2
+}
+
+func LeftChild(index int) int{
+	return (index*2)+1
+}
+
+func RightChild(index int) int{
+	return (index*2)+2
+}
+
+func(heap *Heap) swap(i int, j int){
+	heap.heap[i], heap.heap[j] = heap.heap[j], heap.heap[i]
+}
+
+
+
 // Prims
 
-func () prims_algorithim() {}
+func (prims *Prims) prims_algorithim(start *Node) {
+	prims.heap = Heap{}
+	prims.add_edges(start)
+	
+	for len(prims.heap.heap) > 0 {
+		
+	}
+}
 
-func () add_edges() {}
+func (prims *Prims) add_edges(node *Node) {
+	prims.seen[node]=true
+
+	for _,i := range node.adj{
+		if ok := prims.seen[i.toNode]; ok == false{
+			prims.heap.Insert(i)
+		}
+	}
+
+
+}
 
 type Graph struct {
 	vertices map[int]*Node
@@ -17,16 +95,24 @@ type Graph struct {
 	edges          []Edge
 }
 
+type Prims struct{
+	seen map[*Node]bool
+	EdgeCost map[*Edge]int
+	Edges []Edge
+	heap Heap
+	stack []*Node
+}
+
 type Edge struct {
-	from   int
-	to     int
-	weight int
+	fromNode *Node
 	toNode *Node
+	weight int
+	
 }
 
 type Node struct {
 	val int
-	adj []Edge
+	adj []*Edge
 }
 
 func (g *Graph) insertVerts(num int) {

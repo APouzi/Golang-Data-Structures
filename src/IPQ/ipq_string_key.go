@@ -51,10 +51,11 @@ func main(){
 	// fmt.Println("position",ipq.pm)
 	// fmt.Println("length before",len(ipq.im))
 	// fmt.Println("before: ", ipq.im[0])
-
+	ipq.Update("Alex",11)
 	fmt.Println("Pop",ipq.Pop())
 	fmt.Println("Pop",ipq.Pop())
 	fmt.Println("Pop",ipq.Pop())
+	
 	fmt.Println("Pop",ipq.Pop())
 	fmt.Println("Pop",ipq.Pop())
 	fmt.Println("Pop",ipq.Pop())
@@ -149,8 +150,11 @@ func(ipq *IndexedPriorityQueue) HeapifyDown(index int){
 	}
 }
 
-func(ipq *IndexedPriorityQueue) Update(ki int, value int){
-
+func(ipq *IndexedPriorityQueue) Update(key string, value int){
+	ipq.values[key] = value
+	ki := ipq.pm[key]
+	ipq.HeapifyDown(ki)
+	ipq.HeapifyUp(ki)
 }
 
 func(ipq *IndexedPriorityQueue) DecreaseKey(ki int){
