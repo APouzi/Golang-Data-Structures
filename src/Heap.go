@@ -35,21 +35,30 @@ func main() {
 
 	h := Heap{}
 	h.insert(3)
-	h.insert(2)
+	
 	h.insert(1)
-
+	
 	h.insert(7)
 	h.insert(8)
 	h.insert(9)
 	h.insert(4)
 	h.insert(5)
 	h.insert(6)
+	h.insert(2)
 	fmt.Println("final ans:", h.array)
 
-	for range h.array {
-		fmt.Println(h.pop())
-	}
-
+	// for range h.array {
+	// 	fmt.Println(h.pop())
+	// }
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
+	fmt.Println(h.pop())
 	// fmt.Println(variable)
 	// printKWay(variable)
 
@@ -88,7 +97,7 @@ func printKWay(node *LinkedNode) {
 func (h *Heap) heapifyUp() {
 	index := len(h.array) - 1
 
-	for h.array[index] < h.array[parent(index)] {
+	for h.array[index] > h.array[parent(index)] {
 		h.swap(index, parent(index))
 		index = parent(index)
 	}
@@ -101,29 +110,28 @@ func (h *Heap) swap(a int, b int) {
 func (h *Heap) HeapifyDown() {
 	length := len(h.array) - 1
 	index := 0
-	biggest := leftChild(index)
-	for leftChild(index) < length {
-		if rightChild(index) < length {
-			if h.array[leftChild(index)] < h.array[rightChild(index)] {
-				biggest = leftChild(index)
-			} else {
+	
+	for leftChild(index) <= length {
+		biggest := leftChild(index)
+		if rightChild(index) <= length {
+			if h.array[biggest] < h.array[rightChild(index)] {
 				biggest = rightChild(index)
 			}
 
-			if h.array[index] > h.array[biggest] {
+			if h.array[index] < h.array[biggest] {
 				h.swap(index, biggest)
 				index = biggest
 				// printList(h.array)
 			} else {
 				break
 			}
-		} else {
-			if h.array[leftChild(index)] < h.array[index] {
-				h.swap(leftChild(index), index)
-				// printList(h.array)
-			}
-			index = leftChild(index)
 		}
+		if h.array[biggest] > h.array[index] {
+			h.swap(biggest, index)
+			// printList(h.array)
+		}
+		index = biggest
+
 	}
 }
 
