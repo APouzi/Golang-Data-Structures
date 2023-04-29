@@ -126,8 +126,8 @@ func(ipq *IndexedPriorityQueue) HeapifyUp(position int){
 	}
 }
 // fmt.Println("HEAPIFY DOWN","SmallerOfTwo value:",ipq.values[ipq.im[smallerOfTwo]], "RightChild value",ipq.values[ipq.im[RightChild(curr)]], ipq.im[smallerOfTwo], ipq.im[RightChild(curr)])
-func(ipq *IndexedPriorityQueue) HeapifyDown(index int){
-	curr := index
+func(ipq *IndexedPriorityQueue) HeapifyDown(position int){
+	curr := position
 	// fmt.Println(ipq.values[ipq.im[curr]],ipq.im[curr])
 	for LeftChild(curr) < ipq.size{
 		smallerOfTwo := LeftChild(curr)
@@ -135,7 +135,7 @@ func(ipq *IndexedPriorityQueue) HeapifyDown(index int){
 		if RightChild(curr) < ipq.size {
 			if ipq.values[ipq.im[RightChild(curr)]] < ipq.values[ipq.im[smallerOfTwo]]{
 				smallerOfTwo = RightChild(curr)
-				// smallerOfTwo = ipq.values[ipq.im[RightChild(index)]]
+				// smallerOfTwo = ipq.values[ipq.im[RightChild(position)]]
 			}
 			
 		}
