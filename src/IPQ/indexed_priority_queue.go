@@ -46,7 +46,7 @@ func main(){
 	for i:=0; i <len(list);i++{
 		ipq.insert(list[i])
 	}
-	for i,_ := range list{
+	for i := range list{
 		fmt.Print(ipq.im[i], " ")
 		
 	}
@@ -73,10 +73,10 @@ func(ipq *IndexedPriorityQueue) Delete(ki int){
 	ipq.HeapifyDown(key_index)
 	ipq.HeapifyUp(key_index)
 	
-	ipq.values[ki] = nil
-	delete(ipq.values, ki)
-	delete(ipq.pm, ki)
-	delete(ipq.im, ipq.size)
+	// ipq.values[ki] = nil
+	// delete(ipq.values, ki)
+	// delete(ipq.pm, ki)
+	// delete(ipq.im, ipq.size)
 	
 
 }

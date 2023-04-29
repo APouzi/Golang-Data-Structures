@@ -66,7 +66,7 @@ func main(){
 	fmt.Println("Pop",ipq.Pop())
 	keys("TEST",3,1,&list)
 	ipq.insert(Node{key: "TEST",key_index:0, priority:5})
-	for i,_ := range list{
+	for i := range list{
 		fmt.Print(ipq.im[i], " ")
 		
 	}
