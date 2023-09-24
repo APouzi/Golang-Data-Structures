@@ -74,7 +74,10 @@ func RevRecur(node *LinkedNode) *LinkedNode {
 
 //***************Linked List******************
 type LinkedList struct {
+	Head *LinkedNode
 }
 
 type LinkedNode struct {
+	Val  int
+	Next *LinkedNode
 }
