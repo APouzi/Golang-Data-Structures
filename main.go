@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+	var cmnd string
+	flag.StringVar(&cmnd, "command", " ","Command Init:")
+	flag.Parse()
+
 	// graph := &Graph{}
 	// graph.addVertex(1)
 	// graph.addVertex(2)
