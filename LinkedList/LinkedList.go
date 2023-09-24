@@ -44,11 +44,15 @@ func (ll *LinkedList) MakeCycle() {
 
 }
 
+func CycleDetect(node *LinkedNode) bool {
 	fast := node
 	slow := node
 
 	for fast != nil || slow != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
 		if fast == slow {
+			fmt.Println("connected at: ", fast.Val)
 			return true
 		}
 	}
