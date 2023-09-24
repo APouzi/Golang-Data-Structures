@@ -25,16 +25,23 @@ func main() {
 	// graph.addEdges(4, 5)
 	// graph.topoSort()
 
-	LinkedList := LinkedList{}
-	LinkedList.addNode(1)
-	LinkedList.addNode(2)
-	LinkedList.addNode(3)
-	LinkedList.addNode(4)
-	LinkedList.addNode(5)
-	LinkedList.addNode(6)
+	if cmnd == "duplication"{
+		LL := LinkedList.LinkedList{}
+		LL.AddNode(1)
+		LL.AddNode(2)
+		LL.AddNode(3)
+		LL.AddNode(3)
+		LL.AddNode(3)
+		LL.AddNode(4)
+		LL.AddNode(5)
+		LL.AddNode(6)
 
-	LinkedList.printList()
-	// newHead := revRecur(LinkedList.head)
+		LL.PrintList()
+		println("\n print reverse:")
+		LinkedList.RemoveDup(LL.Head)
+		LL.PrintList()
+	}
+
 	// fmt.Println(newHead.next)
 	// printReverse(newHead)
 	// LinkedList.printList()
