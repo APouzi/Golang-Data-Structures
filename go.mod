@@ -1,3 +1,3 @@
-module github.com/APouzi/go-algo
+module github.com/APouzi/go-algos
 
 go 1.20
