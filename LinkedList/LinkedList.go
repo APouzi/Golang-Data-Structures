@@ -85,6 +85,20 @@ func LLRev(currNode *LinkedNode) *LinkedNode{ // 6,5,4,3,2,1
 	return returnedHead
 	
 }
+
+
+func RemoveDup(currNode *LinkedNode) {
+	curr := currNode
+
+	for curr.Next != nil{
+		for curr.Val == curr.Next.Val{
+			curr.Next = curr.Next.Next
+		}
+		curr = curr.Next
+	}
+}
+
+
 //***************Linked List******************
 type LinkedList struct {
 	Head *LinkedNode
