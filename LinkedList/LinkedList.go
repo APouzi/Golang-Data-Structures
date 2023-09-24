@@ -2,9 +2,16 @@ package LinkedList
 
 import "fmt"
 
+func (ll *LinkedList) AddNode(num int) {
+	newHead := &LinkedNode{Val: num}
+	if ll.Head == nil {
+		ll.Head = newHead
 		return
 	}
+	curr := ll.Head
 
+	newHead.Next = curr
+	ll.Head = newHead
 
 }
 
