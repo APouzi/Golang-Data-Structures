@@ -24,9 +24,12 @@ func (ll *LinkedList) PrintList() {
 	}
 }
 
+func PrintAfterReverse(node *LinkedNode) {
 	curr := node
 
 	for curr != nil {
+		fmt.Printf(" %v ", curr.Val)
+		curr = curr.Next
 	}
 
 }
