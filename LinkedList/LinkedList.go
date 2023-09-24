@@ -15,8 +15,12 @@ func (ll *LinkedList) AddNode(num int) {
 
 }
 
+func (ll *LinkedList) PrintList() {
 
+	curr := ll.Head
 	for curr != nil {
+		fmt.Printf(" %v ", curr.Val)
+		curr = curr.Next
 	}
 }
 
