@@ -59,10 +59,15 @@ func CycleDetect(node *LinkedNode) bool {
 	return false
 }
 
+func RevRecur(node *LinkedNode) *LinkedNode {
+	if node.Next == nil {
 
 		return node
 	}
 
+	newHead := RevRecur(node.Next)
+	node.Next.Next = node
+	node.Next = nil
 	return newHead
 
 }
