@@ -34,7 +34,13 @@ func PrintAfterReverse(node *LinkedNode) {
 
 }
 
+func (ll *LinkedList) MakeCycle() {
+	curr := ll.Head
+	cycleConnect := curr.Next.Next
+	for curr.Next != nil {
+		curr = curr.Next
 	}
+	curr.Next = cycleConnect
 
 }
 
