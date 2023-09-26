@@ -188,16 +188,15 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 	// // 	union.parentBijection[i] = i
 	// // }
 	// fmt.Println("UnionFind method", union.parentBijection)
-	row := len(matrix)-1
-	col := len(matrix[0])-1
+	rowSize := len(matrix)-1
+	colSize := len(matrix[0])-1
 	for x, v := range matrix {
 		for y, value := range v {
 				
-				if x < row && value == matrix[x+1][y] {
+				if x < rowSize && value == matrix[x+1][y] {
 					union.Union(union.getXY(x, y), union.getXY(x+1, y))
-					
 				}
-				if y < col && value == matrix[x][y+1]{
+				if y < colSize && value == matrix[x][y+1]{
 					union.Union(union.getXY(x, y), union.getXY(x, y+1))
 				}
 		}
