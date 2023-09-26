@@ -190,12 +190,14 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 	// fmt.Println("UnionFind method", union.parentBijection)
 	rowSize := len(matrix)-1
 	colSize := len(matrix[0])-1
+// We start this from the top left hand corner and we move to the right and always check below them.
 	for x, v := range matrix {
 		for y, value := range v {
-				
+				//Get everything to the right
 				if x < rowSize && value == matrix[x+1][y] {
 					union.Union(union.getXY(x, y), union.getXY(x+1, y))
 				}
+				//Get everything to the bottom
 				if y < colSize && value == matrix[x][y+1]{
 					union.Union(union.getXY(x, y), union.getXY(x, y+1))
 				}
@@ -204,7 +206,7 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 
 
 }
-// Bijection
+// Bijection Lookup
 func (union *UnionFindMatrix) getXY(x int, y int) int {
 	return (x * union.columnSize) + y
 }
