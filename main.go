@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/APouzi/go-algos/LinkedList"
+	patterns "github.com/APouzi/go-algos/Patterns"
 )
 
 func main() {
@@ -58,6 +59,13 @@ func main() {
 		// newHead := revRecur(LinkedList.head)
 		LinkedList.RemoveDup(LL.Head)
 	}
+// "dcda", "adc"
+// "eidbaooo", "eidbaooo"
+// "abcdefg", "ab"
+// "abcdefg", "dc"
+	returnRes := patterns.PermutationOfString("dcda", "adc")
+	fmt.Println(returnRes)
+	
 	
 
 	// fmt.Println(newHead.next)
