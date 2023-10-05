@@ -184,10 +184,6 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 		}
 	}
 
-	// // for i := 0; i < (len(matrix) * len(matrix[0])); i++ {
-	// // 	union.parentBijection[i] = i
-	// // }
-	// fmt.Println("UnionFind method", union.parentBijection)
 	rowSize := len(matrix)-1
 	colSize := len(matrix[0])-1
 // We start this from the top left hand corner and we move to the right and always check below them.
