@@ -28,7 +28,7 @@ func runTopological() {
 
 	seen := make(map[*TopologicalNode]int)
 	list := &[][]int{}
-	topologicalSort(graph.vertices[0], seen, list, []int{})
+	topologicalSort(graph.Vertices[0], seen, list, []int{})
 	fmt.Println(list)
 	// prereq := [][]int{{0,1},{1,2},{2,3},{3,4}}
 	// 0 > 1 > 2 > 3 > 4
@@ -43,44 +43,44 @@ func runTopological() {
 }
 
 type TopologicalGraph struct {
-	vertices []*TopologicalNode
+	Vertices []*TopologicalNode
 }
 
 type TopologicalNode struct {
-	val int
-	adj []*TopologicalNode
+	Val int
+	Adj []*TopologicalNode
 }
 
 func (g *TopologicalGraph) insertVerts(num int) {
-	if g.vertices == nil {
-		g.vertices = []*TopologicalNode{}
+	if g.Vertices == nil {
+		g.Vertices = []*TopologicalNode{}
 	}
-	new := TopologicalNode{val: num}
-	g.vertices = append(g.vertices, &new)
+	new := TopologicalNode{Val: num}
+	g.Vertices = append(g.Vertices, &new)
 }
 
 func (g *TopologicalGraph) insertEdges(start int, end int) bool {
 	var startNode *TopologicalNode
 	var endNode *TopologicalNode
 
-	for _, v := range g.vertices {
-		if v.val == start {
+	for _, v := range g.Vertices {
+		if v.Val == start {
 			startNode = v
 		}
-		if v.val == end {
+		if v.Val == end {
 			endNode = v
 		}
 	}
 
 	if startNode != nil && endNode != nil {
-		if startNode.adj == nil {
-			startNode.adj = []*TopologicalNode{}
+		if startNode.Adj == nil {
+			startNode.Adj = []*TopologicalNode{}
 		}
-		if endNode.adj == nil {
-			endNode.adj = []*TopologicalNode{}
+		if endNode.Adj == nil {
+			endNode.Adj = []*TopologicalNode{}
 		}
-		startNode.adj = append(startNode.adj, endNode)
-		if startNode.val == 1 {
+		startNode.Adj = append(startNode.Adj, endNode)
+		if startNode.Val == 1 {
 		}
 		return true
 	}
@@ -94,19 +94,19 @@ func topologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list 
 	}
 
 	if seen[node] == 1 {
-		fmt.Println(node.val)
+		fmt.Println(node.Val)
 		return true
 	}
 
 	seen[node] = 2
-	temp = append(temp, node.val)
-	for _, v := range node.adj {
+	temp = append(temp, node.Val)
+	for _, v := range node.Adj {
 		if topologicalSort(v, seen, list, temp) == false {
 			return false
 		}
 	}
 	seen[node] = 1
-	if len(node.adj) == 0 {
+	if len(node.Adj) == 0 {
 		*list = append(*list, temp)
 	}
 
