@@ -123,8 +123,12 @@ type UnionObject struct {
 
 func (union *UnionObject) Find(vert int) int {
 
+	//Root:			  1, 2, 3, 4, 5
+	//Connected To::  2, 2, 3, 4, 5
+
 	root := vert
-	// First lets find the root of the given vertice
+	// First lets find the root of the given vertice:
+	//As the given example above, we are going to be asking when is the root of the 
 	for root != union.representiveOfComponent[root] {
 		root = union.representiveOfComponent[root]
 	}
