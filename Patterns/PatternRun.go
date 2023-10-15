@@ -11,5 +11,5 @@ func RunPattern() {
 
 	HappyInput := 19
 	HappyNum := HappyNumber(HappyInput)
-	fmt.Println(fmt.Sprintf("Is %d happy num? Answer %t", HappyInput,HappyNum))
+	fmt.Printf("Is the number \"%d\", a happy num? Answer: %t\n", HappyInput,HappyNum)
 }
