@@ -48,10 +48,10 @@ func CycleDetect(node *LinkedNode) bool {
 	fast := node
 	slow := node
 
-	for fast != nil || slow != nil {
+	for fast != nil || slow != nil { //Here we are stopping if the linked list is a not a cycle
 		fast = fast.Next.Next
 		slow = slow.Next
-		if fast == slow {
+		if fast == slow { //If it is a cycle we are gauranteed to stop because eventually this will become true
 			fmt.Println("connected at: ", fast.Val)
 			return true
 		}
