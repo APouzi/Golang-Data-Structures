@@ -19,3 +19,11 @@ func MergeSortPrac(arr []int) {
 func QuickSort(arr []int) {
 
 }
+
+func HeapSort(arr []int) {
+
+}
+
+func RadixSort(arr []int) {
+
+}
