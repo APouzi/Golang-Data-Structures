@@ -11,3 +11,7 @@ func SelectionSortPrac(arr []int) {
 func InsertionSortPrac(arr []int) {
 
 }
+
+func MergeSortPrac(arr []int) {
+
+}
