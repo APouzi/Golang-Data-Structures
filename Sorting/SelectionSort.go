@@ -2,7 +2,7 @@ package sorting
 
 import "fmt"
 
-func InsertionSortAlgo(arr []int) {
+func SelectionSortAlgo(arr []int) {
 	min := 0
 	steps := 0
 
