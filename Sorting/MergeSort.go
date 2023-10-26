@@ -20,4 +20,12 @@ func Merge(array []int, st int, mid int, end int) {
 	arrL := make([]int, aLL) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
 	arrR := make([]int, aLR) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
 	
+	// Lets build out the new arrays to compare to and then reorder in our source array
+	for i := 0; i < aLL; i++ {
+		arrL[i] = array[st+i]
+	}
+
+	for i := 0; i < aLR; i++ {
+		arrR[i] = array[i+mid+1]
+	}
 }
