@@ -43,4 +43,17 @@ func Merge(array []int, st int, mid int, end int) {
 			arri++
 		}
 	}
+
+	// If one of the arrays have something left, empty out the rest, left going first and then right.
+	for i < aLL {
+		array[arri] = arrL[i]
+		i++
+		arri++
+	}
+
+	for j < aLR {
+		array[arri] = arrR[j]
+		j++
+		arri++
+	}
 }
