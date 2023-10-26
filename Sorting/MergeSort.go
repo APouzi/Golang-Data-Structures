@@ -31,4 +31,16 @@ func Merge(array []int, st int, mid int, end int) {
 	// initiate the left and right array's tracking of indexs as we compare the two arrays. Also intiate the start of the sourceArray's insertion index, which starts on the recursive's start.
 	i, j, arri := 0, 0, st
 
+	// Compare each array to one another until both or one of the array's have no more to compare to.
+	for i < aLL && j < aLR {
+		if arrL[i] <= arrR[j] {
+			array[arri] = arrL[i]
+			i++
+			arri++
+		} else {
+			array[arri] = arrR[j]
+			j++
+			arri++
+		}
+	}
 }
