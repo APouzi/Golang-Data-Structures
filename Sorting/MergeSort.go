@@ -78,7 +78,7 @@ func MergeSort2(arr []int) []int{
 	return Sort2(leftArr, rightArr)
 }
 
-func Sort(left, right []int) []int{
+func Sort2(leftArr, rightArr []int) []int{
 
 	var sorted []int
 
