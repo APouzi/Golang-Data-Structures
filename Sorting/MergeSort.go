@@ -80,7 +80,12 @@ func MergeSort2(arr []int) []int{
 
 func Sort2(leftArr, rightArr []int) []int{
 
-	var sorted []int
+	
+	var sizeLeft int = len(leftArr)
+	var sizeRight int = len(rightArr)
+	var sorted []int = make([]int, sizeLeft + sizeRight)
+
+	var leftIndex,rightIndex,sortedIndex int = 0, 0, 0
 
 	return sorted
 }
