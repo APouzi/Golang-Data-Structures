@@ -20,11 +20,17 @@ func RunSorting() {
 	fmt.Println("Insertion Sort",InsertionSort)
 
 	// ----------Merge Sort (Array and Linked List)----------
-	fmt.Println("---Merge Sort Algorithim has begun----")
+	fmt.Println("---Merge Sort Algorithm has begun---")
 	// MergeSortNum := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
 	MergeSortNum := []int{6,5,12,10,9,1}
-	MergeSort(MergeSortNum, 0, len(MergeSortNum)-1)
-	fmt.Println("Merge Sort Algorithm",MergeSortNum)
+	// MergeSort(MergeSortNum, 0, len(MergeSortNum)-1)
+	sortedPrac := MergeSortPrac(MergeSortNum)
+	fmt.Println("Merge Sort Algorithm",sortedPrac)
+
+	fmt.Println("---Merge Sort Algorithm 2 has begun---")
+	MergeSortNum2 := []int{6,1,7,8,10}
+	SortedMergeSort2 := MergeSort2(MergeSortNum2)
+	fmt.Println("Merge Sort Algorithm", SortedMergeSort2)
 
 	MergeHead := &Node{val:0}
 	MergeHead.next = &Node{val:1}
