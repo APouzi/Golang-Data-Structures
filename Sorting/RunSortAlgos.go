@@ -32,6 +32,7 @@ func RunSorting() {
 	SortedMergeSort2 := MergeSort2(MergeSortNum2)
 	fmt.Println("Merge Sort Algorithm", SortedMergeSort2)
 
+	fmt.Println("--- Merge Sort Algorithm LinkedList has begun ---")
 	MergeHead := &Node{val:0}
 	MergeHead.next = &Node{val:1}
 	MergeHead.next.next = &Node{val:5}
