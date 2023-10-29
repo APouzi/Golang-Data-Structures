@@ -71,5 +71,34 @@ func MergeSortLinkedList(head *Node) *Node{
 	return MergeLL(left, right)
 }
 
+func MergeLL(left, right *Node) *Node{
+	dummy := &Node{val:-99}
+	sortedList := dummy
+
+	for left != nil && right != nil {
+		if left.val < right.val{
+			sortedList.next = left
+			left = left.next
+			sortedList = sortedList.next
+		}else{
+			sortedList.next = right
+			right = right.next
+			sortedList = sortedList.next
+		}
+		
+	}
+
+	if left != nil{
+		sortedList.next = left
+	
+	}
+
+	if right != nil{
+		sortedList.next = right
+	}
+
+	return dummy.next
+}
+
 
 }
