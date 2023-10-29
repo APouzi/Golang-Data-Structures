@@ -1,5 +1,7 @@
 package sorting
 
+import "fmt"
+
 func MergeSort(array []int, st int, end int) {
 	if st < end {
 		mid := (st + end) / 2
@@ -11,10 +13,10 @@ func MergeSort(array []int, st int, end int) {
 }
 
 func Merge(array []int, st int, mid int, end int) {
-	// fmt.Println("inputs st, mid, end", st, mid, end)
+	fmt.Println("inputs st, mid, end", st, mid, end)
 	aLL := mid - st + 1 //This is just getting the size of left array
 	aLR := end - mid    // This is just getting the size of left array
-	// fmt.Println(aLL,aLR)
+	fmt.Println("left and right limit",aLL,aLR)
 
 	arrL := make([]int, aLL) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
 	arrR := make([]int, aLR) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
@@ -75,6 +77,15 @@ func MergeSort2(arr []int) []int{
 	
 	return Sort(left, right)
 }
+
+func Sort(left, right []int) []int{
+
+	var sorted []int
+
+	return sorted
+}
+
+
 func MergeSortLinkedList(head *Node) *Node{
 	if head == nil || head.next == nil{
 		return head
