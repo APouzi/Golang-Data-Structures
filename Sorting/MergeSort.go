@@ -60,6 +60,21 @@ func Merge(array []int, st int, mid int, end int) {
 }
 
 
+// This method is the one where instead of using indexes to actually pass in a source array, we keep dividing the array into monotonic arrays.
+func MergeSort2(arr []int) []int{
+	if len(arr) <= 1{
+		return arr
+	}
+
+	var mid int = len(arr)/2
+	var left []int = arr[:mid]
+	var right []int = arr[mid+1:]
+
+	left = MergeSort2(left)
+	right = MergeSort2(right)
+	
+	return Sort(left, right)
+}
 func MergeSortLinkedList(head *Node) *Node{
 	if head == nil || head.next == nil{
 		return head
