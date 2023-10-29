@@ -100,5 +100,17 @@ func MergeLL(left, right *Node) *Node{
 	return dummy.next
 }
 
+func MiddleLL(head *Node)*Node{
+	prev := &Node{}
+	slow := head
+	fast := head
 
+	for fast != nil && fast.next != nil{
+		prev = slow
+		slow = slow.next
+		fast = fast.next.next
+	}
+	prev.next = nil
+
+	return slow
 }
