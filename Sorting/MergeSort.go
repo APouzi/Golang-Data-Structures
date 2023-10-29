@@ -58,3 +58,18 @@ func Merge(array []int, st int, mid int, end int) {
 		arri++
 	}
 }
+
+
+func MergeSortLinkedList(head *Node) *Node{
+	if head == nil || head.next == nil{
+		return head
+	}
+	
+	mid := MiddleLL(head)
+	left := MergeSortLinkedList(head)
+	right := MergeSortLinkedList(mid)
+	return MergeLL(left, right)
+}
+
+
+}
