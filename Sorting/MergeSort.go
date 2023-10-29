@@ -87,6 +87,29 @@ func Sort2(leftArr, rightArr []int) []int{
 
 	var leftIndex,rightIndex,sortedIndex int = 0, 0, 0
 
+	for leftIndex < sizeLeft && rightIndex < sizeRight{
+		if leftArr[leftIndex] < rightArr[rightIndex]{
+			sorted[sortedIndex] = leftArr[leftIndex]
+			leftIndex++
+			sortedIndex++
+		}else{
+			sorted[sortedIndex] = rightArr[rightIndex]
+			rightIndex++
+			sortedIndex++
+		}
+	}
+
+	for leftIndex < sizeLeft{
+		sorted[sortedIndex] = leftArr[leftIndex]
+		sortedIndex++
+		leftIndex++
+	}
+
+	for rightIndex < sizeRight{
+		sorted[sortedIndex] = rightArr[rightIndex]
+		sortedIndex++
+		rightIndex++
+	}
 	return sorted
 }
 
