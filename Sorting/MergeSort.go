@@ -69,13 +69,13 @@ func MergeSort2(arr []int) []int{
 	}
 
 	var mid int = len(arr)/2
-	var left []int = arr[:mid]
-	var right []int = arr[mid+1:]
+	var leftArr []int 
+	var rightArr []int 
 
-	left = MergeSort2(left)
-	right = MergeSort2(right)
+	leftArr = MergeSort2(arr[:mid])
+	rightArr = MergeSort2(arr[mid:])
 	
-	return Sort(left, right)
+	return Sort2(leftArr, rightArr)
 }
 
 func Sort(left, right []int) []int{
