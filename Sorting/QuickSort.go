@@ -12,15 +12,28 @@ func QuickSort(arr []int, low, high int) {
 }
 
 func Partition(arr []int, low, high int) int {
+	greater := low
+	pivot := arr[high]
+	for i := low; i < high; i++ {
+		if arr[i] <= pivot {
+			arr[i], arr[greater] = arr[greater], arr[i]
+			greater++
+		}
+	}
+	arr[greater], arr[high] = arr[high], arr[greater]
+	return greater
+}
+
+// In textbooks it's like this for some reason,
+func LumotoPartition(arr []int, low, high int) int {
 	greater := low - 1
 	pivot := arr[high]
 	for i := low; i < high; i++ {
-		if arr[i] >= pivot {
+		if arr[i] <= pivot {
 			greater++
 			arr[i], arr[greater] = arr[greater], arr[i]
 		}
 	}
-	greater++
-	arr[greater], arr[high] = arr[high], arr[greater]
-	return greater
+	arr[greater+1], arr[high] = arr[high], arr[greater+1]
+	return greater + 1
 }
