@@ -53,6 +53,12 @@ func RunSorting() {
 
 	fmt.Println("Sorted linked list:")
 	printLinkedList(sortedHead)
+
+	fmt.Println("--- QuickSort Algorithim has begun ---")
+	quickSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
+	QuickSort(quickSortArr, 0,len(quickSortArr)-1)
+	fmt.Println(quickSortArr)
+
 }
 
 func printLinkedList(head *Node) {
