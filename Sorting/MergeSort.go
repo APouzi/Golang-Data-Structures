@@ -1,6 +1,6 @@
 package sorting
 
-import "fmt"
+// import "fmt"
 
 func MergeSort(array []int, st int, end int) {
 	if st < end {
