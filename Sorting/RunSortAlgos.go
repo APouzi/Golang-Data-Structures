@@ -14,7 +14,18 @@ func RunSorting() {
 	
 	// ----BubbleSort----
 	BubbleSort(BubbleSortNums)
-	fmt.Println("BubbleSort",BubbleSortNums)
+	fmt.Println("\nBubbleSort",BubbleSortNums)
+	BubbleSortNumsPrac := []int{9,8,7,6,5,4,11,12,34,123,565,3123,123,1236,64,7654,124,1235,643,3,2,1,67}
+	BubbleSort2(BubbleSortNumsPrac)
+	fmt.Println("Practice BubbleSort",BubbleSortNumsPrac)
+
+	//--- Insertion Sort ---
+	InsertionSortNums := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	InsertionSortAlgo(InsertionSortNums)
+	fmt.Println("\nInsertion Sort",InsertionSortNums)
+	InsertionSortNumsPrac := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	InsertionSortPrac(InsertionSortNumsPrac)
+	fmt.Println("Insertion Sort Practice",InsertionSortNumsPrac)
 
 	// ----Selection Sort----
 	SelectionSortAlgo(InsertionSortNums)
