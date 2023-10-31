@@ -7,7 +7,7 @@ func InsertionSortAlgo(arr []int) {
 		sorted = i - 1
 		key = arr[i]
 		for sorted >= 0 && key < arr[sorted] {
-			arr[sorted+1] = arr[sorted] 
+			arr[sorted+1] = arr[sorted]
 			//This is shifting everything to the right. The first to change will always be the key that will be shifted into. This is going to be
 			sorted--
 			//We are ALWAYS going down from the key, which is moving down.
