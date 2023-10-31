@@ -28,8 +28,12 @@ func RunSorting() {
 	fmt.Println("Insertion Sort Practice",InsertionSortNumsPrac)
 
 	// ----Selection Sort----
-	SelectionSortAlgo(InsertionSortNums)
-	fmt.Println("Insertion Sort",InsertionSortNums)
+	SelectionSortNums := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	SelectionSortAlgo(SelectionSortNums)
+	fmt.Println("Selection Sort Practice",SelectionSortNums)
+	SelectionSortNumsPrac := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	SelectionSortPrac(SelectionSortNumsPrac)
+	fmt.Println(SelectionSortNumsPrac)
 
 	// ----------Merge Sort (Array and Linked List)----------
 	fmt.Println("\n---Merge Sort Algorithm has begun---")
