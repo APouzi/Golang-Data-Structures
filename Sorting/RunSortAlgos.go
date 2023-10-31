@@ -73,6 +73,9 @@ func RunSorting() {
 	quickSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
 	QuickSort(quickSortArr, 0,len(quickSortArr)-1)
 	fmt.Println(quickSortArr)
+	partitionSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
+	QuickSortPrac(partitionSortArr, 0 , len(partitionSortArr)-1)
+	fmt.Println(partitionSortArr)
 
 }
 
