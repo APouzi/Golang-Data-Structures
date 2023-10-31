@@ -13,10 +13,10 @@ func MergeSort(array []int, st int, end int) {
 }
 
 func Merge(array []int, st int, mid int, end int) {
-	fmt.Println("inputs st, mid, end", st, mid, end)
+	// fmt.Println("inputs st, mid, end", st, mid, end)
 	aLL := mid - st + 1 //This is just getting the size of left array
 	aLR := end - mid    // This is just getting the size of left array
-	fmt.Println("left and right limit",aLL,aLR)
+	// fmt.Println("left and right limit",aLL,aLR)
 
 	arrL := make([]int, aLL) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
 	arrR := make([]int, aLR) //Here we don't use []int{}, unless we want to do appending operation, which would be more costly
