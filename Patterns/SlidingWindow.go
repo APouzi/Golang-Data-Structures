@@ -29,7 +29,7 @@ func PermutationOfString(str1, str2 string) bool{
 			dynamicBank[string(v)]=1
 			winSize+=1
 		}
-		fmt.Println(dynamicBank, bankStr2)
+		// fmt.Println(dynamicBank, bankStr2)
 		
 		if len(dynamicBank) >= len(bankStr2){
 
