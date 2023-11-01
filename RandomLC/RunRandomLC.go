@@ -7,6 +7,12 @@ package randomlc
 //  s = "codeleet", indices = [4,5,6,7,0,2,1,3]
 // Output: "leetcode"
 
-func ShuffleString(s string, indices []int){
-	
+func ShuffleString(s string, indices []int)string{
+	var newS []rune = make([]rune, len(indices))
+
+	for i:=0;i<len(s);i++{
+		newS[indices[i]] = rune(s[i])
+	}
+	var newSR string = string(newS)
+	return newSR
 }
