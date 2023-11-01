@@ -12,7 +12,7 @@ func HappyNumber(n int) bool {
 		currsum := 0
 		for num > 0 {
 			digit := num % 10
-			currsum += digit ^ 2
+			currsum += digit * digit
 			num /= 10
 		}
 		return currsum
