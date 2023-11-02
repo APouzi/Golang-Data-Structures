@@ -4,8 +4,10 @@ import (
 	"flag"
 	"fmt"
 
+	dynamicprogramming "github.com/APouzi/go-algos/Dynamic-Programming"
 	"github.com/APouzi/go-algos/LinkedList"
 	patterns "github.com/APouzi/go-algos/Patterns"
+	sorting "github.com/APouzi/go-algos/Sorting"
 )
 
 func main() {
@@ -63,8 +65,9 @@ func main() {
 // "eidbaooo", "eidbaooo"
 // "abcdefg", "ab"
 // "abcdefg", "dc"
-	returnRes := patterns.PermutationOfString("dcda", "adc")
-	fmt.Println(returnRes)
+	patterns.RunPattern()
+	sorting.RunSorting()
+	dynamicprogramming.RunDP()
 	
 	
 
