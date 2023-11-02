@@ -176,3 +176,12 @@ func TopologicalDFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int
 
 	return true
 }
+
+// Lets do an array version of all of this
+func TopologicalSortArr(arr [][]int){
+	var graph map[int][]int = make(map[int][]int)
+
+	for _, v := range arr{
+		graph[v[0]] = append(graph[v[0]], v[1])
+	}
+}
