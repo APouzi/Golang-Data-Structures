@@ -8,6 +8,7 @@ import (
 	"github.com/APouzi/go-algos/LinkedList"
 	patterns "github.com/APouzi/go-algos/Patterns"
 	sorting "github.com/APouzi/go-algos/Sorting"
+	stack "github.com/APouzi/go-algos/Stack"
 )
 
 func main() {
@@ -68,6 +69,7 @@ func main() {
 	patterns.RunPattern()
 	sorting.RunSorting()
 	dynamicprogramming.RunDP()
+	stack.RunStack()
 	
 	
 
