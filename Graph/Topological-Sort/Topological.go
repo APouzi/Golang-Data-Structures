@@ -192,6 +192,9 @@ func TopologicalSortArrWithRequirement(arr [][]int, need int) bool{
 	// fmt.Println("topoList",list, "graph", graph, "indeg",indeg, "result",result)
 }
 
+func TopoDFS(node int, graph map[int][]int, seen map[int]int, list *[]int)bool{
+	
+	
 	if seen[node] == 1{
 		return true
 	}
@@ -201,10 +204,11 @@ func TopologicalSortArrWithRequirement(arr [][]int, need int) bool{
 	}
 
 	seen[node] = 2
+	*list = append(*list, node)
 	for _, v := range graph[node]{
-		return TopoDFS(v, graph,seen, list)
+		TopoDFS(v, graph,seen, list)
 	}
 	seen[node]=1
 
-	return false
+	return true
 } 
