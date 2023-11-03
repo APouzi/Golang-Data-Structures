@@ -15,10 +15,13 @@ type GraphArr struct {
 	Matrix [][]int
 }
 
-type GraphNodes struct {
+// This is where we have a list of Graph nodes and the edges that we are being represented. We loop over the vertices and insert those looped over nodes into the edges.
+type NodeGraph struct {
 	Vertices []*GraphNode
-	Edges    []*Edges
+	Edges    map[*GraphNode]*Edges
 }
+
+
 
 // Utility Componenets
 type Edges struct {
