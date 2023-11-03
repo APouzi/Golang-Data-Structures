@@ -11,6 +11,11 @@ func Rungraphs() {
 	graphReprestation := [][]int{{1, 0}, {2, 0}, {3, 2}, {2, 3}, {4, 2}, {5, 2}, {6, 3}, {4, 3}}
 	graphPull.TopologicalSortArr(graphReprestation)
 
+	// ---Topological Sort with Requirement Version--
+	graphReprestation2 := [][]int{{1, 0}, {2, 0}, {3, 2}, {4, 2}, {5, 2}, {6, 3}, {4, 3}}
+	canComplete := graphPull.TopologicalSortArrWithRequirement(graphReprestation2,6)
+	fmt.Println("\n TopologicalSort Array version, can it complete?",canComplete)
+
 	// ---Adjacency Graph Version of the Graph ---
 	graph :=  graphPull.TopologicalGraph{}
 	graph.InsertVerts(1)
@@ -36,7 +41,7 @@ func Rungraphs() {
 	seen := make(map[*graphPull.TopologicalNode]int)
 	list := &[][]int{}
 	graphPull.TopologicalSort(graph.Vertices[0], seen, list, []int{})
-	fmt.Println(list)
+	fmt.Println("Graph TopologicalSort List:",list)
 	// prereq := [][]int{{0,1},{1,2},{2,3},{3,4}}
 	// 0 > 1 > 2 > 3 > 4
 	prereq2 := [][]int{{0, 1}, {1, 2}, {1, 3}, {3, 4}, {5, 6}}
