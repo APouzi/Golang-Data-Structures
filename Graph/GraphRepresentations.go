@@ -32,12 +32,15 @@ type NodeGraph struct {
 
 
 
-// Utility Componenets
+// Utility Componenets:
+
+// Edges can have weights to them, but for a fact have to and from. This can also be represented as an array of course. Such as [From, To, Weight]
 type Edges struct {
 	To   *GraphNode
 	From *GraphNode
 }
 
+// GraphNode can hold any information we want. We can imagine this being multi bits of information to do calculations on.
 type GraphNode struct {
 	Val int
 }
