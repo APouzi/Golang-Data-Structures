@@ -206,7 +206,9 @@ func TopoDFS(node int, graph map[int][]int, seen map[int]int, list *[]int)bool{
 	seen[node] = 2
 	*list = append(*list, node)
 	for _, v := range graph[node]{
-		TopoDFS(v, graph,seen, list)
+		if ret := TopoDFS(v, graph,seen, list); !ret{
+			return false
+		}
 	}
 	seen[node]=1
 
