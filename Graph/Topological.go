@@ -184,8 +184,25 @@ func TopologicalDFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int
 // Output: False
 func TopologicalSortArr(arr [][]int){
 	var graph map[int][]int = make(map[int][]int)
+	var indeg map[int]int = make(map[int]int)
+	// var outdeg map[int]int = make(map[int]int)
 
 	for _, v := range arr{
-		graph[v[0]] = append(graph[v[0]], v[1])
+		graph[v[1]] = append(graph[v[1]], v[0])
+		indeg[v[0]] += 1
 	}
+	for _, v := range arr{
+		if _, ok := indeg[v[1]]; !ok{
+			indeg[v[1]]=0
+		}
+	}
+	var seen map[int]int = map[int]int{} 
+	var list []int = []int{}
+	var result bool
+	for _,v := range indeg{
+		if v == 0{
+			result = TopoDFS(v, graph, seen,&list)
+		}
+	}
+	fmt.Println("topoList",list, "graph", graph, "indeg",indeg, "result",result)
 }
