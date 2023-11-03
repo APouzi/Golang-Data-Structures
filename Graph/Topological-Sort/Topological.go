@@ -51,12 +51,10 @@ func (g *TopologicalGraph) InsertEdges(start int, end int) bool {
 
 func TopologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list *[][]int, temp []int) bool {
 	if seen[node] == 2 {
-		fmt.Println("hit 2")
 		return false
 	}
 
 	if seen[node] == 1 {
-		fmt.Println(node.Val)
 		return true
 	}
 
@@ -89,7 +87,6 @@ func TopologicalSort2( numCourses int, prerequesities [][]int){
 	for _,v := range prerequesities{
 		graph[v[0]] = append(graph[v[0]], v[1]) 
 	}
-	fmt.Println(graph)
 	for i := 0; i<numCourses; i++{
 		if TopologicalDFS(i, graph, seen, &topo, &prereqTrack) == false{
 			topo = []int{}
@@ -107,7 +104,6 @@ func TopologicalSort2( numCourses int, prerequesities [][]int){
 }
 
 func TopologicalDFS(curr int, graph map[int][]int, seen map[int]int, topo *[]int, list *[][]int)bool{
-	fmt.Println(curr)
 	if seen[curr] == 2{
 		fmt.Println("cycle hit")
 		return false
