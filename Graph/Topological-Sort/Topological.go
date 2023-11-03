@@ -13,7 +13,7 @@ type TopologicalNode struct {
 	Adj []*TopologicalNode
 }
 
-func (g *TopologicalGraph) insertVerts(num int) {
+func (g *TopologicalGraph) InsertVerts(num int) {
 	if g.Vertices == nil {
 		g.Vertices = []*TopologicalNode{}
 	}
@@ -21,7 +21,7 @@ func (g *TopologicalGraph) insertVerts(num int) {
 	g.Vertices = append(g.Vertices, &new)
 }
 
-func (g *TopologicalGraph) insertEdges(start int, end int) bool {
+func (g *TopologicalGraph) InsertEdges(start int, end int) bool {
 	var startNode *TopologicalNode
 	var endNode *TopologicalNode
 
@@ -49,7 +49,7 @@ func (g *TopologicalGraph) insertEdges(start int, end int) bool {
 	return false
 }
 
-func topologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list *[][]int, temp []int) bool {
+func TopologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list *[][]int, temp []int) bool {
 	if seen[node] == 2 {
 		fmt.Println("hit 2")
 		return false
@@ -63,7 +63,7 @@ func topologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list 
 	seen[node] = 2
 	temp = append(temp, node.Val)
 	for _, v := range node.Adj {
-		if topologicalSort(v, seen, list, temp) == false {
+		if TopologicalSort(v, seen, list, temp) == false {
 			return false
 		}
 	}
@@ -76,7 +76,7 @@ func topologicalSort(node *TopologicalNode, seen map[*TopologicalNode]int, list 
 }
 
 
-func topologicalSort2( numCourses int, prerequesities [][]int){
+func TopologicalSort2( numCourses int, prerequesities [][]int){
 	graph := make(map[int][]int)
 	seen := make(map[int]int)
 	topo := []int{}
