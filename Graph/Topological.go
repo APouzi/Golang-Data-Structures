@@ -206,3 +206,23 @@ func TopologicalSortArr(arr [][]int){
 	}
 	fmt.Println("topoList",list, "graph", graph, "indeg",indeg, "result",result)
 }
+
+func TopoDFS(node int, graph map[int][]int, seen map[int]int, list *[]int)bool{
+	*list = append(*list, node)
+
+	if seen[node] == 1{
+		return true
+	}
+
+	if seen[node] == 2{
+		return false
+	}
+
+	seen[node] = 2
+	for _, v := range graph[node]{
+		return TopoDFS(v, graph,seen, list)
+	}
+	seen[node]=1
+
+	return false
+} 
