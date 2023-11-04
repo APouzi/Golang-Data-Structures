@@ -1,0 +1,5 @@
+package LinkedList
+
+func RunLinkedList(){
+	
+}
