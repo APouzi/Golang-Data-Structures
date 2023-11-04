@@ -1,5 +1,7 @@
 package LinkedList
 
+import "fmt"
+
 func RevRecur(node *LinkedNode) *LinkedNode {
 	if node.Next == nil {
 
@@ -47,23 +49,26 @@ func LLRevK(curr *LinkedNode, k, flag int) (*LinkedNode, *LinkedNode, *LinkedNod
 }
 
 // 9  8  7  6  5  4  3  2  1	>>>		7  8  9 | 4  5  6 | 1  2  3
-func ReverseKGroups(curr *LinkedNode, k int) *LinkedNode {
-	var copyCurr *LinkedNode = curr
+func ReverseKGroups(head *LinkedNode, k int) *LinkedNode {
+	var copyCurr *LinkedNode = head
 	var count int = 0
 	for count < k { //This loop is going to be traverse until linked list reaches the end
 		if copyCurr == nil { // When we return curr(3), this actually exit's out the recursion and start the peel back of the stack.
-			return curr //With the LL above, this will return "3".
+			fmt.Println(head)
+			return head //With the LL above, this will return "3".
 		}
 		copyCurr = copyCurr.Next
 		count++
 	}
-	var prev *LinkedNode = ReverseKGroups(copyCurr, k) //The first return will be 3
-	for count > 0 {
-		next := curr.Next // 2, 1, nil
-		curr.Next = prev  // 3 > nil, 2 > 3, 1 > 2
-		prev = curr       // nil = 3, 3 = 2, 2 = 1
-		curr = next       // 3 = 2, 2 = 1, 1 = nil
+	var last *LinkedNode = ReverseKGroups(copyCurr, k) //The first return will be 3
+	// last = nil, last = 1, last = 4
+	// head = 3, head = 6, head = 9
+	for count > 0 { 
+		next := head.Next // 2, 1, nil
+		head.Next = last  // 3 > nil, 2 > 3, 1 > 2
+		last = head       // nil = 3, 3 = 2, 2 = 1
+		head = next       // 3 = 2, 2 = 1, 1 = nil
 		count--
 	}
-	return prev
+	return last
 }
