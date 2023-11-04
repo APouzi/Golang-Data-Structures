@@ -50,20 +50,19 @@ func LLRevK(curr *LinkedNode, k, flag int) (*LinkedNode, *LinkedNode, *LinkedNod
 func ReverseKGroups(curr *LinkedNode, k int) *LinkedNode {
 	var copyCurr *LinkedNode = curr
 	var count int = 0
-	for count < k {
-		if copyCurr == nil {
-			return curr
+	for count < k { //This loop is going to be traverse until linked list reaches the end
+		if copyCurr == nil { // When we return curr(3), this actually exit's out the recursion and start the peel back of the stack.
+			return curr //With the LL above, this will return "3".
 		}
 		copyCurr = copyCurr.Next
 		count++
 	}
-	var prev *LinkedNode = ReverseKGroups(copyCurr, k)
-
+	var prev *LinkedNode = ReverseKGroups(copyCurr, k) //The first return will be 3
 	for count > 0 {
-		next := curr.Next
-		curr.Next = prev
-		prev = curr
-		curr = next
+		next := curr.Next// 2, 1, nil
+		curr.Next = prev // 3 > nil, 2 > 3, 1 > 2
+		prev = curr		 // nil = 3, 3 = 2, 2 = 1
+		curr = next		 // 3 = 2, 2 = 1, 1 = nil
 		count--
 	}
 	return prev
