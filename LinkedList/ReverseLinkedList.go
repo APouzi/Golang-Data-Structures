@@ -7,7 +7,7 @@ func RevRecur(node *LinkedNode) *LinkedNode {
 	}
 
 	newHead := RevRecur(node.Next)
-	newHead.Next = node //Can also be node.Next.Next
+	node.Next.Next = node //Can also be node.Next.Next
 	node.Next = nil
 	return newHead
 
@@ -27,6 +27,7 @@ func LLRev(currNode *LinkedNode) *LinkedNode { // 6,5,4,3,2,1
 
 }
 
+// 1,2,3,4,5,6 > 3,2,1,4,5,6
 func LLRevKSendOff(curr *LinkedNode, k int) *LinkedNode {
 	sendBack, connectTo, connect := LLRevK(curr, k, 1)
 	connect.Next = connectTo
@@ -45,4 +46,25 @@ func LLRevK(curr *LinkedNode, k, flag int) (*LinkedNode, *LinkedNode, *LinkedNod
 	return conn, retNext, curr
 }
 
-// 1,2,3,4,5,6
+// 9  8  7  6  5  4  3  2  1  to 7  8  9 | 4  5  6 | 1  2  3
+func ReverseKGroups(curr *LinkedNode, k int) *LinkedNode {
+	var copyCurr *LinkedNode = curr
+	var count int = 0
+	for count < k {
+		if copyCurr == nil {
+			return curr
+		}
+		copyCurr = copyCurr.Next
+		count++
+	}
+	var prev *LinkedNode = ReverseKGroups(copyCurr, k)
+
+	for count > 0 {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
+		count--
+	}
+	return prev
+}
