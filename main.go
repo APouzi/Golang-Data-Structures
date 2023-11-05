@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	dynamicprogramming "github.com/APouzi/go-algos/Dynamic-Programming"
+	graph "github.com/APouzi/go-algos/Graph"
 	"github.com/APouzi/go-algos/LinkedList"
 	patterns "github.com/APouzi/go-algos/Patterns"
 	sorting "github.com/APouzi/go-algos/Sorting"
@@ -70,6 +71,8 @@ func main() {
 	sorting.RunSorting()
 	dynamicprogramming.RunDP()
 	stack.RunStack()
+	graph.Rungraphs()
+	LinkedList.RunLinkedList()
 	
 	
 
