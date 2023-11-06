@@ -13,18 +13,18 @@ func RevRecur(node *LinkedNode) *LinkedNode {
 
 }
 
-func LLRev(currNode *LinkedNode) *LinkedNode { // 6,5,4,3,2,1
+func LLRevIterative(currNode *LinkedNode) *LinkedNode { // 6,5,4,3,2,1
 	// 6,5,4,3,   1 > 2 > nil
 	// 6,5,4,,   1 > 2 > nil
-
-	if currNode.Next == nil {
-		return currNode
+	var curr *LinkedNode = currNode
+	var prev *LinkedNode = nil
+	for curr != nil {
+		temp := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = temp
 	}
-	returnedHead := LLRev(currNode.Next)
-	currNode.Next.Next = currNode
-	currNode.Next = nil
-	return returnedHead
-
+	return prev
 }
 
 // 1,2,3,4,5,6 > 3,2,1,4,5,6
