@@ -13,9 +13,8 @@ func RevRecur(node *LinkedNode) *LinkedNode {
 
 }
 
-func LLRevIterative(currNode *LinkedNode) *LinkedNode { // 6,5,4,3,2,1
-	// 6,5,4,3,   1 > 2 > nil
-	// 6,5,4,,   1 > 2 > nil
+// 9, 8, 7, 6, 5, 4, 3, 2, 1
+func LLRevIterative(currNode *LinkedNode) *LinkedNode {
 	var curr *LinkedNode = currNode
 	var prev *LinkedNode = nil
 	for curr != nil {
@@ -25,25 +24,6 @@ func LLRevIterative(currNode *LinkedNode) *LinkedNode { // 6,5,4,3,2,1
 		curr = temp
 	}
 	return prev
-}
-
-// 1,2,3,4,5,6 > 3,2,1,4,5,6
-func LLRevKSendOff(curr *LinkedNode, k int) *LinkedNode {
-	sendBack, connectTo, connect := LLRevK(curr, k, 1)
-	connect.Next = connectTo
-	return sendBack
-}
-
-func LLRevK(curr *LinkedNode, k, flag int) (*LinkedNode, *LinkedNode, *LinkedNode) {
-
-	if flag == k || curr.Next == nil {
-		return curr, curr.Next, nil
-	}
-
-	conn, retNext, _ := LLRevK(curr.Next, k, flag+1)
-	curr.Next.Next = curr
-	curr.Next = nil
-	return conn, retNext, curr
 }
 
 // 1) loop through and put every kth node into the stack of the parameter of the head, make sure to build up the count, that will be the size of k
@@ -73,4 +53,21 @@ func ReverseKGroups(head *LinkedNode, k int) *LinkedNode {
 		count--
 	}
 	return last
+}
+
+// k=3, 1,2,3,4,5,6 > 3,2,1,4,5,6
+func LLRevKSendOff(curr *LinkedNode, k int) *LinkedNode {
+	sendBack, connectTo, connect := LLRevK(curr, k, 1)
+	connect.Next = connectTo
+	return sendBack
+}
+
+func LLRevK(curr *LinkedNode, k, flag int) (*LinkedNode, *LinkedNode, *LinkedNode) {
+	if flag == k || curr.Next == nil {
+		return curr, curr.Next, nil
+	}
+	conn, retNext, _ := LLRevK(curr.Next, k, flag+1)
+	curr.Next.Next = curr
+	curr.Next = nil
+	return conn, retNext, curr
 }
