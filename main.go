@@ -8,6 +8,7 @@ import (
 	graph "github.com/APouzi/go-algos/Graph"
 	"github.com/APouzi/go-algos/LinkedList"
 	patterns "github.com/APouzi/go-algos/Patterns"
+	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
 	stack "github.com/APouzi/go-algos/Stack"
 )
@@ -47,22 +48,22 @@ func main() {
 		LL.PrintList()
 	}
 
-	if cmnd == "reverse-recursive"{
-		LL := LinkedList.LinkedList{}
-		LL.AddNode(1)
-		LL.AddNode(2)
-		LL.AddNode(3)
-		LL.AddNode(4)
-		LL.AddNode(5)
-		LL.AddNode(6)
+	// if cmnd == "reverse-recursive"{
+	// 	LL := LinkedList.LinkedList{}
+	// 	LL.AddNode(1)
+	// 	LL.AddNode(2)
+	// 	LL.AddNode(3)
+	// 	LL.AddNode(4)
+	// 	LL.AddNode(5)
+	// 	LL.AddNode(6)
 
-		LL.PrintList()
-		reved := LinkedList.LLRev(LL.Head)
-		println("\n print reverse:")
-		LinkedList.PrintAfterReverse(reved)
-		// newHead := revRecur(LinkedList.head)
-		LinkedList.RemoveDup(LL.Head)
-	}
+	// 	LL.PrintList()
+	// 	reved := LinkedList.LLRev(LL.Head)
+	// 	println("\n print reverse:")
+	// 	LinkedList.PrintAfterReverse(reved)
+	// 	// newHead := revRecur(LinkedList.head)
+	// 	LinkedList.RemoveDup(LL.Head)
+	// }
 // "dcda", "adc"
 // "eidbaooo", "eidbaooo"
 // "abcdefg", "ab"
@@ -73,6 +74,7 @@ func main() {
 	stack.RunStack()
 	graph.Rungraphs()
 	LinkedList.RunLinkedList()
+	randomlc.RunRandomlC()
 	
 	
 
