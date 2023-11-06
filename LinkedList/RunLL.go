@@ -21,3 +21,11 @@ func RunLinkedList() {
 	// RemoveDup(LL.Head)
 
 }
+
+func CreateLinkedList() *LinkedList{
+	list := LinkedList{}
+	for i := 1; i < 10; i++ {
+		list.AddNode(i)
+	}
+	return &list
+}
