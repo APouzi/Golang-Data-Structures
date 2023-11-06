@@ -5,6 +5,7 @@ import "fmt"
 func RunLinkedList() {
 	LL := CreateLinkedList()
 	L2 := CreateLinkedList()
+	L3 := CreateLinkedList()
 	fmt.Println("---LinkedList has started---")
 	fmt.Println("\nReverse Linked List Recursive:")
 	LL.PrintList()
@@ -17,6 +18,12 @@ func RunLinkedList() {
 	revedPrac := LLRevIterative(L2.Head)
 	println("\nprint reverse:")
 	PrintAfterReverse(revedPrac)
+
+	fmt.Println("\nReverse K Groups Linked List:")
+	L3.PrintList()
+	revedPrac2 := ReverseKGroupsPrac(L3.Head, 3)
+	println("\nprint reverse:")
+	PrintAfterReverse(revedPrac2)
 	// newHead := revRecur(LinkedList.head)
 	// RemoveDup(LL.Head)
 
