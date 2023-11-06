@@ -68,13 +68,36 @@ func main() {
 // "eidbaooo", "eidbaooo"
 // "abcdefg", "ab"
 // "abcdefg", "dc"
-	patterns.RunPattern()
-	sorting.RunSorting()
-	dynamicprogramming.RunDP()
-	stack.RunStack()
-	graph.Rungraphs()
-	LinkedList.RunLinkedList()
-	randomlc.RunRandomlC()
+	if cmnd == "pattern"{
+		patterns.RunPattern()
+	}
+	if cmnd == "sort"{
+		sorting.RunSorting()
+	}
+	if cmnd == "dynamic-programming"{
+		dynamicprogramming.RunDP()
+	}
+	if cmnd == "stack"{
+		stack.RunStack()
+	}
+
+	if cmnd == "graph"{
+		graph.Rungraphs()
+	}
+
+	if cmnd == "linked-list"{
+		LinkedList.RunLinkedList()
+	}
+
+	if cmnd == "random-leet-code"{
+		randomlc.RunRandomlC()
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 
