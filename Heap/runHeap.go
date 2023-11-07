@@ -33,32 +33,17 @@ func RunHeap() {
 	// binaryTree.insertNode(9)
 	// fmt.Println(kthbiggestElement(binaryTree.node, 5))
 
-	// h := Heap{}
-	// h.insert(3)
+	HeapInsert := []int{3,1,7,8,9,4,5,6,2}
+	h := Heap{}
 
-	// h.insert(1)
+	for _,v := range HeapInsert{
+		h.insert(v)
+	}
 
-	// h.insert(7)
-	// h.insert(8)
-	// h.insert(9)
-	// h.insert(4)
-	// h.insert(5)
-	// h.insert(6)
-	// h.insert(2)
+	for range h.array {
+		fmt.Println(h.pop())
+	}
 	// fmt.Println("final ans:", h.array)
-
-	// for range h.array {
-	// 	fmt.Println(h.pop())
-	// }
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
-	// fmt.Println(h.pop())
 	// fmt.Println(variable)
 	// printKWay(variable)
 
