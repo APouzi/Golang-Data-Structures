@@ -1,4 +1,4 @@
-package randomlc
+package matrices
 
 import "fmt"
 
