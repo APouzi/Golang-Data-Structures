@@ -43,23 +43,13 @@ func RunSorting() {
 	// sortedPrac := MergeSortPrac(MergeSortNum)
 	fmt.Println("MergeSort Algorithm Result",MergeSortNum)
 	fmt.Println("---Merge Sort Algorithm 2 has begun---")
-	MergeSortNum2 := []int{6,1,7,8,10}
-	SortedMergeSort2 := MergeSort2(MergeSortNum2)
-	fmt.Println("MergeSort2 Algorithm Result", SortedMergeSort2)
+	MergeSortNum2 := []int{5,3,4,1,2}
+	arr1 := MergeSortPrac(MergeSortNum2)
+	fmt.Println("MergeSort2 Algorithm Result", arr1)
 
 	fmt.Println("\n--- Merge Sort Algorithm LinkedList has begun ---")
-	MergeHead := &Node{val:0}
-	MergeHead.next = &Node{val:1}
-	MergeHead.next.next = &Node{val:5}
-	MergeHead.next.next.next = &Node{val:10}
-	MergeHead.next.next.next.next = &Node{val:-1}
 
-	head := &Node{val: 5}
-	head.next = &Node{val: 2}
-	head.next.next = &Node{val: 1}
-	head.next.next.next = &Node{val: 3}
-	head.next.next.next.next = &Node{val: 4}
-
+	head, _ := createLinkedListUnsorted()
 	fmt.Println("Original linked list:")
 	printLinkedList(head)
 
@@ -76,6 +66,22 @@ func RunSorting() {
 	partitionSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
 	QuickSortPrac(partitionSortArr, 0 , len(partitionSortArr)-1)
 	fmt.Println(partitionSortArr)
+
+}
+
+func createLinkedListUnsorted()(*Node, *Node){
+	MergeHead := &Node{val:0}
+	MergeHead.next = &Node{val:1}
+	MergeHead.next.next = &Node{val:5}
+	MergeHead.next.next.next = &Node{val:10}
+	MergeHead.next.next.next.next = &Node{val:-1}
+
+	head := &Node{val: 5}
+	head.next = &Node{val: 2}
+	head.next.next = &Node{val: 1}
+	head.next.next.next = &Node{val: 3}
+	head.next.next.next.next = &Node{val: 4}
+	return MergeHead, head
 
 }
 
