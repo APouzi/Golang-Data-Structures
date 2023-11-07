@@ -27,3 +27,6 @@ LL:
 	
 random:
 	go build -o algo .; ./algo -command "random-leet-code"
+
+heaps:
+	go build -o algo .; ./algo -command "heaps"
