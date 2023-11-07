@@ -6,6 +6,7 @@ import (
 
 	dynamicprogramming "github.com/APouzi/go-algos/Dynamic-Programming"
 	graph "github.com/APouzi/go-algos/Graph"
+	heaps "github.com/APouzi/go-algos/Heap"
 	"github.com/APouzi/go-algos/LinkedList"
 	patterns "github.com/APouzi/go-algos/Patterns"
 	randomlc "github.com/APouzi/go-algos/RandomLC"
@@ -91,6 +92,10 @@ func main() {
 
 	if cmnd == "random-leet-code"{
 		randomlc.RunRandomlC()
+	}
+
+	if cmnd == "heaps"{
+		heaps.RunHeap()
 	}
 	
 	
