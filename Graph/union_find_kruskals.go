@@ -181,7 +181,7 @@ func (union *UnionFindMatrix) UnionFind(matrix [][]int) {
 	union.size = make([]int, len(matrix[0])*len(matrix))
 	union.componentSize = 0
 	for x, v := range matrix {
-		for y, _ := range v {
+		for y := range v {
 			union.parentBijection[union.getXY(x, y)] = union.getXY(x, y)
 			union.size[union.getXY(x, y)] = 1
 			union.componentSize++

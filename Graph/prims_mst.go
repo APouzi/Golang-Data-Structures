@@ -144,7 +144,7 @@ func (g *PrimsGraph) insertEdges(start int, end int, weight int) bool {
 		}
 		edge := PrimsEdge{toNode: endNode, weight: weight}
 		startNode.adj = append(startNode.adj, &edge)
-		endNode.adj = append(endNode.adj)
+		endNode.adj = append(endNode.adj, &edge)
 		g.edges = append(g.edges, edge)
 		return true
 	}
