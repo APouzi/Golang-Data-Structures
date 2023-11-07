@@ -63,17 +63,17 @@ func RunHeap() {
 	// printKWay(variable)
 
 	fmt.Println("Started Heap Practice")
-	insertIntoHeap := []int{3,1,4,10,11,2,10,12,88,2}
-	heappractice := initHeapPrac()
-	InsertandPopPrac(insertIntoHeap,heappractice)
+	// insertIntoHeap := []int{3,1,4,10,11,2,10,12,88,2}
+	// heappractice := initHeapPrac()
+	// InsertandPopPrac(insertIntoHeap,heappractice)
 }
 
-func InsertandPopPrac(arr []int, heap *HeapPrac){
-	for _,v := range arr{
-		heap.InsertPrac(v)
-	}
+// func InsertandPopPrac(arr []int, heap *HeapPrac){
+// 	for _,v := range arr{
+// 		heap.InsertPrac(v)
+// 	}
 
-	for range heap.Heap{
-		fmt.Println(heap.PopPrac())
-	}
-}
+// 	for range heap.Heap{
+// 		fmt.Println(heap.PopPrac())
+// 	}
+// }
