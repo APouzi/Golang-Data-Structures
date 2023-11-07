@@ -44,7 +44,7 @@ func RunSorting() {
 	fmt.Println("MergeSort Algorithm Result",MergeSortNum)
 	fmt.Println("---Merge Sort Algorithm 2 has begun---")
 	MergeSortNum2 := []int{5,3,4,1,2}
-	arr1 := MergeSortPrac(MergeSortNum2)
+	arr1 := MergeSort2(MergeSortNum2)
 	fmt.Println("MergeSort2 Algorithm Result", arr1)
 
 	fmt.Println("\n--- Merge Sort Algorithm LinkedList has begun ---")
@@ -63,8 +63,9 @@ func RunSorting() {
 	quickSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
 	QuickSort(quickSortArr, 0,len(quickSortArr)-1)
 	fmt.Println(quickSortArr)
+	fmt.Println("QuickSort Practice")
 	partitionSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
-	QuickSortPrac(partitionSortArr, 0 , len(partitionSortArr)-1)
+	QuickSort(partitionSortArr, 0 , len(partitionSortArr)-1)
 	fmt.Println(partitionSortArr)
 
 }
