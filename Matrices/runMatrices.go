@@ -18,4 +18,13 @@ func RunMatrix() {
 		{10, 9, 7},
 	}
 	fmt.Println("Rotate Matrix:", RotateMatrix(matrix2))
+
+	matrix3 := [][]int{
+		{1, 2, 3,},
+		{12, 0, 5},
+		{10, 9, 7},
+	}
+
+	fmt.Println(setZeroes(matrix3))
+	
 }
