@@ -25,6 +25,13 @@ func RunMatrix() {
 		{10, 9, 7},
 	}
 
-	fmt.Println(setZeroes(matrix3))
+	fmt.Println("Set Zeros",setZeroes(matrix3))
+
+	matrix4 := [][]int{
+		{1, 2,3, 3,},
+		{12, 0,4, 5},
+		{10, 9,7, 7},
+	}
+	fmt.Println("mirror matrix:", MirrorMatrixLeftToRight(matrix4))
 	
 }
