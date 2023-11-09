@@ -9,9 +9,8 @@ func RunMatrix() {
 		{11, 16, 15, 6},
 		{10, 9, 8, 7},
 	}
-	SpiralMatrix(matrix)
+	fmt.Println("Spiral Matrix result",SpiralMatrix(matrix))
 	
-	fmt.Println("Spiral Matrix Practice:",SpiralMatrixPrac(matrix))
 	matrix2 := [][]int{
 		{1, 2, 3,},
 		{12, 13, 5},

@@ -1,15 +1,11 @@
 package matrices
 
-import "fmt"
-
 // {1,   2, 3},
 // {10, 11, 4},
 // {9,  12, 5},
 // {8,   7, 6},
-func SpiralMatrix(arr [][]int){
+func SpiralMatrix(arr [][]int)[]int{
 	var rowStart,colStart,colEnd, rowEnd int = 0,0,len(arr[0])-1, len(arr)-1
-	
-	fmt.Println("\nRow and Col:",rowStart,colStart,rowEnd,colEnd)
 	ans := []int{}
 	for rowStart < rowEnd && colStart < rowEnd{
 		for i:=colStart; i <= colEnd; i++ {
@@ -30,6 +26,6 @@ func SpiralMatrix(arr [][]int){
 		colStart++
 	}
 
-	fmt.Println(ans)
+	return ans
 
 }
