@@ -41,4 +41,37 @@ func RunMatrix() {
 		{-1,-1,-1,-1,-1}}
 
 	fmt.Println("where will the ball drop?",whereTheBallDrops(matrixBall))
+
+	//Practice
+	fmt.Println("\n---Practice problems have started---")
+	
+	spMatPrac := [][]int{
+		{1, 2, 3,},
+		{12, 13, 5},
+		{10, 9, 7},
+	}
+	fmt.Println("Spiral Matrix Practice:",SpiralMatrixPrac(spMatPrac))
+
+	matrixPrac2 := [][]int{
+		{1, 2, 3,},
+		{12, 13, 5},
+		{10, 9, 7},
+	}
+	fmt.Println("Rotate Matrix Practice:", RotateMatrixPrac(matrixPrac2))
+
+	matrixPrac4 := [][]int{
+		{ 1, 2, 3, 3,},
+		{12, 0, 4, 5},
+		{10, 9, 7, 7},
+	}
+	fmt.Println("mirror matrix:", MirrorMatrixPrac(matrixPrac4))
+
+	matrixBallPrac := [][]int{
+		{1,1,1,-1,-1},
+		{1,1,1,-1,-1},
+		{-1,-1,-1,1,1},
+		{1,1,1,1,-1},
+		{-1,-1,-1,-1,-1}}
+
+	fmt.Println("where will the ball drop?", WhereWillTheBallDropPrac(matrixBallPrac))
 }
