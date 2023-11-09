@@ -59,6 +59,18 @@ func RunMatrix() {
 	}
 	fmt.Println("Rotate Matrix Practice:", RotateMatrixPrac(matrixPrac2))
 
+	// matrix3Prac := [][]int{
+	// 	{ 1,  2, 3,},
+	// 	{12, 0,  5},
+	// 	{10, 9,  7},
+	// }
+	matrix3Prac2 := [][]int{
+		{ 0,  2, 0,},
+		{12, 9,  5},
+		{0, 9,  0},
+	}
+	fmt.Println("Set Matrix Zero Practice", SetMatrixZerosPrac(matrix3Prac2))
+
 	matrixPrac4 := [][]int{
 		{ 1, 2, 3, 3,},
 		{12, 0, 4, 5},
