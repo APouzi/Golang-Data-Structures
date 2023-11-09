@@ -8,6 +8,7 @@ import (
 	graph "github.com/APouzi/go-algos/Graph"
 	heaps "github.com/APouzi/go-algos/Heap"
 	"github.com/APouzi/go-algos/LinkedList"
+	matrices "github.com/APouzi/go-algos/Matrices"
 	patterns "github.com/APouzi/go-algos/Patterns"
 	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
@@ -96,6 +97,10 @@ func main() {
 
 	if cmnd == "heaps"{
 		heaps.RunHeap()
+	}
+
+	if cmnd == "matrix"{
+		matrices.RunMatrix()
 	}
 	
 	

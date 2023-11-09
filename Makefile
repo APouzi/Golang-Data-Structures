@@ -30,3 +30,6 @@ random:
 
 heaps:
 	go build -o algo .; ./algo -command "heaps"
+
+matrix:
+	go build -o algo .; ./algo -command "matrix"
