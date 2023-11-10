@@ -14,17 +14,19 @@ func QuickSort(arr []int, low, high int) {
 func Partition(arr []int, low, high int) int {
 	greater := low
 	pivot := arr[high]
+	//Notice that we have the "i" sometimes replace low, which will be the same exact element. This will need to happen because there really isn't anything we can do this because the fact is that the real concentration is "greator" or "lower" which ever is the goal. The greater/lower will be incremented if pivot is bigger/smaller. Otherwise, i will be incrementing up and leaving the greater/lower.
 	for i := low; i < high; i++ {
 		if arr[i] <= pivot {
 			arr[i], arr[greater] = arr[greater], arr[i]
 			greater++
 		}
 	}
+	//Now we need to move the pivot to the last greater/lesser in the window that was used and that greater/lesser is going to be the new pivot since everything that is smaller or greater than the pivot was moved to the left.
 	arr[greater], arr[high] = arr[high], arr[greater]
 	return greater
 }
 
-// In textbooks it's like this for some reason, 
+// In textbooks it's like this for some reason,
 func LumotoPartition(arr []int, low, high int) int {
 	greater := low - 1
 	pivot := arr[high]
