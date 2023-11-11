@@ -115,6 +115,7 @@ func Sort2(leftArr, rightArr []int) []int{
 
 
 func MergeSortLinkedList(head *Node) *Node{
+	//You maybe wondering how the list actually know that we are eventually reaching the base case. This happens in the "find middle" function that breaks the list in hald by assigning the half point to nil. That way, when we keep passing in the value, eventually the "0" or first node we pass in become a singular node
 	if head == nil || head.next == nil{
 		return head
 	}
@@ -129,6 +130,7 @@ func MergeLL(left, right *Node) *Node{
 	dummy := &Node{val:-99}
 	sortedList := dummy
 
+	//Lets remember that we need to say left!= nil or right != nil because of the fact that we need to do work on the last possible head, if we do left.next != nil, that means we won't do the work on the last head
 	for left != nil && right != nil {
 		if left.val < right.val{
 			sortedList.next = left
