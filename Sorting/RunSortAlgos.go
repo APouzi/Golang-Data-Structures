@@ -55,23 +55,35 @@ func RunSorting() {
 	QuickSort(quickSortArr, 0,len(quickSortArr)-1)
 	fmt.Println(quickSortArr)
 
+
+
+	//---Practice Sorting Algorithms---
+	fmt.Println("\n--- Practice Algos started ---")
 	BubbleSortNumsPrac := []int{9,8,7,6,5,4,11,12,34,123,565,3123,123,1236,64,7654,124,1235,643,3,2,1,67}
 	BubbleSort2(BubbleSortNumsPrac)
 	fmt.Println("Practice BubbleSort",BubbleSortNumsPrac)
 
-	SelectionSortNumsPrac := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	SelectionSortNumsPrac := []int{9,8,7,6,5,7654,123,1236,124,1235,643,67,4,3,2,123,565,3123,1,11,12,34,64}
 	SelectionSortPrac(SelectionSortNumsPrac)
 	fmt.Println("Selection Sort Practice",SelectionSortNumsPrac)
 
-	InsertionSortNumsPrac := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	InsertionSortNumsPrac := []int{9,8,7,6,5,7654,123,1236,124,1235,643,67,4,3,2,123,565,3123,1,11,12,34,64}
 	InsertionSortPrac(InsertionSortNumsPrac)
 	fmt.Println("Insertion Sort Practice",InsertionSortNumsPrac)
 
-	MergeSortNumPrac := []int{9,8,7,6,5,4,3,2,1,11,12,34,64,7654,123,1236,124,1235,643,67,123,565,3123}
+	MergeSortNumPrac := []int{9,8,7,6,5,7654,123,1236,124,1235,643,67,4,3,2,123,565,3123,1,11,12,34,64}
 	sortedPrac := MergeSortPrac(MergeSortNumPrac)
 	fmt.Println("Merge Sort Prac:",sortedPrac)
+	MergeSortNumPrac2 := []int{9,8,7,6,5,7654,123,1236,124,1235,643,67,4,3,2,123,565,3123,1,11,12,34,64}
+	MergeSortPrac2(MergeSortNumPrac2, 0, len(MergeSortNumPrac2)-1)
+	fmt.Println("Merge Sort Prac 2:",MergeSortNumPrac2)
+	mergePracHead,_ := createLinkedListUnsorted()
+	sortedReturnedHead := MergeSortPracLinkedList(mergePracHead)
+	fmt.Println("MergeSort Linked List:")
+	printLinkedList(sortedReturnedHead)
 
-	partitionSortArr := []int{5,3,8,1,3,9,57,4,28,13,2,142,7}
+
+	partitionSortArr := []int{13,2,7,5,3,8,1,142,3,9,57,4,28}
 	QuickSortPrac(partitionSortArr, 0 , len(partitionSortArr)-1)
 	fmt.Println("QuickSort Practice",partitionSortArr)
 
@@ -99,7 +111,7 @@ func printLinkedList(head *Node) {
 		fmt.Print(current.val, " -> ")
 		current = current.next
 	}
-	fmt.Println("nil")
+	fmt.Println("nil\n")
 }
 
 
