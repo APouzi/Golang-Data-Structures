@@ -160,12 +160,13 @@ func MiddleLL(head *Node)*Node{
 	prev := &Node{}
 	slow := head
 	fast := head
-
+	//See in MiddleOfList.go explaining why we need both
 	for fast != nil && fast.next != nil{
-		prev = slow
+		prev = slow//We keep track of the slow one because the previous will always be one before the slow node, this is the one we will cut off 
 		slow = slow.next
 		fast = fast.next.next
 	}
+	//This is where we are splitting the list to allow the base case to be reached, usually at "head.next != nil"
 	prev.next = nil
 
 	return slow
