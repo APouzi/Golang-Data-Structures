@@ -1,5 +1,6 @@
 package patterns
 
+//---Heap----
 type Heap struct {
 	arr []int
 }
@@ -72,4 +73,31 @@ func (h *Heap) leftChild(index int) int {
 
 func (h *Heap) rightChild(index int) int {
 	return (index * 2) + 2
+}
+
+
+//---Sort Intervals---
+//CANNOT USE QUICKSORT TO SORT INTERVALS, UNSTABLE
+func QuickSortIntervals(arr [][]int, low, high int) [][]int{
+	if low >= high{
+		return arr
+	}
+	pivot := PartionIntervalList(arr, low, high)
+	QuickSortIntervals(arr, low, pivot-1)
+	QuickSortIntervals(arr, pivot+1, high)
+	return arr
+}
+
+func PartionIntervalList(arr [][]int, low, high int ) int{
+	var pivot int = high
+	var smallest int = low
+	for i := 0; i < high; i++{
+		if arr[pivot][0] >= arr[smallest][0]{
+			arr[smallest], arr[i] = arr[i], arr[smallest]
+			smallest++
+		}
+	}
+	arr[smallest], arr[pivot] = arr[pivot], arr[smallest]
+	return smallest
+	
 }
