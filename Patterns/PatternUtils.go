@@ -54,6 +54,15 @@ func (h *Heap) HeapifyDown(index int) {
 	}
 }
 
+func (h *Heap) Delete(num int) {
+	for i, v := range h.arr {
+		if v == num {
+			h.arr = append(h.arr[:i],h.arr[i:]...)
+			fmt.Println(h.arr, v)
+		}
+	}
+}
+
 func (h *Heap) Parent(index int) int {
 	return (index - 1) / 2
 }
