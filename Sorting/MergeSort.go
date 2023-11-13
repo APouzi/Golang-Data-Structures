@@ -36,6 +36,7 @@ func Merge(array []int, st int, mid int, end int) {
 
 	// Compare each array to one another until both or one of the array's have no more to compare to.
 	for i < aLL && j < aLR {
+		//IMPORTANT to remember that we need to use <= and not < to keep this a stable sort!
 		if arrL[i] <= arrR[j] {
 			array[arri] = arrL[i]
 			i++
@@ -88,7 +89,8 @@ func Sort2(leftArr, rightArr []int) []int{
 	var leftIndex,rightIndex,sortedIndex int = 0, 0, 0
 
 	for leftIndex < sizeLeft && rightIndex < sizeRight{
-		if leftArr[leftIndex] < rightArr[rightIndex]{
+		//IMPORTANT to remember that we need to use <= and not < to keep this a stable sort!
+		if leftArr[leftIndex] <= rightArr[rightIndex]{
 			sorted[sortedIndex] = leftArr[leftIndex]
 			leftIndex++
 			sortedIndex++
@@ -132,7 +134,8 @@ func MergeLL(left, right *Node) *Node{
 
 	//Lets remember that we need to say left!= nil or right != nil because of the fact that we need to do work on the last possible head, if we do left.next != nil, that means we won't do the work on the last head
 	for left != nil && right != nil {
-		if left.val < right.val{
+		//IMPORTANT to remember that we need to use <= and not < to keep this a stable sort!
+		if left.val <= right.val{
 			sortedList.next = left
 			left = left.next
 			sortedList = sortedList.next
