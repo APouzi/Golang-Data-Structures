@@ -7,18 +7,16 @@ func MergeIntervals(intervals [][]int) [][]int {
 	sortedIntervals := MergeSortInterval(intervals, 0, len(intervals)-1)
 	fmt.Println(sortedIntervals)
 	merged := [][]int{}
-	// var newPair []int
-	for i := 0; i<len(sortedIntervals);i++{
-		//(1,3),(2,6)
-		if len(merged) == 0 || merged[len(merged)-1][1] < sortedIntervals[i][0]{
-			// newPair = []int{sortedIntervals[i][0],sortedIntervals[i+1][1]}
+	//No matter what, we need to add the first interval
+	merged = append(merged, sortedIntervals[0])
+	for i := 1; i<len(sortedIntervals);i++{
+		//In this instance, we are asking if the pair's second element is smaller than the first element in the next pair, then we add it. This just implies we have a disjointed set.
+		if merged[len(merged)-1][1] < sortedIntervals[i][0]{
 			merged =append(merged, sortedIntervals[i])
 		}else{
+			//Here we found that the two pairs are actually joined because the 2nd element in the first pair is in fact bigger than the first element in the next pair, but need to figure out if we should merge them by comparing both pair's 2nd elements and seeing which one is bigger
 			merged[len(merged)-1][1] = max(merged[len(merged)-1][1],sortedIntervals[i][1])
 		}
-		// if sortedIntervals[i][1] >= sortedIntervals[i+1][0]{
-		// 	// newPair = []int{sortedIntervals[i][0],sortedIntervals[i+1][1]}
-		// }
 	}
 	return merged
 }
