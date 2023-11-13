@@ -76,7 +76,7 @@ func (h *Heap) rightChild(index int) int {
 }
 
 
-//---Sort Intervals---
+//---Quick Sort Intervals---
 //CANNOT USE QUICKSORT TO SORT INTERVALS, UNSTABLE
 func QuickSortIntervals(arr [][]int, low, high int) [][]int{
 	if low >= high{
@@ -100,4 +100,61 @@ func PartionIntervalList(arr [][]int, low, high int ) int{
 	arr[smallest], arr[pivot] = arr[pivot], arr[smallest]
 	return smallest
 	
+}
+
+//---Merge Sort Intervals---
+
+func MergeSortInterval(arr [][]int, st, end int) [][]int{
+	if st >= end{
+		return arr
+	}
+
+	mid := (st + end)/2
+
+	MergeSortInterval(arr, st, mid)
+	MergeSortInterval(arr, mid+1, end)
+	return MergeInterval(arr, st, mid, end)
+
+}
+
+func MergeInterval(arr [][]int,st, mid, end int) [][]int{
+	//remember, mid - st +1 because left side can hold 1 element in index 0, so "0-0" doesn't work when trying to get size
+	var leftLim, rightLim int = mid-st+1, end - mid
+	var left, right [][]int = make([][]int, leftLim), make([][]int, rightLim)
+	var i int
+	for i = 0; i < leftLim;i++{
+		left[i] = arr[st+i]
+	}
+
+	for i = 0; i< rightLim;i++{
+		right[i] = arr[mid+1+i]
+	}
+
+	var l,r,k int = 0,0,st
+
+	for l < leftLim && r < rightLim{
+		//
+		if left[l][0] <= right[r][0]{
+			arr[k] = left[l]
+			l++
+			k++
+		}else{
+			arr[k] = right[r]
+			r++
+			k++
+		}
+	}
+
+	for l < leftLim{
+		arr[k] = left[l]
+		l++
+		k++
+	}
+
+	for r < rightLim{
+		arr[k] = right[r]
+		r++
+		k++
+	}
+	return arr
 }
