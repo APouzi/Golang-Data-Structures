@@ -1,6 +1,5 @@
 package patterns
 
-
 func HappyNumberPrac(num int) bool {
 	return false
 }
