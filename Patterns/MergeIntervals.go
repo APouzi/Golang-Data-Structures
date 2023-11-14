@@ -4,9 +4,9 @@ import "fmt"
 
 //Note, DO NOT use quicksort for intervals, this is because quicksort intervals is unstable.
 func MergeIntervals(intervals [][]int) [][]int {
-	sortedIntervals := MergeSortInterval(intervals, 0, len(intervals)-1)
+	var sortedIntervals [][]int = MergeSortInterval(intervals, 0, len(intervals)-1)
 	fmt.Println(sortedIntervals)
-	merged := [][]int{}
+	var merged [][]int = make([][]int,0)
 	//No matter what, we need to add the first interval
 	merged = append(merged, sortedIntervals[0])
 	for i := 1; i<len(sortedIntervals);i++{
