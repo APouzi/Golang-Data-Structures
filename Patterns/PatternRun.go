@@ -44,4 +44,8 @@ func RunPattern() {
 	//---Non OverLapping Intervals---
 	intervalsRem := [][]int{{1,2},{2,3},{3,4},{1,3}}
 	fmt.Println("Non OverLapping Intervals:", nonOverLappingIntervals(intervalsRem))
+
+	intervalsRem2 := [][]int{{1,2},{2,3},{3,4},{1,3}}
+	fmt.Println("Non OverLapping Intervals Prac:", nonOverLappingIntervalsPrac(intervalsRem2))
+
 }
