@@ -83,9 +83,21 @@ func InsertIntervals(intervals [][]int, newInterval []int)[][]int{
 // Input: intervals = [[1,2],[2,3]]
 // Output: 0
 // Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
-
+//NOTE as example 3 shows, if two edges are the same, they are NOT overlapping.
 func nonOverLappingIntervals(intervals [][]int) int{
-	return -1
+	var ans int = 0
+	var sortedIntervals [][]int = MergeSortInterval(intervals, 0, len(intervals)-1)
+	fmt.Println(sortedIntervals)
+	var lastInterval []int = sortedIntervals[0]
+	for i := 1; i < len(sortedIntervals); i++{
+		if lastInterval[1] <= sortedIntervals[i][0]{
+			lastInterval[1] = sortedIntervals[i][1]
+		}else{
+			ans++
+			lastInterval[1] = min(lastInterval[1], sortedIntervals[i][1])
+		}
+	}
+	return ans
 }
 
 
