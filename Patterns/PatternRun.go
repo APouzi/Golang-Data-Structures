@@ -25,8 +25,7 @@ func RunPattern() {
 	palindrone := "ABBAABBAABBA"
 	isPalin := ValidPalindrome(palindrone)
 	fmt.Println("Is",palindrone," a palindrone?:",isPalin)
-	
-	fmt.Println(maxSlidingWindow([]int{1,3,-1,-3,5,3,6,7},3))
+
 
 	//---Merge Intervals---
 	intervals := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
@@ -34,4 +33,7 @@ func RunPattern() {
 
 	intervalsPrac := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
 	fmt.Println("Merge Intervals Practice:",MergeIntervalsPrac(intervalsPrac))
+
+	intervalsInsPrac := [][]int{{1,2},{3,5},{6,7},{8,10},{12,16}}
+	fmt.Println("Insert Intervals:",InsertIntervalsPrac(intervalsInsPrac,[]int{4,8}))
 }

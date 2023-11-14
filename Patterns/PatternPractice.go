@@ -16,9 +16,6 @@ func MergeIntervalsPrac(intervals [][]int) [][]int {
 	return [][]int{}
 }
 
-func MaxPrac(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+func InsertIntervalsPrac(intervals [][]int, newInterval []int) [][]int {
+	return [][]int{}
 }
