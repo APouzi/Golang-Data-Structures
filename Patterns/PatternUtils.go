@@ -1,5 +1,21 @@
 package patterns
 
+//---min and max---
+func min(a, b int) int{
+	if a < b{
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int{
+	if a > b{
+		return a
+	}
+	return b
+}
+
+
 //---Heap----
 type Heap struct {
 	arr []int
