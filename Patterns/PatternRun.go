@@ -34,10 +34,14 @@ func RunPattern() {
 	intervalsPrac := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
 	fmt.Println("Merge Intervals Practice:",MergeIntervalsPrac(intervalsPrac))
 
-	//---Merge Intervals---
+	//---Insert Intervals---
 	intervalsIns := [][]int{{1,2},{3,5},{6,7},{8,10},{12,16}}
 	fmt.Println("Insert Intervals:",InsertIntervals(intervalsIns,[]int{4,8}))
 
 	intervalsInsPrac := [][]int{{1,2},{3,5},{6,7},{8,10},{12,16}}
-	fmt.Println("Insert Intervals:",InsertIntervalsPrac(intervalsInsPrac,[]int{4,8}))
+	fmt.Println("Insert Intervals Prac:",InsertIntervalsPrac(intervalsInsPrac,[]int{4,8}))
+
+	//---Non OverLapping Intervals---
+	intervalsRem := [][]int{{1,2},{2,3},{3,4},{1,3}}
+	fmt.Println("Non OverLapping Intervals:", nonOverLappingIntervals(intervalsRem))
 }
