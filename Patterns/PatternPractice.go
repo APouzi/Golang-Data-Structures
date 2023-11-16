@@ -39,3 +39,11 @@ func InsertIntervalsPrac(intervals [][]int, newInterval []int) [][]int {
 func nonOverLappingIntervalsPrac(intervals [][]int) int {
 	return -1
 }
+
+func BuyHighSellLowPrac(prices []int) int{
+	return -1
+}
+
+func ValidPalindromePrac(word string) bool{
+	return false
+}
