@@ -79,10 +79,10 @@ func RunMatrix() {
 	fmt.Println("mirror matrix:", MirrorMatrixPrac(matrixPrac4))
 
 	matrixBallPrac := [][]int{
-		{1,1,1,-1,-1},
-		{1,1,1,-1,-1},
-		{-1,-1,-1,1,1},
-		{1,1,1,1,-1},
+		{1 , 1, 1,-1,-1},
+		{1 , 1, 1,-1,-1},
+		{-1,-1,-1, 1, 1},
+		{1 , 1, 1, 1,-1},
 		{-1,-1,-1,-1,-1}}
 
 	fmt.Println("where will the ball drop?", WhereWillTheBallDropPrac(matrixBallPrac))

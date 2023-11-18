@@ -11,21 +11,25 @@ func RunLinkedList() {
 	LL.PrintList()
 	reved := RevRecur(LL.Head)
 	println("\nprint reverse:")
-	PrintAfterReverse(reved)
+	PrintWithHead(reved)
 	
 	fmt.Println("\nReverse Linked List Iterative:")
 	L2.PrintList()
 	revedPrac := LLRevIterative(L2.Head)
 	println("\nprint reverse:")
-	PrintAfterReverse(revedPrac)
+	PrintWithHead(revedPrac)
 
 	fmt.Println("\nReverse K Groups Linked List:")
 	L3.PrintList()
 	reved2 := ReverseKGroups(L3.Head, 3)
 	println("\nprint reverse:")
-	PrintAfterReverse(reved2)
-	// newHead := revRecur(LinkedList.head)
-	// RemoveDup(LL.Head)
+	PrintWithHead(reved2)
+
+	fmt.Println("\nRemove Duplicate LinkedList")
+	LLDup := CreateLinkedListDuplicate()
+	LLDup.PrintList()
+	deDupped := RemoveDupPrac(LLDup.Head)
+	PrintWithHead(deDupped)
 
 	fmt.Println("\n\n---LinkedList Practice has started---")
 	L4 := CreateLinkedList()
@@ -33,21 +37,22 @@ func RunLinkedList() {
 	L4.PrintList()
 	revedPrac2 := ReverseKGroupsPrac(L4.Head, 3)
 	println("\nprint reverse:")
-	PrintAfterReverse(revedPrac2)
+	PrintWithHead(revedPrac2)
 
 	L5 := CreateLinkedList()
 	fmt.Println("\nLinkedList Middle Node:", MiddleNodeofLLPrac(L5.Head))
 
-	L6 := CreateLinkedList()
 	fmt.Println("LinkedList Reversal Recursive Prac:")
-	PrintAfterReverse(RevLLRecurPrac(L6.Head))
+	L6 := CreateLinkedList()
+	L6.PrintList()
+	PrintWithHead(RevLLRecurPrac(L6.Head))
 
 	LCycle := CreateCycleLinkedList()
 	fmt.Println("\nLinkedList Cycle:", CycleDetectionPrac(LCycle.Head))
 
 	L7 := CreateLinkedList()
 	fmt.Println("\nLinked List Reverse Iterative Practice:")
-	PrintAfterReverse(RevLLIterativePrac(L7.Head))
+	PrintWithHead(RevLLIterativePrac(L7.Head))
 
 }
 
@@ -65,5 +70,17 @@ func CreateCycleLinkedList() *LinkedList{
 		list.AddNode(i)
 	}
 	list.MakeCycle()
+	return &list
+}
+
+func CreateLinkedListDuplicate()*LinkedList{
+	list := LinkedList{}
+	for i := 1; i < 10; i++ {
+		if i == 5{
+			list.AddNode(i)
+			list.AddNode(i)
+		}
+		list.AddNode(i)
+	}
 	return &list
 }
