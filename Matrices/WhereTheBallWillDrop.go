@@ -32,7 +32,7 @@ func whereTheBallDrops(arr [][]int) []int {
 	for col := 0; col <= colEnd; col++ {
 		curr_col := col
 		for row := 0; row <= rowEnd; row++ {
-			//Here we are asking if the column is going to be going left or right. Say our curr_col is 0, we then want to add curr_col to the arr[row][curr_col] which will be +1. That will now mean that the next row will have us on column 1.
+			//Here we are asking if the column is going to be going left or right. Say our curr_col is 0, we then want to add curr_col to the arr[row][curr_col] which will be +1. That will now mean that the next row will have us on column 1. Remember column also takes in the row, because we are trying to see if the column will be to the right or left. 
 			next_col := curr_col + arr[row][curr_col]
 
 			//before we move down the row to column 1, we need to test if:
@@ -40,7 +40,7 @@ func whereTheBallDrops(arr [][]int) []int {
 			//2) next_col is smaller than the column size aka not past the right side of the wall
 			//3) there isn't a v shape in the column that will trap the ball
 			//If any of these are true, means the ball is trapped and we need to assign the curr_col as -1 and break out the nested loop to go to next iteration
-			if next_col < 0 || next_col >= colEnd || arr[row][curr_col] != arr[row][next_col] {
+			if next_col < 0 || next_col >= rowEnd || arr[row][curr_col] != arr[row][next_col] {
 				curr_col = -1
 				break
 			}
