@@ -16,7 +16,7 @@ func (ll *LinkedList) AddNode(num int) {
 }
 
 func (ll *LinkedList) PrintList() {
-
+	fmt.Println()
 	curr := ll.Head
 	for curr != nil {
 		fmt.Printf(" %v ", curr.Val)
@@ -24,9 +24,9 @@ func (ll *LinkedList) PrintList() {
 	}
 }
 
-func PrintAfterReverse(node *LinkedNode) {
+func PrintWithHead(node *LinkedNode) {
 	curr := node
-
+	fmt.Println()
 	for curr != nil {
 		fmt.Printf(" %v ", curr.Val)
 		curr = curr.Next
