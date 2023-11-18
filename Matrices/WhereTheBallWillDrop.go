@@ -27,8 +27,8 @@ package matrices
 func whereTheBallDrops(arr [][]int) []int {
 	colEnd, rowEnd := len(arr[0])-1, len(arr)-1
 	ans := []int{}
-	for i := 0; i <= colEnd; i++ {
-		curr_col := i
+	for col := 0; col <= colEnd; col++ {
+		curr_col := col
 		for row := 0; row <= rowEnd; row++ {
 			//Here we are asking if the column is going to be going left or right. Say our curr_col is 0, we then want to add curr_col to the arr[row][curr_col] which will be +1. That will now mean that the next row will have us on column 1.
 			next_col := curr_col + arr[row][curr_col]
