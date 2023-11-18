@@ -10,6 +10,8 @@ package matrices
 
 // Return an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box.
 
+//NOTE: the last row is not the floor but the last portion of the slide
+
 //Input: grid = [
 // [1,1,1,-1,-1],
 // [1,1,1,-1,-1],
