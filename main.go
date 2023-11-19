@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	arrays "github.com/APouzi/go-algos/Arrays"
 	dynamicprogramming "github.com/APouzi/go-algos/Dynamic-Programming"
 	graph "github.com/APouzi/go-algos/Graph"
 	heaps "github.com/APouzi/go-algos/Heap"
@@ -102,6 +103,10 @@ func main() {
 
 	if cmnd == "matrix"{
 		matrices.RunMatrix()
+	}
+
+	if cmnd == "array"{
+		arrays.RunArrays()
 	}
 
 	if cmnd == "problem"{
