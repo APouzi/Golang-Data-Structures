@@ -234,3 +234,65 @@ func TopoDFS(node int, graph map[int][]int, seen map[int]int, list *[]int)bool{
 func RoomsAndKeys(rooms [][]int) bool{
 return false
 }
+
+
+//There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+//Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
+
+// Example 1:
+// Input: numCourses = 2, prerequisites = [[1,0]]
+// Output: [0,1]
+// Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1].
+
+// Example 2:
+// Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+// Output: [0,2,1,3]
+// Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0.
+// So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
+
+// Example 3:
+// Input: numCourses = 1, prerequisites = []
+// Output: [0]
+
+func FindOrder(numCourses int, prerequisites [][]int) []int {
+	graph := make(map[int][]int)
+	topoList := []int{}
+	seen := make([]int, numCourses)
+	for i := 0; i < numCourses; i++ {
+        graph[i] = []int{}   
+	}
+
+	for _, v := range prerequisites {
+		graph[v[0]] = append(graph[v[0]], v[1])
+	}
+	for i := 0; i < len(graph); i++ {
+			if dfsTopoSort2(i, graph, seen, &topoList) == false {
+                return []int{}
+		}
+	}
+    if len(topoList) < numCourses{
+        return []int{}
+    }
+	return topoList
+}
+
+func dfsTopoSort2(course int, graph map[int][]int, seen []int, topoList *[]int) bool {
+	if seen[course] == 2 {
+        fmt.Println(course)
+		*topoList = []int{}
+		return false
+	}
+	if seen[course] == 1 {
+		return true
+	}
+
+	seen[course] = 2
+	for i := 0; i < len(graph[course]); i++ {
+		if dfsTopoSort2(graph[course][i], graph, seen, topoList) == false {
+			return false
+		}
+	}
+	seen[course] = 1
+	*topoList = append(*topoList, course)
+	return true
+}
