@@ -119,6 +119,20 @@ func max(a int, b int) int {
 
 
 
+func GrandParentEvenTree() *Node{
+	head:= &Node{val: 6}
+	head.left = &Node{val:7}
+	head.right = &Node{val:8}
+	head.left.left = &Node{val :2}
+	head.left.left.left = &Node{val :9}
+	head.left.right = &Node{val :7}
+	head.left.right.left = &Node{val :1}
+	head.left.right.left = &Node{val :4}
+	head.right.left = &Node{val :1}
+	head.right.right = &Node{val :3}
+	head.right.right.right = &Node{val :5}
+	return head
+}
 
 
 
