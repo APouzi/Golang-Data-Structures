@@ -15,6 +15,7 @@ import (
 	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
 	stack "github.com/APouzi/go-algos/Stack"
+	bst "github.com/APouzi/go-algos/Trees"
 )
 
 func main() {
@@ -107,6 +108,10 @@ func main() {
 
 	if cmnd == "array"{
 		arrays.RunArrays()
+	}
+
+	if cmnd == "tree"{
+		bst.RunTrees()
 	}
 
 	if cmnd == "problem"{

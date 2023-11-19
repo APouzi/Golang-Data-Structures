@@ -37,6 +37,9 @@ matrix:
 array:
 	go build -o algo .; ./algo -command "array"
 
+tree:
+	go build -o algo .; ./algo -command "tree"
+
 problem:
 	go build -o algo .; ./algo -command "problem"
 
