@@ -13,8 +13,12 @@ func RunPattern() {
 	returnRes2 := BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
 	fmt.Println(returnRes2)
 
+	//----SubArray Product less than K---
+	maxProdArr := []int{10,5,2,6}
+	fmt.Println("Number SubArray Product less than K",NumSubarrayProductLessThanK(maxProdArr,100))
 
-	// ---Permutation String---
+
+	// ---Happy Number---
 	HappyInput := 19
 	HappyNum := HappyNumber(HappyInput)
 	fmt.Printf("Is the number \"%d\", a happy num? Answer: %t\n", HappyInput,HappyNum)
