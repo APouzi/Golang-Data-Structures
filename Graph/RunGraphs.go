@@ -3,7 +3,7 @@ package graph
 import (
 	"fmt"
 
-	graphPull "github.com/APouzi/go-algos/Graph/Topological-Sort"
+	graphPull "github.com/APouzi/go-algos/Graph/Topological-Sort-Pattern"
 )
 
 func Rungraphs() {
