@@ -12,8 +12,10 @@ var AllProblems []string = []string{
 	"DFS a Graph","BFS a Graph", "Union Find a Graph", "Number of Islands","Class Schedule", "valid palindrome", 
 	"valid anagram", "Sort a Linked List", "Quick Sort", "Merge Sort", "Binary Search", "Permutation of a String", 
 	"shuffle string", "Breadth First on BST", "BST Largest Sum Path", "Right View of Tree", "Longest Diameter of BST",
-	 "Right View of Tree", "Sum Path BST", "Validate BST", "In Order, Post Order, Pre Order Traversal of a Tree",
-	 "Check Sum BST", "Buy High Sell Low",}
+	"Right View of Tree", "Sum Path BST", "Validate BST", "In Order, Post Order, Pre Order Traversal of a Tree",
+	"Check Sum BST", "Buy High Sell Low","Contains Duplicate", "Kth Smallest Element in a BST", "All Paths with Sum to 'k'",
+	"Merge K Sorted Lists", "Longest Substring without repeating Characters", "Implement a Trie", "Fruits in a Basket",
+	"Count all substring that equal to 'k", "Implement a Trie", "Keys and Rooms (Topological Sorting)", "Sum of Nodes with Even-Valued Grandparent", "Course Schedule II"}
 func GenerationProblemOne() {
 	fmt.Println("\nTotal Problems in Knowledge Bank is:",len(AllProblems))
 	fmt.Println("\n",AllProblems[rand.Intn(len(AllProblems))])
