@@ -33,3 +33,9 @@ heaps:
 
 matrix:
 	go build -o algo .; ./algo -command "matrix"
+
+problem:
+	go build -o algo .; ./algo -command "problem"
+
+problems:
+	go build -o algo .; ./algo -command "problems"

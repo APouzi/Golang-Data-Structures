@@ -10,6 +10,7 @@ import (
 	"github.com/APouzi/go-algos/LinkedList"
 	matrices "github.com/APouzi/go-algos/Matrices"
 	patterns "github.com/APouzi/go-algos/Patterns"
+	prbGen "github.com/APouzi/go-algos/ProblemListGeneration"
 	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
 	stack "github.com/APouzi/go-algos/Stack"
@@ -101,6 +102,14 @@ func main() {
 
 	if cmnd == "matrix"{
 		matrices.RunMatrix()
+	}
+
+	if cmnd == "problem"{
+		prbGen.GenerationProblemOne()
+	}
+
+	if cmnd == "problems"{
+		prbGen.GenerationProblemList()
 	}
 	
 	
