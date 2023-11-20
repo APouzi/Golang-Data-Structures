@@ -249,3 +249,79 @@ func rightChild(num int) int{
 func(h *MinHeap) swap(i int, j int){
     h.array[j],h.array[i] = h.array[i], h.array[j]
 }
+
+
+//------------------Heap for Pairs------------------
+type HeapPair struct {
+	arr [][]int
+}
+
+func InitializeHeapPair() *Heap {
+	return &Heap{arr: []int{}}
+}
+
+func (h *HeapPair) Pop() []int {
+	popped := h.arr[0]
+	var lastIndex int = len(h.arr) - 1
+	h.arr[0] = h.arr[lastIndex]
+	h.arr = h.arr[:lastIndex]
+	h.HeapifyDown(0)
+	return popped
+}
+
+func (h *HeapPair) Insert(num []int) {
+	h.arr = append(h.arr, num)
+	var lastIndex int = len(h.arr) - 1
+	h.HeapifyUp(lastIndex)
+}
+
+func (h *HeapPair) HeapifyUp(index int) {
+	for h.arr[index][0] < h.arr[h.Parent(index)][0] {
+		h.arr[index], h.arr[h.Parent(index)] = h.arr[h.Parent(index)], h.arr[index]
+		index = h.Parent(index)
+	}
+}
+
+func (h *HeapPair) HeapifyDown(index int) {
+	var lastIndex int = len(h.arr) - 1
+	var smallestChild int
+	for h.leftChild(index) <= lastIndex {
+		smallestChild = h.leftChild(index)
+		if h.rightChild(index) <= lastIndex {
+			if h.arr[smallestChild][0] > h.arr[h.rightChild(index)][0] {
+				smallestChild = h.rightChild(index)
+			}
+			if h.arr[smallestChild][0] < h.arr[index][0] {
+				h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
+				index = smallestChild
+			} else {
+				return
+			}
+		}
+		if h.arr[smallestChild][0] < h.arr[index][0] {
+			h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
+		}
+		index = smallestChild
+
+	}
+}
+
+func (h *HeapPair) Delete(num int) {
+	for i, v := range h.arr {
+		if v[0] == num {
+			h.arr = append(h.arr[:i], h.arr[i:]...)
+		}
+	}
+}
+
+func (h *HeapPair) Parent(index int) int {
+	return (index - 1) / 2
+}
+
+func (h *HeapPair) leftChild(index int) int {
+	return (index * 2) + 1
+}
+
+func (h *HeapPair) rightChild(index int) int {
+	return (index * 2) + 2
+}
