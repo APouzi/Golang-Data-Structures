@@ -40,6 +40,10 @@ func nonOverLappingIntervalsPrac(intervals [][]int) int {
 	return -1
 }
 
+func MinIntervalPrac(intervals [][]int, queries []int)[]int{
+	return []int{}
+}
+
 func BuyHighSellLowPrac(prices []int) int{
 	return -1
 }
