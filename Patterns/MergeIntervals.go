@@ -1,6 +1,10 @@
 package patterns
 
-import "fmt"
+import (
+	"fmt"
+
+	sorting "github.com/APouzi/go-algos/Sorting"
+)
 
 //Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
 
@@ -127,7 +131,30 @@ func nonOverLappingIntervals(intervals [][]int) int{
 // - Query = 22: The interval [20,25] is the smallest interval containing 22. The answer is 25 - 20 + 1 = 6.
 
 func MinInterval(intervals [][]int, queries []int) []int {
-    return []int{}
+    sortedIntervals := MergeSortInterval(intervals,0,len(intervals)-1)
+	queryCopy := queries
+	sorting.QuickSort(queryCopy,0,len(queries)-1)
+	h := &HeapPair{}
+	result :=[]int{}
+	i := 0
+	for _,qry:= range queryCopy{
+		for i < len(sortedIntervals) && sortedIntervals[i][0] <= qry{
+			h.Insert([]int{sortedIntervals[i][1] - sortedIntervals[i][0] + 1,sortedIntervals[i][1]})
+			fmt.Println(h.arr)
+			i++
+		}
+		for len(h.arr) >0 && h.arr[0][1] < qry{
+			fmt.Println("Hit!")
+			fmt.Println(h.Pop())
+		}
+		if len(h.arr) > 0{
+			result = append(result, h.arr[0][0])
+		}else{
+			result = append(result, -1)
+		}
+	}
+	return result
+
 }
 
 
