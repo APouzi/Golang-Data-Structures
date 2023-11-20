@@ -131,22 +131,29 @@ func nonOverLappingIntervals(intervals [][]int) int{
 // - Query = 22: The interval [20,25] is the smallest interval containing 22. The answer is 25 - 20 + 1 = 6.
 
 func MinInterval(intervals [][]int, queries []int) []int {
+	//Like most problems, we need to sort our intervals doing a stable sort, usually merge sort. This allows us to easily see the intervals in a contiguous fashion, seeing any overlapping and allow us to easily compare who where the smart is smaller or bigger.
     sortedIntervals := MergeSortInterval(intervals,0,len(intervals)-1)
+
+	//QueryCopy is going to serve two purposes, one is that it will allow to keep the order of the original query pair, Which is why we are going to be appened to result, and also we need to sort this because of the fact that we need to easily keep track of the start of the intervals. This is how we know that we are going to be in the appropriate interval without having to brute force the solution. Example: say we have 4,7,2 and we have [(1,3)(1,2),(2,3)]. We can see how would have to be brute forcing our way into the solution. 
 	queryCopy := queries
-	sorting.QuickSort(queryCopy,0,len(queries)-1)
+	sorting.QuickSort(queryCopy,0,len(queries)-1)//Now we need to sort the queries, this is what makes the sorting easier 
+	//This is a minHeap that is sorting based on the size of the interval and also keeping the right most of the interval (end of interval)
 	h := &HeapPair{}
 	result :=[]int{}
+	//The i represents the interation through the intervals
 	i := 0
+	//Here we are going to be looping through the sorted query. 
 	for _,qry:= range queryCopy{
+		//For every query, we need to insert every single interval that houses the query (query is bigger than or equal to start of interval). This is why we sorted the intervals. For each interval that this is true, we need to insert the range of said query and also the right most of the interval (more on this on 2nd loop.). Every single interval that is added to the heap are all possible canidates of the query and only the heap will be able to tell us which one is the best based on the range. 
 		for i < len(sortedIntervals) && sortedIntervals[i][0] <= qry{
 			h.Insert([]int{sortedIntervals[i][1] - sortedIntervals[i][0] + 1,sortedIntervals[i][1]})
-			fmt.Println(h.arr)
 			i++
 		}
+		//Once we added every single interval that houses the query, we need to start popping them based on the fact that end of each interval is smaller than the query. The reason for this is that this is asking is that we need to remove all those where the query is past the end, because it is no longer part of the intervals inside the range. The reason for this, is that if this loop is ever activated, it means that the we have moved onto a new query and the intervals that were added on a previous iteration no longer apply to this one. 
 		for len(h.arr) >0 && h.arr[0][1] < qry{
-			fmt.Println("Hit!")
-			fmt.Println(h.Pop())
+			h.Pop()
 		}
+		//Check if the heap is empty, if not we need to add the range that is the range that is the heap.
 		if len(h.arr) > 0{
 			result = append(result, h.arr[0][0])
 		}else{
