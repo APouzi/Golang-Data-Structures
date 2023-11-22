@@ -61,6 +61,11 @@ func RunPattern() {
 	// queries := []int{7,9,3,9,3}
 	fmt.Println("Minimum Interval to Include Each Query:", MinInterval(intervalsMin,queries))
 	fmt.Println("Minimum Interval to Include Each Query Practice:", MinIntervalPrac(intervalsMin,queries))
+
+	//---Meeting Rooms II----
+	meetings := [][]int{{0,30},{5,10},{15,20}}
+	// meetings := [][]int{{7,10},{2,4}}
+	fmt.Println("Meeting Rooms:", MeetingRooms(meetings))
 	
 
 }
