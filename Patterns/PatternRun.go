@@ -53,8 +53,12 @@ func RunPattern() {
 	fmt.Println("Non OverLapping Intervals Prac:", nonOverLappingIntervalsPrac(intervalsRem2)) 
 
 	//---Minimum Interval to Include Each Query---
-	intervalsMin := [][]int{{1,4},{2,4},{3,6},{4,4}} 
-	queries := []int{2,3,4,5}
+	// intervalsMin := [][]int{{1,4},{2,4},{3,6},{4,4}} 
+	// queries := []int{2,3,4,5}
+	intervalsMin := [][]int{{2,3},{2,5},{1,8},{20,25}}
+	queries := []int{2,19,5,22}
+	// intervalsMin := [][]int{{4,5},{5,8},{1,9},{8,10},{1,6}}
+	// queries := []int{7,9,3,9,3}
 	fmt.Println("Minimum Interval to Include Each Query:", MinInterval(intervalsMin,queries))
 	fmt.Println("Minimum Interval to Include Each Query Practice:", MinIntervalPrac(intervalsMin,queries))
 	
