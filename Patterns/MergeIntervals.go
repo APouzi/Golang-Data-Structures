@@ -175,6 +175,21 @@ func MinInterval(intervals [][]int, queries []int) []int {
 }
 
 
+//Given an array of meeting time intervals consisting of start and end times[[s1,e1],[s2,e2],...](si< ei), determine if a person could attend all meetings.
+//Input:[[0,30],[5,10],[15,20]]
+//Output: false
+func MeetingRooms(meetings [][]int)bool{
+	MergeSortInterval(meetings, 0, len(meetings)-1)
+	lastMeeting := meetings[0][1]
+	for i := 1; i<len(meetings);i++{
+		if lastMeeting >= meetings[i][0]{
+			return false
+		}
+		lastMeeting = meetings[i][0]
+	}
+	return true
+}
+
 
 
 
