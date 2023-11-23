@@ -20,7 +20,7 @@ import (
 
 //Note, DO NOT use quicksort for intervals, this is because quicksort intervals is unstable.
 func MergeIntervals(intervals [][]int) [][]int {
-	var sortedIntervals [][]int = MergeSortInterval(intervals, 0, len(intervals)-1)
+	var sortedIntervals [][]int = MergeSortIntervalByStart(intervals, 0, len(intervals)-1)
 	fmt.Println(sortedIntervals)
 	var merged [][]int = make([][]int,0)
 	//No matter what, we need to add the 1st interval
@@ -90,7 +90,7 @@ func InsertIntervals(intervals [][]int, newInterval []int)[][]int{
 //NOTE as example 3 shows, if two edges are the same, they are NOT overlapping.
 func nonOverLappingIntervals(intervals [][]int) int{
 	var ans int = 0
-	var sortedIntervals [][]int = MergeSortInterval(intervals, 0, len(intervals)-1) //{{1,2},{1,3},{2,3},{3,4},{4,6},{5,6}}
+	var sortedIntervals [][]int = MergeSortIntervalByStart(intervals, 0, len(intervals)-1) //{{1,2},{1,3},{2,3},{3,4},{4,6},{5,6}}
 	fmt.Println(sortedIntervals)
 	var lastInterval []int = sortedIntervals[0] //NOTE: this doesn't need to be interval and we can just keep track of the last good end, as we shrink this.
 	for i := 1; i < len(sortedIntervals); i++{
@@ -138,7 +138,7 @@ func nonOverLappingIntervals(intervals [][]int) int{
 
 func MinInterval(intervals [][]int, queries []int) []int {
 	//Like most problems, we need to sort our intervals doing a stable sort, usually merge sort. This allows us to easily see the intervals in a contiguous fashion, seeing any overlapping and allow us to easily compare who where the smart is smaller or bigger.
-    sortedIntervals := MergeSortInterval(intervals,0,len(intervals)-1)
+    sortedIntervals := MergeSortIntervalByStart(intervals,0,len(intervals)-1)
 
 	//QueryCopy is going to serve two purposes, one is that it will allow to keep the order of the original query pair, Which is why we are going to be appened to result, and also we need to sort this because of the fact that we need to easily keep track of the start of the intervals. This is how we know that we are going to be in the appropriate interval without having to brute force the solution. Example: say we have 4,7,2 and we have [(1,3)(1,2),(2,3)]. We can see how would have to be brute forcing our way into the solution. 
 	queryCopy := make([]int, len(queries))
@@ -179,7 +179,7 @@ func MinInterval(intervals [][]int, queries []int) []int {
 //Input:[[0,30],[5,10],[15,20]]
 //Output: false
 func MeetingRooms(meetings [][]int)bool{
-	MergeSortInterval(meetings, 0, len(meetings)-1)
+	MergeSortIntervalByStart(meetings, 0, len(meetings)-1)
 	lastMeeting := meetings[0][1]
 	for i := 1; i<len(meetings);i++{
 		if lastMeeting >= meetings[i][0]{
@@ -191,14 +191,38 @@ func MeetingRooms(meetings [][]int)bool{
 }
 
 
+type Event struct{
+	Time int
+	Start bool
+}
 
-
+//Given an array of meeting time intervals consisting of start and end times[[s1,e1],[s2,e2],...](si< ei), find the minimum number of conference rooms required.
+func MeetingRoomsII(intervals [][]int) int{
+	var events []Event = make([]Event, len(intervals)*2)
+	for i :=0;i<len(intervals);i++{
+		events[2*i] = Event{Time:intervals[i][0], Start: true}
+		events[2*i+1] = Event{Time:intervals[i][1], Start: false}
+	}
+	//List: {0, 30},{5, 10},{15, 20}
+	//Events: {0 true},{5 true},{10 false},{15 true},{20 false},{30 false}
+	MergeSortEvent(events,0,len(events)-1)
+	var count,ans int =0, 0
+	for i :=0; i < len(events);i++{
+		if events[i].Start{
+			count++
+			ans = max(count, ans)
+		}else{
+			count--
+		}
+	}
+	return ans
+}
 
 
 
 
 func MergeIntervalsAttempt(intervals [][]int) [][]int {
-	sortedIntervals := MergeSortInterval(intervals, 0, len(intervals)-1)
+	sortedIntervals := MergeSortIntervalByStart(intervals, 0, len(intervals)-1)
 	fmt.Println(sortedIntervals)
 	listAns := [][]int{}
 	var newPair []int
