@@ -67,17 +67,30 @@ func CycleDetect(node *LinkedNode) bool {
 // Input: nums = [3,1,3,4,2]
 // Output: 3
 
+//Example 3:
+// Input: nums = [2,5,9,6,9,3,8,9,7,1]
+// Output: 9
+//get the true index:
+// 9 5, 1 6, 5 7, 3 1, 6 3, 8 8, 
+// get the Number:
+// 7 2, 9 9, 
 func FindDuplicate(nums []int) int {
     var slow, fast int = nums[0], nums[nums[0]]
+// These array's are only representing the next index that it goes to, because these are cyclical arrays that basically point to the next index. So calling itself will allow us to infinitely call the array without ever getting out of bounds
 
-    for slow != fast{
+    for slow != fast{ //On the first loop, we are simply following the array's path to get the "cycle's entry point".
         slow = nums[slow]
         fast = nums[nums[fast]]
+		//slow[1]:     3,    2,    |4|
+		//fast[3]: [2]>4,[2]>4,[2]>|4|
     }
     fast = 0
-    for slow != fast{
+    for slow != fast{//After we found the "entry point into the cycle" index (first example being the 4th index), now need to find this array's index
         slow = nums[slow]
         fast = nums[fast]
+		//slow(4):2,4,|2|
+		//fast(0):1,3,|2|
+		
     }
     return fast
 }
