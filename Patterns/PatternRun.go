@@ -67,9 +67,17 @@ func RunPattern() {
 	// meetings := [][]int{{7,10},{2,4}}
 	fmt.Println("Meeting Rooms:", MeetingRooms(meetings))
 
-	meetingsII := [][]int{{0, 30},{5, 10},{15, 20}}
-	// meetingsII := [][]int{{7,10},{2,4}}
+	// meetingsII := [][]int{{0, 30},{5, 10},{15, 20}}
+	meetingsII := [][]int{{7,10},{2,4}}
 	fmt.Println("Meeting Rooms II:",MeetingRoomsII(meetingsII))
+	fmt.Println("Meeting Roomms II",MeetingRoomsIIHeap(meetingsII))
+
+	//---Maximum Year---
+	// Years := [][]int{{1950,1961},{1960,1971},{1970,1981}}
+	Years := [][]int{{2008,2026},{2004,2008},{2034,2035},{1999,2050},{2049,2050},{2011,2035},{1966,2033},{2044,2049}}
+	fmt.Println("Maximum Years:", MaximumPopulation(Years))
+
+	
 	
 	
 
