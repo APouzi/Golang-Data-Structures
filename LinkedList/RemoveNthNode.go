@@ -14,7 +14,7 @@ package LinkedList
 //[1,3]
 
 func RemoveNthFromEnd(head *LinkedNode, n int) *LinkedNode {
-	var dummyHead *LinkedNode = &LinkedNode{} //Fails on (head = [1,2], n =2), if dummyhead isn't used
+	var dummyHead *LinkedNode = &LinkedNode{} //Fails on (head = [1,2], n =2), if dummyhead isn't used then we return a delete head, when the new list is 2.
 	dummyHead.Next = head
 	var forward, prevBeforeRemoval *LinkedNode = dummyHead, dummyHead //We need the "forward" to travel forward to let us count down the "n". This will signal us to let us know when we can flag a node for removal
 	for forward.Next != nil {

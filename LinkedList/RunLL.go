@@ -54,6 +54,14 @@ func RunLinkedList() {
 	fmt.Println("\nLinked List Reverse Iterative Practice:")
 	PrintWithHead(RevLLIterativePrac(L7.Head))
 
+	//---Remove Nth Node from Linked List---
+	L8 := CreateLinkedList()
+	fmt.Println("\nRemove Nth Node from Linked List:")
+	PrintWithHead(RemoveNthFromEnd(L8.Head, 3))
+	fmt.Println("\nRemove Nth Node from Linked List Practice:")
+	L9 := CreateLinkedList()
+	PrintWithHead(RemoveNthNodePrac(L9.Head, 8))
+
 }
 
 func CreateLinkedList() *LinkedList{

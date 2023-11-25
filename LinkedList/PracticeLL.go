@@ -9,6 +9,10 @@ func RemoveDupPrac(head *LinkedNode)*LinkedNode{
 	return head
 }
 
+func RemoveNthNodePrac(head *LinkedNode, n int)*LinkedNode{
+	return head
+}
+
 func MiddleNodeofLLPrac(head *LinkedNode) *LinkedNode{
 	return head
 }
