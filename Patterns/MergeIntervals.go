@@ -219,6 +219,20 @@ func MeetingRoomsII(intervals [][]int) int{
 	return ans
 }
 
+func MeetingRoomsIIHeap(intervals [][]int)int{
+	var maxAns int = 0
+	active := InitializeHeapPair()
+	MergeSortIntervalByStart(intervals,0,len(intervals)-1)
+	for i :=0;i<len(intervals);i++{
+		fmt.Println(active.arr, intervals[i])
+		for len(active.arr) > 0 && active.arr[0][1] <= intervals[i][0]{
+			active.Pop()
+		}
+		maxAns = max(maxAns, len(active.arr))
+	}
+	return maxAns
+}
+
 
 // You are given a 2D integer array logs where each logs[i] = [birthi, deathi] indicates the birth and death years of the ith person.
 
@@ -257,7 +271,7 @@ func MaximumPopulation(logs [][]int) int {
 			}
 		}else{//Decrement if the end has been reached.
 			pop--
-		}
+		} 
 	}
 	return earliestYear
 
