@@ -118,22 +118,21 @@ func PartionIntervalList(arr [][]int, low, high int ) int{
 	
 }
 
-//---Merge Sort Intervals---
-
-func MergeSortInterval(arr [][]int, st, end int) [][]int{
+//---Merge Sort Intervals by Start---
+func MergeSortIntervalByStart(arr [][]int, st, end int) [][]int{
 	if st >= end{
 		return arr
 	}
 
 	mid := (st + end)/2
 
-	MergeSortInterval(arr, st, mid)
-	MergeSortInterval(arr, mid+1, end)
-	return MergeInterval(arr, st, mid, end)
+	MergeSortIntervalByStart(arr, st, mid)
+	MergeSortIntervalByStart(arr, mid+1, end)
+	return MergeIntervalStart(arr, st, mid, end)
 
 }
 
-func MergeInterval(arr [][]int,st, mid, end int) [][]int{
+func MergeIntervalStart(arr [][]int,st, mid, end int) [][]int{
 	//remember, mid - st +1 because left side can hold 1 element in index 0, so "0-0" doesn't work when trying to get size
 	var leftLim, rightLim int = mid-st+1, end - mid
 	var left, right [][]int = make([][]int, leftLim), make([][]int, rightLim)
@@ -149,7 +148,6 @@ func MergeInterval(arr [][]int,st, mid, end int) [][]int{
 	var l,r,k int = 0,0,st
 
 	for l < leftLim && r < rightLim{
-		//
 		if left[l][0] <= right[r][0]{
 			arr[k] = left[l]
 			l++
@@ -175,11 +173,64 @@ func MergeInterval(arr [][]int,st, mid, end int) [][]int{
 	return arr
 }
 
+//---Merge Sort Intervals---
 
+func MergeSortIntervalByEnd(arr [][]int, st, end int) [][]int{
+	if st >= end{
+		return arr
+	}
 
-//Heap for LinkedLists
+	mid := (st + end)/2
 
+	MergeSortIntervalByEnd(arr, st, mid)
+	MergeSortIntervalByEnd(arr, mid+1, end)
+	return MergeIntervalEnd(arr, st, mid, end)
 
+}
+
+func MergeIntervalEnd(arr [][]int,st, mid, end int) [][]int{
+	//remember, mid - st +1 because left side can hold 1 element in index 0, so "0-0" doesn't work when trying to get size
+	var leftLim, rightLim int = mid-st+1, end - mid
+	var left, right [][]int = make([][]int, leftLim), make([][]int, rightLim)
+	var i int
+	for i = 0; i < leftLim;i++{
+		left[i] = arr[st+i]
+	}
+
+	for i = 0; i< rightLim;i++{
+		right[i] = arr[mid+1+i]
+	}
+
+	var l,r,k int = 0,0,st
+
+	for l < leftLim && r < rightLim{
+		//
+		if left[l][1] <= right[r][1]{
+			arr[k] = left[l]
+			l++
+			k++
+		}else{
+			arr[k] = right[r]
+			r++
+			k++
+		}
+	}
+
+	for l < leftLim{
+		arr[k] = left[l]
+		l++
+		k++
+	}
+
+	for r < rightLim{
+		arr[k] = right[r]
+		r++
+		k++
+	}
+	return arr
+}
+
+//-----Heap for LinkedLists------
 type MinHeap struct{
     array []*LinkedNode
 }
@@ -256,8 +307,8 @@ type HeapPair struct {
 	arr [][]int
 }
 
-func InitializeHeapPair() *Heap {
-	return &Heap{arr: []int{}}
+func InitializeHeapPair() *HeapPair {
+	return &HeapPair{arr: [][]int{}}
 }
 
 func (h *HeapPair) Pop() []int {
@@ -276,7 +327,7 @@ func (h *HeapPair) Insert(num []int) {
 }
 
 func (h *HeapPair) HeapifyUp(index int) {
-	for h.arr[index][0] < h.arr[h.Parent(index)][0] {
+	for h.arr[index][1] < h.arr[h.Parent(index)][1] {
 		h.arr[index], h.arr[h.Parent(index)] = h.arr[h.Parent(index)], h.arr[index]
 		index = h.Parent(index)
 	}
@@ -288,17 +339,17 @@ func (h *HeapPair) HeapifyDown(index int) {
 	for h.leftChild(index) <= lastIndex {
 		smallestChild = h.leftChild(index)
 		if h.rightChild(index) <= lastIndex {
-			if h.arr[smallestChild][0] > h.arr[h.rightChild(index)][0] {
+			if h.arr[smallestChild][1] > h.arr[h.rightChild(index)][1] {
 				smallestChild = h.rightChild(index)
 			}
-			if h.arr[smallestChild][0] < h.arr[index][0] {
+			if h.arr[smallestChild][1] < h.arr[index][1] {
 				h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
 				index = smallestChild
 			} else {
 				return
 			}
 		}
-		if h.arr[smallestChild][0] < h.arr[index][0] {
+		if h.arr[smallestChild][1] < h.arr[index][1] {
 			h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
 		}
 		index = smallestChild
@@ -324,4 +375,60 @@ func (h *HeapPair) leftChild(index int) int {
 
 func (h *HeapPair) rightChild(index int) int {
 	return (index * 2) + 2
+}
+
+//---Merge Sort Intervals---
+func MergeSortEvent(arr []Event, st, end int) []Event{
+	if st >= end{
+		return arr
+	}
+
+	mid := (st + end)/2
+
+	MergeSortEvent(arr, st, mid)
+	MergeSortEvent(arr, mid+1, end)
+	return MergeIntervalEvent(arr, st, mid, end)
+
+}
+
+func MergeIntervalEvent(arr []Event,st, mid, end int) []Event{
+	//remember, mid - st +1 because left side can hold 1 element in index 0, so "0-0" doesn't work when trying to get size
+	var leftLim, rightLim int = mid-st+1, end - mid
+	var left, right []Event = make([]Event, leftLim), make([]Event, rightLim)
+	var i int
+	for i = 0; i < leftLim;i++{
+		left[i] = arr[st+i]
+	}
+
+	for i = 0; i< rightLim;i++{
+		right[i] = arr[mid+1+i]
+	}
+
+	var l,r,k int = 0,0,st
+
+	for l < leftLim && r < rightLim{
+		//
+		if left[l].Time <= right[r].Time{
+			arr[k] = left[l]
+			l++
+			k++
+		}else{
+			arr[k] = right[r]
+			r++
+			k++
+		}
+	}
+
+	for l < leftLim{
+		arr[k] = left[l]
+		l++
+		k++
+	}
+
+	for r < rightLim{
+		arr[k] = right[r]
+		r++
+		k++
+	}
+	return arr
 }
