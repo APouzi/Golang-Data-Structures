@@ -60,3 +60,7 @@ func BuyHighSellLowPrac(prices []int) int{
 func ValidPalindromePrac(word string) bool{
 	return false
 }
+
+func FindDuplicatePrac([]int)int{
+	return -1
+}
