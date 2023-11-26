@@ -19,4 +19,25 @@ func IsAnagramHashMap(s string, t string) bool {
 	return true
 }
 
+func IsAnagramStringTrick(s string, t string) bool {
+	var tl, sl int = len(s), len(t)
+	if sl != tl {
+		return false
+	}
 
+	var sCheck []byte = make([]byte, 26)
+
+	for i := 0; i < sl; i++ {
+		sCheck[s[i]-'a']++
+		sCheck[t[i]-'a']--
+	}
+
+	for i := 0; i < 26; i++ {
+		if sCheck[i] != 0 {
+			return false
+		}
+	}
+
+	return true
+
+}
