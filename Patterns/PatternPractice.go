@@ -64,3 +64,7 @@ func ValidPalindromePrac(word string) bool{
 func FindDuplicatePrac([]int)int{
 	return -1
 }
+
+func GetSkylinePrac(buildings [][]int)[]int{
+	return buildings[0]
+}
