@@ -303,43 +303,44 @@ func GetSkyline(buildings [][]int) [][]int {
 	var skyline [][]int
 	h := &HeapPairMax{}
 
-	// Collect all unique points (start and end of buildings)
-	var points []int = make([]int, len(buildings)*2)
+	// Collect all x's (start and end of buildings)
+	var xPlane []int = make([]int, len(buildings)*2)
 	for i, b := range buildings {
-            points[i*2] = b[0]
-            points[i*2+1] = b[1]
+		xPlane[i*2] = b[0]
+		xPlane[i*2+1] = b[1]
 	}
 
-	// Remove duplicates and sort
-	sort.Ints(points)
-	var uniquePoints []int = []int{points[0]}
-	for i := 1; i < len(points); i++ {
-		if points[i] != points[i-1] {
-			uniquePoints = append(uniquePoints, points[i])
+	//Sort all the newly made x points, we need to do this because we assume that the buildings are already sorted.
+	sort.Ints(xPlane)
+	var uniqueX []int = []int{xPlane[0]}
+	//Now make sure that all x's are unique. We do this by the fact that each iteration will be related to the next in the sense that they are on a 1D plane because of the two x's. These need to be unique because conceputually, this problem will never have the skyline list the same X. When you think about a rectangle, you only need three points to actually create a rectangle ("think of the mouse drag on desktop")
+	for i := 1; i < len(xPlane); i++ {
+		if xPlane[i] != xPlane[i-1] {
+			uniqueX = append(uniqueX, xPlane[i])
 		}
 	}
 
-
-	i := 0
+	//For every iteration of the uniqueX, we want to add all the segments that are needed into the heap, aka (active segments). We also use uniqueX the same way we use the queries is uniqueX, as way to range over possible "part of the answers" that will be lead to the final answer, an auxilaury look up. The only difference is that we need to actually build it out, then we have uniqueX.
+	b := 0
 	prevMaxHeight := 0
-	for _, x := range uniquePoints {
+	for _, x := range uniqueX {
 		// Add buildings to the heap if their start is at or before x
-		for i < len(buildings) && buildings[i][0] <= x {
-			h.Insert([]int{buildings[i][2], buildings[i][1]})
-			i++
+		for b < len(buildings) && buildings[b][0] <= x {
+			//Insert the building height and then insert the building right side (right x), we are going to be sorting this heap by the height. We need to insert the right in order for us to disqualify heights as we move onto the different X's.
+			h.Insert([]int{buildings[b][2], buildings[b][1]})
+			b++
 		}
-		// Remove buildings from the heap if their end is before x
+		//Remove buildings from the heap if their end is before x or equal to x. There can only be one x on the plane, left or right (mostly left)
 		for len(h.arr) > 0 && h.arr[0][1] <= x {
 			h.Pop()
 		}
-
-		// Get the current max height
+		//Get the current max height, notice that it starts at zero and if the heap has anything, the top of that heap will be the new current height. If the heap is empty, it means we have reached the floor and the currentHeight will stay 0.
 		currentMaxHeight := 0
 		if len(h.arr)  > 0 {
 			currentMaxHeight = h.arr[0][0]
 		}
 
-		// Update the skyline if the max height changed
+		//Update the skyline if the max height changed, append it to the skyline and then assign the prevMaxHeight to currentMaxHeight
 		if currentMaxHeight != prevMaxHeight {
 			skyline = append(skyline, []int{x, currentMaxHeight})
 			prevMaxHeight = currentMaxHeight
