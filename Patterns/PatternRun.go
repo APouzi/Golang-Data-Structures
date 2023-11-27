@@ -77,7 +77,9 @@ func RunPattern() {
 	Years := [][]int{{2008,2026},{2004,2008},{2034,2035},{1999,2050},{2049,2050},{2011,2035},{1966,2033},{2044,2049}}
 	fmt.Println("Maximum Years:", MaximumPopulation(Years))
 
-	
+	//---SkyLine Problem---
+	buildings := [][]int{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}}
+	fmt.Println("SkyLine", GetSkyline(buildings))
 	
 	
 
