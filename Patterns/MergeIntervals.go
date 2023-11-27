@@ -2,6 +2,7 @@ package patterns
 
 import (
 	"fmt"
+	"sort"
 
 	sorting "github.com/APouzi/go-algos/Sorting"
 )
@@ -145,7 +146,7 @@ func MinInterval(intervals [][]int, queries []int) []int {
 	copy(queryCopy,queries)
 	sorting.QuickSort(queryCopy,0,len(queries)-1)//Now we need to sort the queries, this is what makes the sorting easier 
 	//This is a minHeap that is sorting based on the size of the interval and also keeping the right most of the interval (end of interval)
-	h := &HeapPair{}
+	h := &HeapPairMin{}
 	result :=map[int]int{}
 	//The i represents the interation through the intervals
 	i := 0
@@ -221,7 +222,7 @@ func MeetingRoomsII(intervals [][]int) int{
 
 func MeetingRoomsIIHeap(intervals [][]int)int{
 	var maxAns int = 0
-	active := InitializeHeapPair()
+	active := InitializeHeapPairMin()
 	MergeSortIntervalByStart(intervals,0,len(intervals)-1)
 	for i :=0;i<len(intervals);i++{
 		fmt.Println(active.arr, intervals[i])
@@ -275,6 +276,77 @@ func MaximumPopulation(logs [][]int) int {
 	}
 	return earliestYear
 
+}
+
+//A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return the skyline formed by these buildings collectively.
+
+// The geometric information of each building is given in the array buildings where: 
+//buildings[i] = [lefti, righti, heighti]:
+// lefti is the x coordinate of the left edge of the ith building.
+// righti is the x coordinate of the right edge of the ith building.
+// heighti is the height of the ith building.
+
+// You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.
+// The skyline should be represented as a list of "key points" sorted by their x-coordinate in the form [[x1,y1],[x2,y2],...]. Each key point is the left endpoint of some horizontal segment in the skyline except the last point in the list, which always has a y-coordinate 0 and is used to mark the skyline's termination where the rightmost building ends. Any ground between the leftmost and rightmost buildings should be part of the skyline's contour.
+
+// Note: There must be no consecutive horizontal lines of equal height in the output skyline. For instance, [...,[2 3],[4 5],[7 5],[11 5],[12 7],...] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: [...,[2 3],[4 5],[12 7],...]
+
+//Example 1
+// buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
+// Output: [[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]
+
+// Example 2:
+// buildings = [[0,2,3],[2,5,3]]
+// Output: [[0,3],[5,0]]
+
+func GetSkyline(buildings [][]int) [][]int {
+	var skyline [][]int
+	h := &HeapPairMax{}
+
+	// Collect all unique points (start and end of buildings)
+	var points []int = make([]int, len(buildings)*2)
+	for i, b := range buildings {
+            points[i*2] = b[0]
+            points[i*2+1] = b[1]
+	}
+
+	// Remove duplicates and sort
+	sort.Ints(points)
+	var uniquePoints []int = []int{points[0]}
+	for i := 1; i < len(points); i++ {
+		if points[i] != points[i-1] {
+			uniquePoints = append(uniquePoints, points[i])
+		}
+	}
+
+
+	i := 0
+	prevMaxHeight := 0
+	for _, x := range uniquePoints {
+		// Add buildings to the heap if their start is at or before x
+		for i < len(buildings) && buildings[i][0] <= x {
+			h.Insert([]int{buildings[i][2], buildings[i][1]})
+			i++
+		}
+		// Remove buildings from the heap if their end is before x
+		for len(h.arr) > 0 && h.arr[0][1] <= x {
+			h.Pop()
+		}
+
+		// Get the current max height
+		currentMaxHeight := 0
+		if len(h.arr)  > 0 {
+			currentMaxHeight = h.arr[0][0]
+		}
+
+		// Update the skyline if the max height changed
+		if currentMaxHeight != prevMaxHeight {
+			skyline = append(skyline, []int{x, currentMaxHeight})
+			prevMaxHeight = currentMaxHeight
+		}
+	}
+
+	return skyline
 }
 
 
