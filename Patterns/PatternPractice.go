@@ -1,7 +1,5 @@
 package patterns
 
-import "sort"
-
 // Write an algorithm to determine if a number n is happy.
 // A happy number is a number defined by the following process:
 // Starting with any positive integer, replace the number by the sum of the squares of its digits.Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
@@ -68,46 +66,5 @@ func FindDuplicatePrac([]int)int{
 }
 
 func GetSkylinePrac(buildings [][]int)[][]int{
-	var pointX []int = make([]int, len(buildings)*2)
-	var heap HeapPairMax = HeapPairMax{}
-
-	for i := 0; i < len(buildings);i++{
-		pointX[i*2] = buildings[i][0]
-		pointX[i*2+1] = buildings[i][1]
-	}
-	
-	var uniqueX []int = []int{pointX[0]}
-	for i :=1;i<len(pointX);i++{
-		if pointX[i-1] != pointX[i]{
-			uniqueX = append(uniqueX, pointX[i])
-		}
-	}
-	sort.Ints(uniqueX)
-	var b int = 0
-	var prevMaxHeight int = 0
-	var skyline [][]int
-	for x := 0; x <len(uniqueX);x++{
-
-		for b <len(buildings) && buildings[b][0] <= uniqueX[x]{
-			heap.Insert([]int{buildings[b][2],buildings[b][1]})
-			b++
-		}
-
-		for len(heap.arr) > 0 && heap.arr[0][1] <= uniqueX[x]{
-			heap.Pop()
-		}
-
-		var currentHeight int = 0
-		if len(heap.arr) >0{
-			currentHeight = heap.arr[0][0]
-		}
-
-		if currentHeight != prevMaxHeight{
-			skyline = append(skyline, []int{uniqueX[x],currentHeight})
-			prevMaxHeight = currentHeight
-		}
-	}
-
-
-	return skyline
+	return buildings
 }
