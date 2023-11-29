@@ -19,7 +19,7 @@ var AllProblems []string = []string{
 	"Sum of Nodes with Even-Valued Grandparent", "Course Schedule II", "Remove Nth Node From a List",
 	"SubArray Product less than K","Merge K Sorted Lists","Merge 2 Sorted Lists", "Intersection of two Linked Lists",
 	 "Maximum Subarray", "Delete Node from a BST", "Two Sum", "Path Sum II", "Invert a Binary Tree", "Meeting Rooms",
-	"Meeting Rooms II", "Remove Elements"}
+	"Meeting Rooms II", "Remove Elements", "skyline problem", "Top K frequent Elements", "Group Anagrams"}
 func GenerationProblemOne() {
 	fmt.Println("\nTotal Problems in Knowledge Bank is:",len(AllProblems))
 	fmt.Println("\n",AllProblems[rand.Intn(len(AllProblems))])
