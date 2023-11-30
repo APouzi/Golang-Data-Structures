@@ -14,11 +14,15 @@ func ValidSudoku(board [][]byte) bool {
 			if board[r][c] == 46 {
 				continue
 			}
+			var rc [2]int = [2]int{r / 3, c / 3}
 
-			if row[r][board[r][c]] || col[c][board[r][c]] || box[[2]int{r / 3, c / 3}][board[r][c]] {
+			if row[r][board[r][c]] || col[c][board[r][c]] || box[rc][board[r][c]] {
 				return false
 			}
-			row[r][board[r][c]], col[c][board[r][c]], box[[2]int{r / 3, c / 3}][board[r][c]] = true, true, true
+			if box[rc] == nil {
+				box[rc] = make(map[byte]bool)
+			}
+			row[r][board[r][c]], col[c][board[r][c]], box[rc][board[r][c]] = true, true, true
 		}
 	}
 	return true
