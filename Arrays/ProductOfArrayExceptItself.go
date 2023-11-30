@@ -17,12 +17,16 @@ func ProductExceptSelf(nums []int) []int {
 	var res []int = make([]int, n+1)
 	for i := 0; i <= n; i++ {
 		res[i] = prefix // [1,1,2,6]
-		prefix *= nums[i] //1*1, 1*2, 2*3, 3*4 (this doesn't get added)
+						//prefix * nums[i]
+		prefix *= nums[i] //1*1, 1*2, 2*3, 3*4 (last one doesn't get added)
 	}
 	// fmt.Println("Prefix", res)
 	for i := n; i >= 0; i-- {
-		res[i] *= postfix //6*1,4*2,12*1, [24,12,8,6](remember, we are add to this list in backwards order)
+		res[i] *= postfix //6*1,4*2,12*1, [24,12,8,6](remember, we are adding to this list in backwards order)
 		postfix *= nums[i]//1*4, 4*3, 12*2, 24*1
 	}
 	return res
 }
+
+//nums =   [1,2,3,4]
+//prefix = [1,1,2,6]
