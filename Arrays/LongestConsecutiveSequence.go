@@ -35,10 +35,33 @@ func LongestConsecutive(nums []int) int {
     return ans
 }
 
+func LongestConsecutive2(nums []int) int {
+	var consec map[int]bool = make(map[int]bool, 0)
+
+	for i := 0; i < len(nums);i++{
+		consec[nums[i]] = true
+	}
+
+	var ans int = 0
+
+	for i := 0; i < len(nums);i++{
+		if consec[nums[i]-1]{
+			continue
+		}
+
+		count := 1 //Remeber, already know that nums[i]+0 exists, what we want is to know if the consecutive next one exists. nums+1, nums+2 etc. After we complete this loop, see if this ans is the biggest one.
+		for consec[nums[i]+count]{
+			count++
+		}
+
+		ans = max(count, ans)
+	}
+	return ans
+}
+
 func max(i, j int) int{
 	if i > j{
 		return i
 	}
 	return j
 }
-
