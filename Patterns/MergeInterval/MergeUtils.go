@@ -1,4 +1,4 @@
-package mergeintervals
+package patterns
 
 //---min and max---
 func min(a, b int) int{
@@ -230,76 +230,6 @@ func MergeIntervalEnd(arr [][]int,st, mid, end int) [][]int{
 	return arr
 }
 
-//-----Heap for LinkedLists------
-type MinHeap struct{
-    array []*LinkedNode
-}
-
-func(h *MinHeap) push(num *LinkedNode){
-    h.array = append(h.array, num)
-    h.heapifyUp()
-}
-
-func(h *MinHeap) pop() *LinkedNode{
-    popped := h.array[0]
-    var length int = len(h.array) -1
-    h.array[0] = h.array[length]
-    h.array = h.array[:length]
-    h.heapifyDown()
-    return popped
-}
-
-func(h *MinHeap) heapifyUp(){
-    var index int = len(h.array)-1
-    for h.array[parent(index)].Val > h.array[index].Val{
-        h.swap(parent(index), index)
-    }
-    
-}
-func(h *MinHeap) heapifyDown(){
-    var index int = 0
-    var length int = len(h.array)-1
-    smallest := leftChild(index)
-    for leftChild(index) < length{
-        if rightChild(index) < length {
-            if h.array[leftChild(index)].Val < h.array[rightChild(index)].Val{
-                smallest = leftChild(index)
-            }else{
-                smallest = rightChild(index)
-            }
-            
-            if h.array[index].Val > h.array[smallest].Val{
-                h.swap(index, smallest)
-                index = smallest
-            }else{
-                break
-            }
-        }else{
-            if h.array[index].Val > h.array[leftChild(index)].Val{
-                h.swap(index, leftChild(index))
-                index = leftChild(index)
-            }else{
-                break
-            }
-        }
-    }
-}
-
-func parent(num int) int{
-    return num/2
-}
-
-func leftChild(num int) int{
-    return (num + 1)/2
-}
-
-func rightChild(num int) int{
-    return (num + 2)/2
-}
-
-func(h *MinHeap) swap(i int, j int){
-    h.array[j],h.array[i] = h.array[i], h.array[j]
-}
 
 
 //------------------Heap for Pairs------------------
