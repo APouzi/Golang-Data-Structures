@@ -1,4 +1,4 @@
-package fastandslowpointers
+package patterns
 
 import "fmt"
 

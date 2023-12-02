@@ -1,6 +1,10 @@
 package patterns
 
-import "fmt"
+import (
+	"fmt"
+
+	patterns "github.com/APouzi/go-algos/Patterns/patterns"
+)
 
 func RunPattern() {
 	// ---Permutation String---
@@ -20,7 +24,7 @@ func RunPattern() {
 
 	// ---Happy Number---
 	HappyInput := 19
-	HappyNum := HappyNumber(HappyInput)
+	HappyNum := patterns.HappyNumber(HappyInput)
 	fmt.Printf("Is the number \"%d\", a happy num? Answer: %t\n", HappyInput,HappyNum)
 	HappyNumPrac := HappyNumberPrac(HappyInput)
 	fmt.Printf("Practice! Is the number \"%d\", a happy num? Answer: %t\n", HappyInput,HappyNumPrac)
