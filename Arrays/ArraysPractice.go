@@ -33,7 +33,7 @@ func FindKthLargestPrac(nums []int, k int) int {
 // Example 2:
 // Input: nums = [0,3,7,2,5,8,4,6,0,1]
 // Output: 9
-func LongestConsercutiveSequence(nums []int) int {
+func LongestConsercutiveSequencePrac(nums []int) int {
 	return -1
 }
 
