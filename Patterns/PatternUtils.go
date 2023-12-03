@@ -230,6 +230,10 @@ func MergeIntervalEnd(arr [][]int,st, mid, end int) [][]int{
 	return arr
 }
 
+type LinkedNode struct{
+	Val int
+	Next *LinkedNode
+}
 //-----Heap for LinkedLists------
 type MinHeap struct{
     array []*LinkedNode
