@@ -17,7 +17,7 @@ package arrays
 // Output: 8
 // Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
 
-func missingNumber(nums []int) int {
+func MissingNumber(nums []int) int {
     var miss map[int]bool =make(map[int]bool)
     for i := 0; i <len(nums);i++{
         miss[nums[i]]=true
