@@ -20,7 +20,7 @@ func RunArrays() {
 	//Practice Problems
 	fmt.Println("----Practice Array Problems---")
 	fmt.Println("Shuffle String Practice:", ShuffleString("codeleet", []int{4,5,6,7,0,2,1,3}))
-	fmt.Println("Group Anagrams Practice")
+	fmt.Println("Group Anagrams Practice",GroupAnagramsPract([]string{"eat","tea","tan","ate","nat","bat"}))
 	fmt.Println("FindKthLargest Practice")
 	fmt.Println("Longest Consecutive Sequence Practice")
 	fmt.Println("Missing Number Practice")
