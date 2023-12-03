@@ -19,7 +19,7 @@ type MinHeap [][]int
 
 func (h MinHeap) Len() int {return len(h)}
 func (h MinHeap) Swap(i, j int) {h[i],h[j]=h[j],h[i]}
-func (h MinHeap) Less( i, j int) bool { return h[i][0] < h[j][0]}
+func (h MinHeap) Less( i, j int) bool { return h[i][0] > h[j][0]}
 
 func (h *MinHeap) Push(i interface{}){
     *h = append(*h, i.([]int))
@@ -28,7 +28,7 @@ func (h *MinHeap) Push(i interface{}){
 func (h *MinHeap) Pop()interface{}{
     old := *h
     oldL := len(old)
-    last := old[:oldL-1]
+    last := old[oldL-1]
     *h = old[0:oldL-1]
     return last
 }
