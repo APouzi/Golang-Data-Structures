@@ -20,6 +20,14 @@ package arrays
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-func TwoSum() {
-
+func TwoSum(nums []int, k int)[]int {
+	var bank map[int]bool = make(map[int]bool)
+	for i := 0; i < len(nums);i++{
+		bank[nums[i]]=true
+		if bank[k-nums[i]]{
+			return []int{nums[i], k-nums[i]}
+		}
+		
+	}
+	return []int{}
 }
