@@ -1,4 +1,4 @@
-package patterns
+package fastandslow
 
 func FindDuplicate(nums []int) int {
 	var slow, fast int = nums[0], nums[nums[0]]
