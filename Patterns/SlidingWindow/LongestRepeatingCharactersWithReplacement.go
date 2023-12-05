@@ -23,14 +23,11 @@ func CharacterReplacement(s string, k int) int {
 		bank[s[r]]++
 
 		maxFreq = max(maxFreq, bank[s[r]]) // This will keep track of whether the currently added byte into the bank is the most frequent. If it's not, the last byte that was updated, is the answer. This can either be the last one or multiple iterations before.
-		for (r-l+1)-maxFreq > k {          //This the "Trick" we use to know whether there is enough replacement points (k) to replace whatever characters to make the string longer.
+		for (r-l+1)-maxFreq > k {//This the "Trick" we use to know whether there is enough replacement points (k) to replace whatever characters to make the string longer. The reason this works is because of this, maxFreq is going to be the highest repeated character. This is important because lets say we have "AAAA", meaning our maxFreq would be 4 by the end of the line. Now if we do "3-0+1", which would be 4. So (r-l+1=4) - MaxFreq=4 >k. We are asking this because if that is bigger than k, it means that we need to decrement the left pointer and then increment l++.
 			bank[s[l]]--
 			l++
 		}
 		ans = max(ans, r-l+1)
-		// if ans > len(s)/2 {
-		// 	break
-		// }
 	}
 	return ans
 }
