@@ -21,10 +21,6 @@ func cycleHN(num int) int {
 	return -1
 }
 
-func PermuStrPrac(str1 string, str2 string) bool {
-	return false
-}
-
 func MergeIntervalsPrac(intervals [][]int) [][]int {
 	return [][]int{}
 }
@@ -61,7 +57,7 @@ func ValidPalindromePrac(word string) bool{
 	return false
 }
 
-func FindDuplicatePrac([]int)int{
+func FindDuplicateInArrayPrac([]int)int{
 	return -1
 }
 
@@ -77,7 +73,7 @@ func GetSkylinePrac(buildings [][]int)[][]int{
 // str1 = "eidboaoo", str2 = "ab"
 // str1 = "eidboaoo", str2 "eidboaoo"
 
-func PermutationOfString(str1, str2 string) bool{
+func PermutationOfStringPrac(str1, str2 string) bool{
 	return false
 }
 

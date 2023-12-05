@@ -12,7 +12,7 @@ func RunPattern() {
 	returnRes := slidingwindow.PermutationOfString("eidboaoo", "eidboaoo")
 	fmt.Println("PermutationOfString",returnRes)
 	//"eidboaoo", str2 "eidboaoo"
-	returnpracRes := PermuStrPrac("eidboaoo", "ba")
+	returnpracRes := PermutationOfStringPrac("eidboaoo", "ba")
 	fmt.Println("PermuStrPrac result",returnpracRes)
 
 	// --- High Sell low
