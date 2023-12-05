@@ -29,31 +29,28 @@ func MinWindow(s string, t string) string {
 	}
 
 	var l int = 0
-	currHave, need := 0, len(compareTo)
+	currHave, need := 0, len(compareTo) // we have the need be the size of the array due to the fact that we will only grow currHave if the value of given character like compareto[s[r]] == bank[s[r]]. That way they match like that. 
 	res := [2]int{-1, -1}
 	var reslen int = 777777777
 	for r := 0; r < len(s); r++ {
 		window[s[r]]++
-		if _, ok := compareTo[s[r]]; ok && window[s[r]] == compareTo[s[r]] {
+		if _, ok := compareTo[s[r]]; ok && window[s[r]] == compareTo[s[r]] {//This grows currHave ONLY if we have the same given variables at the character keys, otherwise, there is no need to compare the two.
 			currHave++
 		}
 		for currHave == need {
-			if (r - l + 1) < reslen {
+			if (r - l + 1) < reslen {//Since we are in the zone where we have the minimum characters, we will continue to decrease the window. 
 				res[0], res[1] = l, r
 				reslen = (r - l + 1)
 			}
 			window[s[l]]--
-			// if window[s[l]] == 0{
-			//     delete(window, s[l])
-			// }
-			if _, ok := compareTo[s[l]]; ok && window[s[l]] < compareTo[s[l]] {
+			if _, ok := compareTo[s[l]]; ok && window[s[l]] < compareTo[s[l]] { //This window is important because we only decrease when its the same character as compare too that has been removed and also importantly, the window's key has less repeatition than the compare too. This is because sometimes, we will have compareTo{a:1,b:1,c:1} and bank{a:1,b:2,c:1}, we will have to remove B at least twice before this condition is met. (look s = "ADOBECODEBANC", t = "ABC")
 				currHave--
 			}
 			l++
 		}
 	}
-	if reslen != 777777777 {
+	if reslen != 777777777 { 
 		return s[res[0] : res[1]+1]
 	}
-	return ""
+	return ""//If result never changed because there is no comparision, then return an empty string.
 }
