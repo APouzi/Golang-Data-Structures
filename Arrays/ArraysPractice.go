@@ -156,7 +156,7 @@ func IsAnamgramPrac(s string, t string) bool {
 // Input: s = "rat", t = "car"
 // Output: false
 
-func ValidSudokuPrac(s, t string) bool {
+func ValidSudokuPrac(board [][]byte) bool {
 	return false
 }
 
