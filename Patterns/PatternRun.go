@@ -31,11 +31,6 @@ func RunPattern() {
 	HappyNumPrac := HappyNumberPrac(HappyInput)
 	fmt.Printf("Practice! Is the number \"%d\", a happy num? Answer: %t\n", HappyInput,HappyNumPrac)
 
-	// ---Two Pointers --
-	palindrone := "ABBAABBAABBA"
-	isPalin := ValidPalindrome(palindrone)
-	fmt.Println("Is",palindrone," a palindrone?:",isPalin)
-
 
 	//---Merge Intervals---
 	intervals := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
