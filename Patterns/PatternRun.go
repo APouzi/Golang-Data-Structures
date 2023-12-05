@@ -83,7 +83,11 @@ func RunPattern() {
 	fmt.Println("SkyLine", GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
 
-	
+	//---Fruit Basket---
+	fmt.Println("Fruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
+
+	//---Character Replacement---
+	fmt.Println("Longest Repeating Characters With Repeating Characters", CharacterReplacementPrac("AABABBA",2))
 	
 
 }
