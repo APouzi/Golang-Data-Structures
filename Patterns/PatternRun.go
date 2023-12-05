@@ -74,7 +74,7 @@ func RunPattern() {
 	fmt.Println("Meeting Roomms II",MeetingRoomsIIHeap(meetingsII))
 
 	//---Maximum Year---
-	// Years := [][]int{{1950,1961},{1960,1971},{1970,1981}}
+	// Years := [][]int{{1950,1961},{19,60,1971},{1970,1981}}
 	Years := [][]int{{2008,2026},{2004,2008},{2034,2035},{1999,2050},{2049,2050},{2011,2035},{1966,2033},{2044,2049}}
 	fmt.Println("Maximum Years:", MaximumPopulation(Years))
 
@@ -89,5 +89,7 @@ func RunPattern() {
 	//---Character Replacement---
 	fmt.Println("Longest Repeating Characters With Repeating Characters", CharacterReplacementPrac("AABABBA",2))
 	
+	//---Minimum Window SubString---
+	fmt.Println("Minimum Window SubString Practice", MinWindowPrac("ADOBECODEBANC", "ABC"))
 
 }

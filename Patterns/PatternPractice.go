@@ -206,7 +206,7 @@ func CharacterReplacementPrac(s string, k int) int {
 // Explanation: Both 'a's from t must be included in the window.
 // Since the largest window of s only has one 'a', return empty string.
 
-
-func MinWindow(s string, t string) string {
+//testcases s = "acbbaca" , t = "aba"
+func MinWindowPrac(s string, t string) string {
 	return "practice"
 }
