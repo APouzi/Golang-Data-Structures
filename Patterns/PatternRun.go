@@ -88,8 +88,6 @@ func RunPattern() {
 	fmt.Println("SkyLine", GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
 
-	//---Valid Palindrome---
-	fmt.Println("Valid PalinDrome Prac",ValidPalindrome("xxbx"))
 	
 	
 
