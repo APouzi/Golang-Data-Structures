@@ -9,9 +9,10 @@ import (
 
 func RunPattern() {
 	// ---Permutation String---
-	returnRes := slidingwindow.PermutationOfString("dcda", "adc")
+	returnRes := slidingwindow.PermutationOfString("eidboaoo", "eidboaoo")
 	fmt.Println("PermutationOfString",returnRes)
-	returnpracRes := PermuStrPrac("dcda", "adc")
+	//"eidboaoo", str2 "eidboaoo"
+	returnpracRes := PermuStrPrac("eidboaoo", "ba")
 	fmt.Println("PermuStrPrac result",returnpracRes)
 
 	// --- High Sell low
@@ -86,6 +87,9 @@ func RunPattern() {
 	buildings := [][]int{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}}
 	fmt.Println("SkyLine", GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
+
+	//---Valid Palindrome---
+	fmt.Println("Valid PalinDrome Prac",ValidPalindrome("xxbx"))
 	
 	
 
