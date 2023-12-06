@@ -34,7 +34,7 @@ func MinWindow(s string, t string) string {
 	var reslen int = 777777777
 	for r := 0; r < len(s); r++ {
 		window[s[r]]++
-		if _, ok := compareTo[s[r]]; ok && window[s[r]] == compareTo[s[r]] {//This grows currHave ONLY if we have the same given variables at the character keys, otherwise, there is no need to compare the two.
+		if window[s[r]] == compareTo[s[r]] {//This grows currHave ONLY if we have the same given variables at the character keys, otherwise, there is no need to compare the two.
 			currHave++
 		}
 		for currHave == need {
@@ -43,7 +43,7 @@ func MinWindow(s string, t string) string {
 				reslen = (r - l + 1)
 			}
 			window[s[l]]--
-			if _, ok := compareTo[s[l]]; ok && window[s[l]] < compareTo[s[l]] { //This window is important because we only decrease when its the same character as compare too that has been removed and also importantly, the window's key has less repeatition than the compare too. This is because sometimes, we will have compareTo{a:1,b:1,c:1} and bank{a:1,b:2,c:1}, we will have to remove B at least twice before this condition is met. (look s = "ADOBECODEBANC", t = "ABC")
+			if window[s[l]] < compareTo[s[l]] { //This window is important because we only decrease when its the same character as compare too that has been removed and also importantly, the window's key has less repeatition than the compare too. This is because sometimes, we will have compareTo{a:1,b:1,c:1} and bank{a:1,b:2,c:1}, we will have to remove B at least twice before this condition is met. (look s = "ADOBECODEBANC", t = "ABC")
 				currHave--
 			}
 			l++
