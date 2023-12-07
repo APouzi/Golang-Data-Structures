@@ -2,8 +2,8 @@ package monotonicdeque
 
 import "fmt"
 
-func mono() {
+func Mono() {
 	heights := []int{2, 1, 2, 4, 3}
 
-	fmt.Println("Monotonic example heights", heights)
+	fmt.Println("Monotonic example heights", MonotonicArrayInit(heights))
 }

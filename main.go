@@ -11,6 +11,7 @@ import (
 	"github.com/APouzi/go-algos/LinkedList"
 	matrices "github.com/APouzi/go-algos/Matrices"
 	patterns "github.com/APouzi/go-algos/Patterns"
+	monotonicdeque "github.com/APouzi/go-algos/Patterns/MonotonicDeque"
 	prbGen "github.com/APouzi/go-algos/ProblemListGeneration"
 	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
@@ -122,6 +123,9 @@ func main() {
 		prbGen.GenerationProblemList()
 	}
 	
+	if cmnd == "mono"{
+		monotonicdeque.Mono()
+	}
 	
 	
 	

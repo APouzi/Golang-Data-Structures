@@ -45,3 +45,6 @@ problem:
 
 problems:
 	go build -o algo .; ./algo -command "problems"
+
+mono:
+	go build -o algo .; ./algo -command "mono"
