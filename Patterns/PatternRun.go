@@ -87,9 +87,15 @@ func RunPattern() {
 	fmt.Println("Fruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
 
 	//---Character Replacement---
-	fmt.Println("Longest Repeating Characters With Repeating Characters", CharacterReplacementPrac("AABABBA",2))
+	fmt.Println("Longest Repeating Characters With Repeating Characters", CharacterReplacementPrac("AABABBA",1))
 	
 	//---Minimum Window SubString---
 	fmt.Println("Minimum Window SubString Practice", MinWindowPrac("ADOBECODEBANC", "ABC"))
+
+	//---Maximum Sliding Window ---
+	fmt.Println("Maximum Sliding Window", slidingwindow.MaxSlidingWindow([]int{1,3,-1,-3,5,3,6,7}, 3))
+	fmt.Println("Maximum Sliding Window Practice", MaxSlidingWindowPrac([]int{1,3,-1,-3,5,3,6,7}, 3))
+	
+
 
 }

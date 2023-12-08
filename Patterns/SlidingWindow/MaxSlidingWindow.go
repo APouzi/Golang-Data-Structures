@@ -28,19 +28,25 @@ import (
 
 
 func MaxSlidingWindow(nums []int, k int)[]int{
+
+	//Here we are going to be creating a monotonic array to be allowing to keep track of the biggest element by using a decreasing monotonic stack/array. Decreasing = [8,4,3,1,].
+	//We need to do this because what we want to be able to get 0th index, which should be the absolute largest index in a subarray. 
 	var mono, ans []int = make([]int, 0), make([]int, 0)
 
 	var l int = 0
 	for r := 0; r < len(nums);r++{
+
+		//If the current iteration of nums[r] is bigger than the top of the stack, we want to pop all the elements that are smaller than the current iteration of nums[r]. Once we pop all elements that are smaller than the elements in the stack, we want to insert that into the monotonic array.
 		for len(mono) > 0 && nums[mono[len(mono)-1]] < nums[r]{
 			mono = mono[:len(mono)-1]
 		}
+		//Make sure you understand that we are inputting the index. This is because of the fact that we want to keep track of the index due to keeping the window in size.
 		mono = append(mono, r)
-
+		//If left pointer is bigger than the index at the bottom of the monotonic array, which is the index of the biggest element in the subarray at the time, then we want to remove that element. This is because the window no longer applies.
 		if mono[0] < l{
 			mono = mono[1:]
 		} 
-
+		//If the right pointer is bigger than bigger than the k element, it means we can start appened the biggest element that is representing the subarray.
 		if (r+1) >= k{
 			ans = append(ans, nums[mono[0]])
 			l++

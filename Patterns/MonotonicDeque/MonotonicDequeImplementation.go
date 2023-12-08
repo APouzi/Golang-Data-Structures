@@ -7,7 +7,6 @@ package monotonicdeque
 func MonotonicArrayInit(nums []int) []int {
 	var mono []int = []int{}
 	var ans []int = make([]int, len(nums))
-
 	for i := len(nums)-1; i >= 0; i-- {
 		for len(mono) > 0 && nums[i] >= mono[len(mono)-1] {
 			mono = mono[:len(mono)-1]
