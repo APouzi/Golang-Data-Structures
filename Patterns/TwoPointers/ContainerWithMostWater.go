@@ -16,13 +16,13 @@ package twopointers
 // Input: height = [1,1]
 // Output: 1
 
-func maxArea(height []int) int {
+func ContainerWithMostWater(height []int) int {
 	var left, right int = 0, len(height) - 1
 	var ans int = 0
 	for left < right {
-		var volume int = (right - left) * min(height[left], height[right])
+		var volume int = (right - left) * min(height[left], height[right]) //Here we are trying to get the biggest area of a container. We do this by getting the min height since one side being taller doesn't apply since it can't hold anything. The (right - left) is getting the length of the container.
 		ans = max(volume, ans)
-		if height[left] <= height[right] {
+		if height[left] <= height[right] {//Asking if the left height is less than or equal to the right height (doesn't matter which one is equal), if it is, we need to move up the left side. In doing so, we are hoping the find the biggest one
 			left++
 		} else if height[left] > height[right] {
 			right--
