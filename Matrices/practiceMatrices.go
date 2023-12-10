@@ -60,23 +60,7 @@ func MirrorMatrixPrac(arr [][]int)[][]int{
 
 //Given values of a that represent a left leaning wall (-1) and right leaning wall (1), where will the ball drop, even if it can?
 func WhereWillTheBallDropPrac(arr [][]int)[]int{
-	var ans []int = []int{}
-	var curr_col, next_col int
-	for col := 0; col <len(arr[0]);col++{
-		curr_col = col
-		for row := 0; row < len(arr); row++{
-			next_col = curr_col + arr[row][col]
-			
-			if col + next_col < 0 || col + next_col > len(arr[0])-1 || arr[row][next_col] != arr[row][curr_col] {
-				curr_col = -1
-				break
-			}
-			curr_col = next_col
-			fmt.Println(curr_col)
-		}
-		ans = append(ans, curr_col)
-	}
-	return ans
+	return []int{}
 }
 
 
