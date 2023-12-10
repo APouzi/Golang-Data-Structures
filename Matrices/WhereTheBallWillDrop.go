@@ -21,16 +21,16 @@ package matrices
 // Output: [1,-1,-1,-1,-1]
 
 // Input: grid = [
-// [1,1,1,1,1,1],
+// [1,  1, 1, 1, 1, 1],
 // [-1,-1,-1,-1,-1,-1],
-// [1,1,1,1,1,1],
+// [ 1, 1, 1, 1, 1, 1],
 // [-1,-1,-1,-1,-1,-1]]
 // Output: [0,1,2,3,4,-1]
 func whereTheBallDrops(arr [][]int) []int {
 	colEnd, rowEnd := len(arr[0])-1, len(arr)-1
 	ans := []int{}
 	for col := 0; col <= colEnd; col++ {
-		curr_col := col
+		curr_col := col //IMPORTANT: The most important portion of this is that we are tracking where the "ith" ball will fall out of, as in, if you drop ball into the 0th column, where will that ball fall out of? Its important to note, that we know where to put this ball due to the fact that we are at ith col here, and we will either be adding to or removing from the column as we move down!
 		for row := 0; row <= rowEnd; row++ {
 			//Here we are asking if the column is going to be going left or right. Say our curr_col is 0, we then want to add curr_col to the arr[row][curr_col] which will be +1. That will now mean that the next row will have us on column 1. Remember column also takes in the row, because we are trying to see if the column will be to the right or left. 
 			next_col := curr_col + arr[row][curr_col]

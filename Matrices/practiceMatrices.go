@@ -1,9 +1,9 @@
 package matrices
 
-// {1, 2, 3, 4},
+// {1,  2,  3,  4},
 // {12, 13, 14, 5},
 // {11, 16, 15, 6},
-// {10, 9, 8, 7},
+// {10, 9,  8,  7},
 func SpiralMatrixPrac(arr [][]int) []int {
 
 	return []int{}
@@ -52,15 +52,31 @@ func MirrorMatrixPrac(arr [][]int)[][]int{
 // Output: [1,-1,-1,-1,-1]
 
 // Input: grid = [
-// [1,1,1,1,1,1],
+// [1,  1, 1, 1, 1, 1],
 // [-1,-1,-1,-1,-1,-1],
-// [1,1,1,1,1,1],
+// [ 1, 1, 1, 1, 1, 1],
 // [-1,-1,-1,-1,-1,-1]]
 // Output: [0,1,2,3,4,-1]
 
 //Given values of a that represent a left leaning wall (-1) and right leaning wall (1), where will the ball drop, even if it can?
 func WhereWillTheBallDropPrac(arr [][]int)[]int{
-	return []int{}
+	var ans []int = []int{}
+	var curr_col, next_col int
+	for col := 0; col <len(arr[0]);col++{
+		curr_col = col
+		for row := 0; row < len(arr); row++{
+			next_col = curr_col + arr[row][col]
+			
+			if col + next_col < 0 || col + next_col > len(arr[0])-1 || arr[row][next_col] != arr[row][curr_col] {
+				curr_col = -1
+				break
+			}
+			curr_col = next_col
+			fmt.Println(curr_col)
+		}
+		ans = append(ans, curr_col)
+	}
+	return ans
 }
 
 
