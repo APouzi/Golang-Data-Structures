@@ -35,7 +35,7 @@ func RunLinkedList() {
 	L4 := CreateLinkedList()
 	fmt.Println("Reverse K Groups Practice Linked List:")
 	L4.PrintList()
-	revedPrac2 := ReverseKGroupsPrac(L4.Head, 3)
+	revedPrac2 := ReverseKGroupsPrac(L4.Head, 2)
 	println("\nprint reverse:")
 	PrintWithHead(revedPrac2)
 
@@ -60,13 +60,39 @@ func RunLinkedList() {
 	PrintWithHead(RemoveNthFromEnd(L8.Head, 3))
 	fmt.Println("\nRemove Nth Node from Linked List Practice:")
 	L9 := CreateLinkedList()
-	PrintWithHead(RemoveNthNodePrac(L9.Head, 8))
+	PrintWithHead(RemoveNthNodePrac(L9.Head, 3))
+
+	//-----Remove Element -----
+	L10 := CreateLinkedListRemoveElem()
+	PrintWithHead(L10.Head)
+	ret := RemoveElementsPrac(L10.Head, 7)
+	PrintWithHead(ret)
+	
+	//----Odd Even LinkedList---
+	L11 := CreateLinkedList()
+	fmt.Println("\nOdd Even LinkedList:")
+	oddeveRet := OddEvenList(L11.Head)
+	PrintWithHead(oddeveRet)
 
 }
 
 func CreateLinkedList() *LinkedList{
 	list := LinkedList{}
 	for i := 1; i < 10; i++ {
+		list.AddNode(i)
+	}
+	return &list
+}
+
+func CreateLinkedListRemoveElem() *LinkedList{
+	list := LinkedList{}
+	for i := 1; i < 10; i++ {
+		if i == 7{
+			for k := i; k < 10;k++{
+				list.AddNode(i)
+			}
+			continue
+		}
 		list.AddNode(i)
 	}
 	return &list
@@ -92,3 +118,4 @@ func CreateLinkedListDuplicate()*LinkedList{
 	}
 	return &list
 }
+
