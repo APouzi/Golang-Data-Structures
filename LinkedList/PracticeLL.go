@@ -3,7 +3,27 @@ package LinkedList
 // The List passed in: 9, 8, 7, 6, 5, 4, 3, 2, 1
 // the result: 7,8, 9, 6, 5, 4, 3, 2, 1
 func ReverseKGroupsPrac(head *LinkedNode, k int) *LinkedNode {
-	return head
+	curr := head
+	count := 0
+
+	for count < k{
+		if curr == nil{
+			return head
+		}
+		curr = curr.Next
+		count++
+	}
+
+	prev := ReverseKGroups(curr, k)
+
+	for count > 0{
+		count--
+		temp := head.Next
+		head.Next = prev
+		prev = head
+		head = temp
+	}
+	return prev
 }
 
 func RemoveDupPrac(head *LinkedNode)*LinkedNode{
@@ -56,7 +76,24 @@ func RemoveElementsPrac(head *LinkedNode, val int) *LinkedNode{
 // Input: head = [2,1,3,5,6,4,7]
 // Output: [2,3,6,7,1,5,4]
 func OddEvenListPrac(head *LinkedNode) *LinkedNode{
-	return head
+	var OddHead, EvenHead *LinkedNode = &LinkedNode{}, &LinkedNode{}
+	var OddTail, EvenTail *LinkedNode = OddHead, EvenHead
+	OddHead.Next = OddTail
+	EvenHead.Next = EvenTail
+	curr := head
+	for curr != nil{
+		if curr.Val % 2 ==0{
+			EvenTail.Next = curr
+			EvenTail = curr
+		}else{
+			OddTail.Next = curr
+			OddTail = curr
+		}
+		curr = curr.Next
+	}
+	OddTail.Next = EvenHead.Next
+	EvenTail.Next = nil
+	return OddHead.Next
 }
 
 func MiddleNodeofLLPrac(head *LinkedNode) *LinkedNode{

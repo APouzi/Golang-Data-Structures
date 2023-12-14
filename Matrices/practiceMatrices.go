@@ -17,6 +17,18 @@ func SpiralMatrixPrac(arr [][]int) []int {
 //          <
 
 func RotateMatrixPrac(arr [][]int)[][]int{
+	quadrants := len(arr)/2
+	var rowStart, colStart, rowEnd, colEnd int = 0, 0, len(arr)-1, len(arr[0])-1
+	for q := 0; q < quadrants; q++{
+		steps := len(arr) - 1 - (q*2)
+		for i := 0; i < steps; i++{
+			topLeft := arr[rowStart][colStart+i]
+			arr[rowStart][colStart+i] = arr[rowEnd-i][colStart]
+			arr[rowEnd-i][colStart] = arr[rowEnd][colEnd-i]
+			arr[rowEnd][colEnd-i] = arr[rowStart+i][colEnd]
+			arr[rowStart+i][colEnd] = topLeft
+		}
+	}
 	return arr
 }
 
@@ -60,7 +72,22 @@ func MirrorMatrixPrac(arr [][]int)[][]int{
 
 //Given values of a that represent a left leaning wall (-1) and right leaning wall (1), where will the ball drop, even if it can?
 func WhereWillTheBallDropPrac(arr [][]int)[]int{
-	return []int{}
+	var ans []int = []int{}
+	for col := 0; col < len(arr[0]);col++{
+		cur_col := col
+		for row := 0; row < len(arr);row++{
+			next_col := cur_col + arr[row][cur_col]
+
+			if next_col < 0 || next_col > len(arr[0])-1 || arr[row][next_col] != arr[row][cur_col]{
+				cur_col = -1
+				break
+			}
+
+			cur_col = next_col
+		}
+		ans = append(ans, cur_col)
+	}
+	return ans
 }
 
 
