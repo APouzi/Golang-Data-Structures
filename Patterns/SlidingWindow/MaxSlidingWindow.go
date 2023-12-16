@@ -31,7 +31,7 @@ func MaxSlidingWindow(nums []int, k int)[]int{
 
 	//Here we are going to be creating a monotonic array to be allowing to keep track of the biggest element by using a decreasing monotonic stack/array. Decreasing = [8,4,3,1,].
 	//We need to do this because what we want to be able to get 0th index, which should be the absolute largest index in a subarray. 
-	var mono, ans []int = make([]int, 0), make([]int, 0)
+	var mono, ans []int = make([]int, 0), make([]int, 0)//ans can also be make([]int, len(nums) - k+1) to get window size and make it run more effiecent.
 
 	var l int = 0
 	for r := 0; r < len(nums);r++{
