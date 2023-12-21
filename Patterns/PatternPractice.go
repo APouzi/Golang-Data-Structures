@@ -303,7 +303,7 @@ func ThreeSum(nums []int) [][]int {
 // Input: height = [1,1]
 // Output: 1
 
-func ContainerWithMostWater(height []int) int {
+func ContainerWithMostWaterPrac(height []int) int {
 	return -1
 }
 
