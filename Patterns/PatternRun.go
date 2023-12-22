@@ -88,7 +88,8 @@ func RunPattern() {
 	fmt.Println("\nFruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
 
 	//---Character Replacement---
-	fmt.Println("\nLongest Repeating Characters With Replacement Characters", CharacterReplacementPrac("AABABBA",1))
+	fmt.Println("\nLongest Repeating Characters With Replacement Characters:", slidingwindow.CharacterReplacement("AABABBA",1))
+	fmt.Println("Longest Repeating Characters With Replacement Characters Prac:", CharacterReplacementPrac("AABABBA",1))
 	
 	//---Minimum Window SubString---
 	fmt.Println("\nMinimum Window SubString Practice", MinWindowPrac("ADOBECODEBANC", "ABC"))
@@ -113,7 +114,7 @@ func RunPattern() {
 
 	//---Container With Most Water---
 	// containerPrac := []int{1,8,6,2,5,4,8,3,7}
-	containerPrac := []int{1,8,6,2,5,7,8,4,3}
+	containerPrac := []int{1,8,6,2,5,4,8,3,7}
 	fmt.Println("\nContainer With Most Water:", ContainerWithMostWaterPrac(containerPrac))
 
 	//---Trapping rain water---
