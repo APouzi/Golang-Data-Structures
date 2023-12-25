@@ -38,3 +38,23 @@ func LengthOfLongestSubstring(s string) int {
     }
     return ans
 }
+
+//Without deleting but this one is abit slower by quite a large margin, as opposed to deleting the stuff. 
+func LengthOfLongestSubstringV2(s string)int{
+    if s == ""{
+        return 0
+    }
+    var bank map[byte]int = map[byte]int{}
+    var ans int = 0
+    var left int = 0
+    for r := 0;r<len(s);r++{
+        bank[s[r]]++
+        for bank[s[r]] > 1{
+            bank[s[left]]--
+            left++
+        }
+        ans = max(ans, r-left+1) //We are instead checking the window size, instead of the size of the hash array.
+    }
+
+    return ans
+}
