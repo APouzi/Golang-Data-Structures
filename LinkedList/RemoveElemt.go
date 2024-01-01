@@ -14,7 +14,10 @@ func RemoveElements(head *LinkedNode, val int) *LinkedNode {
     var dummyHead *LinkedNode = &LinkedNode{} //In this example, dummyhead helps us take care of things like starting with a full linkedList and then ending up with an empty list. See example "7,7,7,7"
     dummyHead.Next = head
 
-    var curr *LinkedNode = dummyHead
+    var curr *LinkedNode = dummyHead//It's also import to note that our curr is a dummyhead, this takes care of alot if testcases such as the fact that our first head is the number we want to remove: [6,4,5,3,6,1]. Because of the fact that if we do work on curr that is assigned to head, then when we return the dummyhead.next. 
+    //**Since we start at the one before hand d.h > 6 > 4 > .....>7, we can operate om the first head with no problem.
+
+
 	//We do curr != nil because of multiple reasons. 
 	//1), We only enter this if there is a linkedNode to actually do work on, sometimes we can be given a nil.
 	//2) In example of "1,2,6,3,4,5,6" if we delete the last 6, we will end up being a nil because of "curr.Next = curr.Next.Next" in the inner for loop. The problem is that if we try to ask the conditional of "curr.Next", we can't because .Next doesn't exist on nil. 

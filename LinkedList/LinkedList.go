@@ -26,11 +26,11 @@ func (ll *LinkedList) PrintList() {
 
 func PrintWithHead(node *LinkedNode) {
 	curr := node
-	fmt.Println()
 	for curr != nil {
 		fmt.Printf(" %v ", curr.Val)
 		curr = curr.Next
 	}
+	fmt.Println()
 
 }
 

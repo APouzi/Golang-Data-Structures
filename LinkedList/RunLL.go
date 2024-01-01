@@ -70,6 +70,7 @@ func RunLinkedList() {
 	PrintWithHead(RemoveNthNodePrac(L9.Head, 3))
 
 	//-----Remove Element -----
+	fmt.Println("Remove Elements from List:")
 	L10 := CreateLinkedListRemoveElem()
 	PrintWithHead(L10.Head)
 	ret := RemoveElementsPrac(L10.Head, 7)
@@ -105,6 +106,7 @@ func CreateLinkedListRemoveElem() *LinkedList{
 		}
 		list.AddNode(i)
 	}
+	list.AddNode(7)
 	return &list
 }
 
