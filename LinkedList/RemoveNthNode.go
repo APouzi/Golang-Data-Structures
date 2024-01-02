@@ -22,7 +22,7 @@ func RemoveNthFromEnd(head *LinkedNode, n int) *LinkedNode {
 			prevBeforeRemoval = prevBeforeRemoval.Next //We want to put our marker on the node before the node we want to delete.
 		}
 		forward = forward.Next
-		n--
+		n--//This n right here is extremely important to place AFTER the check if n <= 0, if we do it too early or above the "n <= 0" this would mean that we would move the back pointer too early and causing is to remove the wrong node.
 	}
 	var theNodeToDelete *LinkedNode = prevBeforeRemoval.Next //Create the node that will be deleted, since we are behind it.
 	prevBeforeRemoval.Next = theNodeToDelete.Next//Deletion

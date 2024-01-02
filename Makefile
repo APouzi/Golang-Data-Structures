@@ -22,7 +22,7 @@ stack:
 graph:
 	go build -o algo .; ./algo -command "graph"
 
-LL:
+ll:
 	go build -o algo .; ./algo -command "linked-list"
 	
 random:
