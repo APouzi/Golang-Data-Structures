@@ -85,7 +85,63 @@ func RunLinkedList() {
 	L12 := CreateLinkedList()
 	oddeveRetPrac := OddEvenListPrac(L12.Head)
 	PrintWithHead(oddeveRetPrac)
+
+	// ----Merge 2 Sorted Lists---
+	L13, L14 := MergeTwoLists(3) 
+	mergedRet := MergeTwoSortedLists(L13,L14)
+	fmt.Println("\nMerge Two Sorted Lists:")
+	PrintWithHead(mergedRet)
+
+	// ----Merge k Sorted Lists---
+	lists := MergedLists(3,5) 
+	mergedKRet := MergeKSortedLists(lists)
+	fmt.Println("\nMerge K Sorted Lists:")
+	PrintWithHead(mergedKRet)
+
 }
+
+func MergeTwoLists(listsNeeded int) (*LinkedNode, *LinkedNode){
+	L1, L2 := &LinkedList{},&LinkedList{}
+	for i := 10; i > 0; i--{
+		if i %2 ==0{
+			L1.AddNode(i)
+		}else{
+			L2.AddNode(i)
+		}
+	}
+	return L1.Head, L2.Head
+}
+
+func MergedLists(listsNeeded int, countPerList int) []*LinkedNode{
+	lists := []*LinkedNode{}
+	k := 0
+	for i := 0; i < listsNeeded; i++{
+		lists = append(lists, &LinkedNode{Val: k})
+		k+=countPerList
+	}
+	var count, start int
+	for _, v := range lists{
+		count = countPerList
+		start = v.Val
+		for count > 1 {
+			start++
+			v.Next = &LinkedNode{Val: start}
+			v = v.Next
+			count--
+		}
+	}
+	fmt.Print("\nList of Linked Nodes Lists Input: ")
+	for _, v := range lists{
+		fmt.Print("[ ")
+		for v != nil{
+			fmt.Print(v.Val, " ")
+			v = v.Next
+		}
+		fmt.Print("] ")
+	}
+	return lists
+}
+
 
 func CreateLinkedList() *LinkedList{
 	list := LinkedList{}
