@@ -23,6 +23,10 @@ package LinkedList
 // Input: lists = [[]]
 // Output: []
 func MergeKSortedLists(lists []*LinkedNode) *LinkedNode{
+	if lists == nil || len(lists) == 0{
+		return nil
+	}
+
 	h := MinHeapNode{}
 
 	for i := 0; i < len(lists);i++{
