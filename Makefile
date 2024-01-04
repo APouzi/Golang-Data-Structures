@@ -1,3 +1,4 @@
+#Name needs to be diff from folder name
 bldrun:
 	go build -o algo .; ./algo -command "hello"
 
@@ -16,7 +17,7 @@ sort:
 dp:
 	go build -o algo .; ./algo -command "dynamic-programming"
 
-stack:
+stacks:
 	go build -o algo .; ./algo -command "stack"
 
 graph:
