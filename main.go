@@ -77,14 +77,17 @@ func main() {
 	if cmnd == "pattern"{
 		patterns.RunPattern()
 	}
+
 	if cmnd == "sort"{
 		sorting.RunSorting()
 	}
+
 	if cmnd == "dynamic-programming"{
 		dynamicprogramming.RunDP()
 	}
+
 	if cmnd == "stack"{
-		stack.RunStack()
+		stack.RunStackProbs()
 	}
 
 	if cmnd == "graph"{
