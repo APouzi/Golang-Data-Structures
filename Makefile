@@ -16,7 +16,7 @@ sort:
 dp:
 	go build -o algo .; ./algo -command "dynamic-programming"
 
-stack:
+stacks:
 	go build -o algo .; ./algo -command "stack"
 
 graph:
