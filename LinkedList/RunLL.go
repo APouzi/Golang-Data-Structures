@@ -101,6 +101,11 @@ func RunLinkedList() {
 	fmt.Println("\nMerge K Sorted Lists:")
 	PrintWithHead(mergedKRet)
 
+	// ----Get Intersection Node----
+	c1,c2,connected:= CreateIntersectedList()
+	fmt.Println("Get Intersection Node:",GetIntersectionNode(c1,c2).Val,connected.Val)
+	fmt.Println("Get Intersection Node:",GetIntersectionNodePrac(c1,c2).Val,connected.Val)
+
 	heapTest := randomLinkedList(10,100)
 	mh := MinHeapNode{}
 	for heapTest != nil{
@@ -217,5 +222,29 @@ func CreateLinkedListDuplicate()*LinkedList{
 		list.AddNode(i)
 	}
 	return &list
+}
+
+func CreateIntersectedList() (*LinkedNode, *LinkedNode, *LinkedNode){
+	l1,l2 := &LinkedNode{}, &LinkedNode{}
+	tail1,tail2 := l1,l2
+	for i :=0;i<5;i++{
+		tail1.Next = &LinkedNode{Val: i+1}
+		tail1 = tail1.Next
+	}
+	
+	for i :=0;i<4;i++{
+		tail2.Next = &LinkedNode{Val: i+1}
+		tail2 = tail2.Next
+	}
+	connected := &LinkedNode{Val: 1994}
+	tail1.Next = connected
+	tail2.Next = connected
+	tail2 = tail2.Next
+	for i := 8; i < 15; i++{
+		tail2.Next = &LinkedNode{Val: i}
+		tail2 = tail2.Next
+	}
+
+	return l1.Next,l2.Next,connected
 }
 
