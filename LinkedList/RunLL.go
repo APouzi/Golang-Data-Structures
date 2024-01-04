@@ -1,6 +1,9 @@
 package LinkedList
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func RunLinkedList() {
 	LL := CreateLinkedList()
@@ -98,7 +101,36 @@ func RunLinkedList() {
 	fmt.Println("\nMerge K Sorted Lists:")
 	PrintWithHead(mergedKRet)
 
+	heapTest := randomLinkedList(10,100)
+	mh := MinHeapNode{}
+	for heapTest != nil{
+		mh.Insert(heapTest)
+		heapTest = heapTest.Next
+	}
+	ans := []int{}
+	for len(mh.arr) > 0{
+		ans = append(ans, mh.Pop().Val)
+	}
+	fmt.Println("Heaped Random Nodes",ans)
+
 }
+func randomLinkedList(size int, randUpTo int) *LinkedNode{
+	New := &LinkedNode{}
+	Tail := New
+	for i := 0; i < size;i++{
+		Tail.Next = &LinkedNode{Val: rand.Intn(randUpTo)}
+		Tail = Tail.Next
+	}
+	
+	curr := New.Next
+	res := []int{}
+	for curr != nil{
+		res = append(res, curr.Val)
+		curr = curr.Next
+	}
+	fmt.Println("Random LinkedList Before:", res)
+	return New.Next
+} 
 
 func MergeTwoLists(listsNeeded int) (*LinkedNode, *LinkedNode){
 	L1, L2 := &LinkedList{},&LinkedList{}
