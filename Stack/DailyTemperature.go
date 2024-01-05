@@ -15,14 +15,14 @@ package stack
 // Output: [1,1,0]
 type Temperature struct{
 	temp int
-	ind int
+	index int
 }
 func dailyTemperatures(temperatures []int) []int {
     stack := []Temperature{}
     ans := make([]int,len(temperatures))
     for i := 0; i < len(temperatures);i++{
-        for len(stack) > 0 && temperatures[i] > stack[len(stack)-1].temp{
-			ans[stack[len(stack)-1].ind] = i - stack[len(stack)-1].ind
+        for len(stack) > 0 && temperatures[i] > stack[len(stack)-1].temp{ 
+			ans[stack[len(stack)-1].index] = i - stack[len(stack)-1].index
             stack = stack[:len(stack)-1]
         }
         stack = append(stack, Temperature{temperatures[i],i})
