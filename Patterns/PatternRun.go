@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
+	skyline "github.com/APouzi/go-algos/Patterns/MergeInterval"
 	slidingwindow "github.com/APouzi/go-algos/Patterns/SlidingWindow"
 	twopointers "github.com/APouzi/go-algos/Patterns/TwoPointers"
 )
@@ -81,7 +82,7 @@ func RunPattern() {
 
 	//---SkyLine Problem---
 	buildings := [][]int{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}}
-	fmt.Println("\nSkyLine", GetSkyline(buildings))
+	fmt.Println("\nSkyLine",skyline.GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
 
 	//---Fruit Basket---
