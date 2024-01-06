@@ -21,11 +21,27 @@ func dailyTemperatures(temperatures []int) []int {
     stack := []Temperature{}
     ans := make([]int,len(temperatures))
     for i := 0; i < len(temperatures);i++{
-        for len(stack) > 0 && temperatures[i] > stack[len(stack)-1].temp{ 
-			ans[stack[len(stack)-1].index] = i - stack[len(stack)-1].index
+        for len(stack) > 0 && temperatures[i] > stack[len(stack)-1].temp{ //Monotonically decreasing means that bottom of the stack is the biggest and top is the smallest in the current iteration.
+			ans[stack[len(stack)-1].index] = i - stack[len(stack)-1].index //Because we are storing the index, this is how we know that length of time that has passed as the iteration go on. 
+            //Due to the fact that stack holds the iteration, this is how we keep track of when to insert the said answer to the correct position. 
             stack = stack[:len(stack)-1]
         }
         stack = append(stack, Temperature{temperatures[i],i})
+    }
+    return ans
+}
+
+
+//This right here is what I would say is what's important. It's the raw version, where all we really care about the stack is the iteration, this allows us to keep track of range and this range being the "days".
+func dailyTemperaturesIndex(temperatures []int) []int {
+    stack := []int{}
+    ans := make([]int,len(temperatures))
+    for i := 0; i < len(temperatures);i++{
+        for len(stack) > 0 && temperatures[i] > temperatures[stack[len(stack)-1]]{ 
+			ans[stack[len(stack)-1]] = i - stack[len(stack)-1] 
+            stack = stack[:len(stack)-1]
+        }
+        stack = append(stack, i)
     }
     return ans
 }
