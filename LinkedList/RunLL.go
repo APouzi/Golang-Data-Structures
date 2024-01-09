@@ -118,6 +118,12 @@ func RunLinkedList() {
 	}
 	fmt.Println("Heaped Random Nodes",ans)
 
+	//----Reverse Linked List II----
+	L1 := CreateLinkedList()
+	fmt.Println("Reverse Linked List:")
+	RevLL2 := RevLinkedListII(L1.Head,2,5)
+	PrintWithHead(RevLL2)
+
 }
 func randomLinkedList(size int, randUpTo int) *LinkedNode{
 	New := &LinkedNode{}
