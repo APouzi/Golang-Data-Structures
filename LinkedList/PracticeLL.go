@@ -79,7 +79,7 @@ func ReorderListPrac(head *LinkedNode)*LinkedNode{
 	return head
 }
 
-func ReverseLinkedList2Prac(head *LinkedNode)*LinkedNode{
+func ReverseLinkedList2Prac(head *LinkedNode, left, right int)*LinkedNode{
 	return head
 }
 
