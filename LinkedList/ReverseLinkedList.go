@@ -15,7 +15,9 @@ func RevRecur(node *LinkedNode) *LinkedNode {
 
 // 9, 8, 7, 6, 5, 4, 3, 2, 1
 func LLRevIterative(currNode *LinkedNode) *LinkedNode {
+	var dummyHead *LinkedNode = &LinkedNode{}
 	var curr *LinkedNode = currNode
+	dummyHead.Next = curr
 	var prev *LinkedNode = nil
 	for curr != nil {
 		temp := curr.Next
