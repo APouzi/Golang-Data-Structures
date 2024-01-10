@@ -24,7 +24,7 @@ func ContainerWithMostWater(height []int) int {
 		ans = max(volume, ans)
 		if height[left] <= height[right] {//Asking if the left height is less than or equal to the right height (doesn't matter which one is equal), if it is, we need to move up the left side.
 			left++
-		} else if height[left] > height[right] {
+		} else {
 			right--
 		}//Otherwise, if the right is smaller, than we are moving the right one down.
 
