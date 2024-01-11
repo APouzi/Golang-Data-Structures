@@ -25,10 +25,11 @@ func RunArrays() {
 	fmt.Println("Two Sum",TwoSum([]int{2,7,11,15},9))
 	fmt.Println("Is Anagram",IsAnagramStringTrick("hello","llohe"))
 	fmt.Println("Is Valid Palindrome",IsPalindrome("A man, a plan, a canal: Panama"))
+	fmt.Println("Largest Substring Between Two Equal Characters", maxLengthBetweenEqualCharacters("mgntdygtxrvxjnwksqhxuxtrv"))
 
 
 	//Practice Problems
-	fmt.Println("----Practice Array Problems---")
+	fmt.Println("\n----Practice Array Problems---")
 	fmt.Println("Shuffle String Practice:", ShuffleString("codeleet", []int{4,5,6,7,0,2,1,3}))
 	fmt.Println("Group Anagrams Practice",GroupAnagramsPract([]string{"eat","tea","tan","ate","nat","bat"}))
 	fmt.Println("FindKthLargest Practice",FindKthLargestPrac([]int{3,2,1,5,6,4},2))
@@ -50,4 +51,5 @@ func RunArrays() {
 		{'.','.','.','.','8','.','.','7','9'}}))
 	fmt.Println("Shuffle String",ShuffleStringPrac("codeleet", []int{4,5,6,7,0,2,1,3}))
 	fmt.Println("Is Valid Palindrome",isValidPrac("A man, a plan, a canal: Panama"))
+	fmt.Println("Largest Substring Between Two Equal Characters", maxLengthBetweenEqualCharacters("mgntdygtxrvxjnwksqhxuxtrv"))
 }
