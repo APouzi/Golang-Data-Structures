@@ -5,10 +5,11 @@ import "fmt"
 func RunStackProbs() {
 	fmt.Println("\nisValid started")
 	// s := "()" //Pass
-	s := "(())[]" //Pass
+	s := "(())[" //Pass
 	// s := "){" //Fail
 	// s:= "[(([))]]" //Fail
-	fmt.Println(isValid(s))
+	fmt.Println("Valid Parenthis:",isValid(s))
+	fmt.Println("Valid Parenthis Prac:",isValidPrac(s))
 
 	fmt.Println("Daily temperatures:", dailyTemperatures([]int{73,74,75,71,69,72,76,73}))
 	fmt.Println("Daily temperatures Prac:", dailyTemperaturesPrac([]int{73,74,75,71,69,72,76,73}))

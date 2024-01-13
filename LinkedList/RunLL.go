@@ -7,7 +7,7 @@ import (
 
 func RunLinkedList() {
 	LL := CreateLinkedList()
-	L2 := CreateLinkedList()
+	
 	L3 := CreateLinkedList()
 	
 	reved := RevRecur(LL.Head)
@@ -40,11 +40,13 @@ func RunLinkedList() {
 	fmt.Println("\nLinkedList Middle Node:", MiddleNodeofLLPrac(L5.Head))
 
 	//---Reverse Linked List Iterative---
+	L2 := CreateLinkedList()
 	fmt.Println("\nReverse Linked List Iterative:")
-	L2.PrintList()
+	PrintWithHead(L2.Head)
 	revedPrac := LLRevIterative(L2.Head)
 	println("\nprint reverse:")
 	PrintWithHead(revedPrac)
+	fmt.Println("\n")
 	L7 := CreateLinkedList()
 	fmt.Println("\nLinked List Reverse Iterative Practice:")
 	PrintWithHead(RevLLIterativePrac(L7.Head))
@@ -53,9 +55,9 @@ func RunLinkedList() {
 	fmt.Println("---LinkedList has started---")
 	fmt.Println("\nReverse Linked List Recursive:")
 	LL.PrintList()
-	fmt.Println("LinkedList Reversal Recursive Prac:")
+	fmt.Println("\nLinkedList Reversal Recursive Prac:")
 	L6 := CreateLinkedList()
-	L6.PrintList()
+	PrintWithHead(L6.Head)
 	PrintWithHead(RevLLRecurPrac(L6.Head))
 
 	//---Linked List Cycle Detection---
@@ -120,9 +122,13 @@ func RunLinkedList() {
 
 	//----Reverse Linked List II----
 	L1 := CreateLinkedList()
+	revLLPracHead := CreateLinkedList()
 	fmt.Println("Reverse Linked List:")
 	RevLL2 := RevLinkedListII(L1.Head,2,5)
 	PrintWithHead(RevLL2)
+	fmt.Println("Reverse Linked List:")
+	RevLLPrac:= ReverseLinkedList2Prac(revLLPracHead.Head,2,5)
+	PrintWithHead(RevLLPrac)
 
 }
 func randomLinkedList(size int, randUpTo int) *LinkedNode{
