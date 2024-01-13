@@ -129,6 +129,10 @@ func main() {
 	if cmnd == "mono"{
 		monotonicdeque.Mono()
 	}
+
+	if cmnd == "master"{
+		prbGen.MasterGenerationProblemOne()
+	}
 	
 	
 	

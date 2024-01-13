@@ -49,3 +49,5 @@ problems:
 
 mono:
 	go build -o algo .; ./algo -command "mono"
+master:
+	go build -o algo .; ./algo -command "master"
