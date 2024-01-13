@@ -52,6 +52,7 @@ func dailyTemperaturesPrac(temperatures []int) []int {
 
 
 func ReversePolishNotationPrac(list []string) int {
+	
 	return -1
 }
 // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
