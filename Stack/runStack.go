@@ -16,4 +16,6 @@ func RunStackProbs() {
 
 	//Needs to be 9:
 	fmt.Println("Reverse Polish Notation:", ReversePolishNotation([]string{"10","6","9","3","+","-11","*","/","*","17","+","5","+"}))
+
+	fmt.Println("Generates Parenthesis:", generateParenthesis(3))
 }
