@@ -19,7 +19,9 @@ func RunPattern() {
 
 	// --- High Sell low
 	returnRes2 := slidingwindow.BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
-	fmt.Println(returnRes2)
+	returnRes3 := BuyHighSellLowPrac([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
+	fmt.Println("Buy High Sell Low:",returnRes2)
+	fmt.Println("Buy High Sell Low Prac:", returnRes3)
 
 	//----SubArray Product less than K---
 	maxProdArr := []int{10,5,2,6}
