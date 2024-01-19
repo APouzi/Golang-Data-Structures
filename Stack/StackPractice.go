@@ -90,6 +90,8 @@ func isValidPrac(s string) bool {
 //Output: ["()"]
 
 func generateParenthesisPrac(n int) []string {
+	return []string{}
+}
 
 
 
