@@ -22,4 +22,7 @@ func RunStackProbs() {
 
 	fmt.Println("Car Fleet:", carFleet(12,[]int{10,8,0,5,3}, []int{2,4,1,1,3}))
 	fmt.Println("Car Fleet Practice:", carFleetPrac(12,[]int{10,8,0,5,3}, []int{2,4,1,1,3}))
+
+	fmt.Println("Largest Rectangle in a Histogram", largestRectangleArea([]int{2,1,5,6,2,3}))
+	fmt.Println("Largest Rectangle in a Histogram", largestRectangleAreaPrac([]int{2,1,5,6,2,3}))
 }
