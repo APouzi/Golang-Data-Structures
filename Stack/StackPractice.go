@@ -126,6 +126,8 @@ func generateParenthesisPrac(n int) []string {
 
 
 func carFleetPrac(target int, position []int, speed []int) int {
+	return -1
+}
 
 
 

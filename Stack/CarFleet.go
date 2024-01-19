@@ -34,7 +34,7 @@ import "sort"
 
 func carFleet(target int, position []int, speed []int) int {
     var pairs [][2]float32 = make([][2]float32, len(position))
-    for i, _ := range position{
+    for i := range position{
         pairs[i][0] = float32(position[i])
         pairs[i][1] = float32(speed[i])
     }
