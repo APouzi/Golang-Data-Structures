@@ -1,5 +1,7 @@
 package stack
 
+import "strconv"
+
 // Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
 
 // Example 1:
@@ -15,7 +17,16 @@ package stack
 // Output: [1,1,0]
 
 func dailyTemperaturesPrac(temperatures []int) []int {
-	return []int{}
+	var mono [][]int = [][]int{}
+	var ans []int = make([]int, len(temperatures))
+	for i := 0; i < len( temperatures);i++{
+		for len(mono) > 0 && temperatures[i] > mono[len(mono)-1][1]{
+			ans[mono[len(mono)-1][0]] = i - mono[len(mono)-1][0]
+			mono = mono[:len(mono)-1]
+		}
+		mono = append(mono, []int{i,temperatures[i]})
+	}
+	return ans
 }
 
 //You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
@@ -52,8 +63,31 @@ func dailyTemperaturesPrac(temperatures []int) []int {
 
 
 func ReversePolishNotationPrac(list []string) int {
-	
-	return -1
+	var stack []int = []int{}
+	var num int
+	for i :=0;i<len(list);i++{
+		if list[i] == "+"{
+			num = stack[len(stack)-2] + stack[len(stack)-1]
+			stack = stack[:len(stack)-2]
+			stack = append(stack, num)
+		}else if list[i] == "*"{
+			num = stack[len(stack)-2] * stack[len(stack)-1]
+			stack = stack[:len(stack)-2]
+			stack = append(stack,num )
+		}else if list[i] == "-"{
+			num = stack[len(stack)-2] - stack[len(stack)-1]
+			stack = stack[:len(stack)-2]
+			stack = append(stack, num)
+		}else if list[i] == "/"{
+			num =  stack[len(stack)-2] / stack[len(stack)-1]
+			stack = stack[:len(stack)-2]
+			stack = append(stack,num)
+		}else{
+			num, _ = strconv.Atoi(list[i])
+			stack = append(stack, num)
+		}
+	}
+	return stack[0]
 }
 // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
@@ -76,7 +110,36 @@ func ReversePolishNotationPrac(list []string) int {
 // Output: false
 
 func isValidPrac(s string) bool {
-	return false
+	var stack []byte = []byte{}
+	var popped byte
+	for i := 0; i <len(s);i++{
+		if s[i] == '('{
+			stack = append(stack, ')')
+		}else if  s[i] == '['{
+			stack = append(stack, ']')
+		}else if  s[i] == '{'{
+			stack = append(stack, '}')
+		}else if  s[i] == ']'{
+			popped = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if popped != ']'{
+				return false
+			}
+		}else if  s[i] == ')'{
+			popped = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if popped != ')'{
+				return false
+			}
+		}else if  s[i] == '}'{
+			popped = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if popped != '}'{
+				return false
+			}
+		}
+	}
+	return len(stack) == 0
 }
 
 //Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.

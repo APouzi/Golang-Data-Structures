@@ -118,6 +118,7 @@ func RunPattern() {
 	//---Container With Most Water---
 	// containerPrac := []int{1,8,6,2,5,4,8,3,7}
 	containerPrac := []int{1,8,6,2,5,4,8,3,7}
+	fmt.Println("\nContainer With Most Water:", twopointers.ContainerWithMostWater(containerPrac))
 	fmt.Println("\nContainer With Most Water:", ContainerWithMostWaterPrac(containerPrac))
 
 	//---Trapping rain water---
