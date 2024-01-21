@@ -5,7 +5,7 @@ import "fmt"
 func RunStackProbs() {
 	fmt.Println("\nisValid started")
 	// s := "()" //Pass
-	s := "(())[" //Pass
+	s := "(())[]" //Pass
 	// s := "){" //Fail
 	// s:= "[(([))]]" //Fail
 	fmt.Println("Valid Parenthis:",isValid(s))
@@ -16,6 +16,7 @@ func RunStackProbs() {
 
 	//Needs to be 9:
 	fmt.Println("Reverse Polish Notation:", ReversePolishNotation([]string{"10","6","9","3","+","-11","*","/","*","17","+","5","+"}))
+	fmt.Println("Reverse Polish Notation:", ReversePolishNotationPrac([]string{"10","6","9","3","+","-11","*","/","*","17","+","5","+"}))
 
 	fmt.Println("Generates Parenthesis:", generateParenthesis(3))
 	fmt.Println("Generates Parenthesis Prac:", generateParenthesisPrac(3))
