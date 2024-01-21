@@ -137,5 +137,10 @@ func RunPattern() {
 	fmt.Println("Search a 2D Array", binarysearch.SearchMatrixV2(TwoDArray,16))
 	fmt.Println("Search a 2D Array Prac", SearchMatrix(TwoDArray,16))
 
+	//---Koko Eating a Banana---
+	var pilesBanana []int = []int{3,6,7,11}
+	fmt.Println("Koko Eating a Banana:", binarysearch.MinEatingSpeed(pilesBanana, 8))
+	fmt.Println("Koko Eating a Banana Prac:", MinEatingSpeed(pilesBanana, 8))
+
 
 }
