@@ -14,7 +14,7 @@ package binarysearch
 // Output: -1
 // Explanation: 2 does not exist in nums so return -1
 
-func search(nums []int, target int) int {
+func BinarySearch(nums []int, target int) int {
 	var left, right int = 0, len(nums) - 1
 	var middle int
 	for left <= right {

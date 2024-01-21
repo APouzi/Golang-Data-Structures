@@ -3,6 +3,7 @@ package patterns
 import (
 	"fmt"
 
+	binarysearch "github.com/APouzi/go-algos/Patterns/BinarySearch"
 	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
 	skyline "github.com/APouzi/go-algos/Patterns/MergeInterval"
 	slidingwindow "github.com/APouzi/go-algos/Patterns/SlidingWindow"
@@ -125,6 +126,10 @@ func RunPattern() {
 	var trappingRainWaterInput = []int{0,1,0,2,1,0,1,3,2,1,2,1}
 	fmt.Println("\nTrapping Rain Water",twopointers.TrappingRainWater(trappingRainWaterInput))
 	fmt.Println("\nTrapping Rain Water Practice",TrappingRainWater(trappingRainWaterInput))
+
+	//---Binary Search---
+	var binarySearchInput []int = []int{-1,0,3,5,9,12}
+	fmt.Println("\nBinary Search:",binarysearch.BinarySearch(binarySearchInput, 9))
 
 
 }
