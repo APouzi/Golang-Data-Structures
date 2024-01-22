@@ -133,7 +133,8 @@ func RunPattern() {
 	fmt.Println("\nBinary Search:",BinarySearch(binarySearchInput, 9))
 
 	//---Search A 2D Array---
-	var TwoDArray [][]int = [][]int{{1,3,5,7},{10,11,16,20},{23,30,34,60}} 
+	var TwoDArray [][]int = [][]int{{1,3,5,7},{10,11,16,20},{23,30,34,60}}
+	//var TwoDArrayFalse [][]int = [][]int{{1,3,5,7},{10,11,16,20},{23,30,34,60}} // target = 13
 	fmt.Println("Search a 2D Array", binarysearch.SearchMatrixV2(TwoDArray,16))
 	fmt.Println("Search a 2D Array Prac", SearchMatrix(TwoDArray,16))
 
