@@ -5,6 +5,7 @@ import (
 
 	binarysearch "github.com/APouzi/go-algos/Patterns/BinarySearch"
 	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
+	patterns "github.com/APouzi/go-algos/Patterns/MergeInterval"
 	skyline "github.com/APouzi/go-algos/Patterns/MergeInterval"
 	slidingwindow "github.com/APouzi/go-algos/Patterns/SlidingWindow"
 	twopointers "github.com/APouzi/go-algos/Patterns/TwoPointers"
@@ -87,6 +88,11 @@ func RunPattern() {
 	buildings := [][]int{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}}
 	fmt.Println("\nSkyLine",skyline.GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
+
+	//---Interval List Intersection---
+	firstList, secondList := [][]int{{0,2},{5,10},{13,23},{24,25}}, [][]int{{1,5},{8,12},{15,24},{25,26}}
+	fmt.Println("\nInterval List Intersection:", patterns.IntervalIntersection(firstList,secondList))
+	fmt.Println("\nInterval List Intersection Prac:", IntervalIntersection(firstList,secondList))
 
 	//---Fruit Basket---
 	fmt.Println("\nFruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
