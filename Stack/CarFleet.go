@@ -42,7 +42,9 @@ func carFleet(target int, position []int, speed []int) int {
     sort.Slice(pairs, func(i,j int)bool{ return pairs[i][0] > pairs[j][0]})
     var stack []float32 = []float32{}
     for _ , v := range pairs{
+        //The important portion of this is we are asking if the current car with it's position and speed, can get their faster than the one ahead. Aka is numbersmaller.
         stack = append(stack, (float32(target) - v[0])/v[1])
+        //Simply ask if the car ahead is faster. If the car ahead is faster, then we want to remove it from the stack
         if len(stack)>=2 && stack[len(stack)-1] <= stack[len(stack)-2]{
             stack = stack[:len(stack)-1]
         }
