@@ -20,11 +20,11 @@ import "sort"
 
 
 func IntervalIntersection(firstList [][]int, secondList [][]int) [][]int {
-	var newList [][]int = make([][]int, (len(firstList)+len(secondList))*2)
+	var newList [][2]int = make([][2]int, (len(firstList)+len(secondList))*2)
 	firstList = append(firstList, secondList...)
 	for i, v := range firstList {
-		newList[i*2] = []int{v[0], 1}
-		newList[i*2+1] = []int{v[1], -1}
+		newList[i*2] = [2]int{v[0], 1}
+		newList[i*2+1] = [2]int{v[1], -1}
 	}
 
 	sort.Slice(newList, func(i, j int) bool {
