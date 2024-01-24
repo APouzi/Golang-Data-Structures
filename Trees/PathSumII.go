@@ -18,5 +18,62 @@ package bst
 // Output: []
 
 func PathSumII(root *Node, targetSum int) [][]int {
-    return [][]int{}
+    if root == nil{
+        return [][]int{}
+    }
+    var ans *[][]int = &[][]int{}
+    dfsPathSum(root, targetSum,  ans, []int{})
+    return *ans
+}
+
+func dfsPathSum(root *Node, targetSum int, ans *[][]int, temp []int){
+    if root == nil{
+        return 
+    }
+    temp = append(temp, root.val)
+    if root != nil && (root.left == nil && root.right == nil) && targetSum - root.val == 0{
+        // temp = append(temp, root.val)
+        *ans = append(*ans, append([]int{},temp...)) //What we need to understand is that we can't just "*ans = append(*ans, temp)", this is because temp is a refrence to the slice. So if that slice get's change as its recursed back to a previous state and then appeneded to, that appeneded slice will be changed. Remember, it's NOT just a value.  
+        return 
+    }
+    
+    
+    
+    dfsPathSum(root.left, targetSum - root.val, ans,temp)
+    dfsPathSum(root.right, targetSum - root.val, ans,temp) 
+}
+
+
+
+
+
+
+
+func pathSumIIV2(root *Node, targetSum int) [][]int {
+    if root == nil{
+        return [][]int{}
+    }
+    var ans [][]int = [][]int{}
+    ret := dfsPathSumV2(root, targetSum,  ans, []int{})
+    return ret
+}
+
+func dfsPathSumV2(root *Node, targetSum int, ans [][]int, temp []int)[][]int{
+    if root == nil{
+        return ans
+    }
+    temp = append(temp, root.val)
+    if root != nil && (root.left == nil && root.right == nil) && targetSum - root.val == 0{
+        // temp = append(temp, root.Val)
+        ans = append(ans, append([]int{},temp...))
+        return ans
+    }
+    
+    left := dfsPathSumV2(root.left, targetSum - root.val, ans,temp)
+    right := dfsPathSumV2(root.right, targetSum - root.val, ans,temp)
+    ans = append(ans, left...)
+    ans = append(ans, right...)
+    
+
+    return ans
 }
