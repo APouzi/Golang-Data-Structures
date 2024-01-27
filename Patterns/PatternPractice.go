@@ -343,18 +343,7 @@ func ThreeSum(nums []int) [][]int {
 // Output: 1
 
 func ContainerWithMostWaterPrac(height []int) int {
-	var left, right int = 0, len(height)-1
-	var maxArea int = 0
-	for left < right {
-		if height[left] < height[right]{
-			maxArea = max(maxArea, min(height[left],height[right]) * (right - left))
-			left++
-		}else{
-			maxArea = max(maxArea, min(height[left],height[right]) * (right - left))
-			right--
-		}
-	}
-	return maxArea
+	return -1
 }
 
 //Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
@@ -457,6 +446,8 @@ func SearchMatrix(matrix [][]int, target int) bool {
 
 
 func MinEatingSpeed(piles []int, h int) int {
+	return -1
+}
 
 
 

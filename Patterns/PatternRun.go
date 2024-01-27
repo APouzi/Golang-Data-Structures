@@ -92,7 +92,7 @@ func RunPattern() {
 	//---Interval List Intersection---
 	firstList, secondList := [][]int{{0,2},{5,10},{13,23},{24,25}}, [][]int{{1,5},{8,12},{15,24},{25,26}}
 	fmt.Println("\nInterval List Intersection:", patterns.IntervalIntersection(firstList,secondList))
-	fmt.Println("\nInterval List Intersection Prac:", IntervalIntersection(firstList,secondList))
+	fmt.Println("Interval List Intersection Prac:", IntervalIntersection(firstList,secondList))
 
 	//---Fruit Basket---
 	fmt.Println("\nFruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
