@@ -37,7 +37,7 @@ func RunLinkedList() {
 
 	//---Middle Node of Linked List---
 	L5 := CreateLinkedList()
-	fmt.Println("\nLinkedList Middle Node:", MiddleNodeofLLPrac(L5.Head))
+	fmt.Println("\nLinkedList Middle Node Prac:", MiddleNodeofLLPrac(L5.Head).Val)
 
 	//---Reverse Linked List Iterative---
 	L2 := CreateLinkedList()
