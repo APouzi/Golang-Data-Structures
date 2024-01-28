@@ -331,7 +331,7 @@ func (h *HeapPairMax) Insert(num []int) {
 }
 
 func (h *HeapPairMax) HeapifyUp(index int) {
-	for h.arr[index][1] < h.arr[h.Parent(index)][1] {
+	for h.arr[index][0] > h.arr[h.Parent(index)][0] {
 		h.arr[index], h.arr[h.Parent(index)] = h.arr[h.Parent(index)], h.arr[index]
 		index = h.Parent(index)
 	}
@@ -339,25 +339,24 @@ func (h *HeapPairMax) HeapifyUp(index int) {
 
 func (h *HeapPairMax) HeapifyDown(index int) {
 	var lastIndex int = len(h.arr) - 1
-	var smallestChild int
+	var biggestChild int
 	for h.leftChild(index) <= lastIndex {
-		smallestChild = h.leftChild(index)
+		biggestChild = h.leftChild(index)
 		if h.rightChild(index) <= lastIndex {
-			if h.arr[smallestChild][1] > h.arr[h.rightChild(index)][1] {
-				smallestChild = h.rightChild(index)
+			if h.arr[biggestChild][0] < h.arr[h.rightChild(index)][0] {
+				biggestChild = h.rightChild(index)
 			}
-			if h.arr[smallestChild][1] < h.arr[index][1] {
-				h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
-				index = smallestChild
+			if h.arr[biggestChild][0] > h.arr[index][0] {
+				h.arr[biggestChild], h.arr[index] = h.arr[index], h.arr[biggestChild]
+				index = biggestChild
 			} else {
 				return
 			}
 		}
-		if h.arr[smallestChild][1] < h.arr[index][1] {
-			h.arr[smallestChild], h.arr[index] = h.arr[index], h.arr[smallestChild]
+		if h.arr[biggestChild][0] > h.arr[index][0] {
+			h.arr[biggestChild], h.arr[index] = h.arr[index], h.arr[biggestChild]
 		}
-		index = smallestChild
-
+		index = biggestChild
 	}
 }
 
