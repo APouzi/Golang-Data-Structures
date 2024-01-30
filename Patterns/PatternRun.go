@@ -41,9 +41,7 @@ func RunPattern() {
 	//---Merge Intervals---
 	intervals := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
 	fmt.Println("\nMerge Intervals:",MergeIntervals(intervals))
-
-	intervalsPrac := [][]int{{2,5},{1,3},{1,4},{9,15},{6,10}, {7,13}}
-	fmt.Println("Merge Intervals Practice:",MergeIntervalsPrac(intervalsPrac))
+	fmt.Println("Merge Intervals Practice:",MergeIntervalsPrac(intervals))
 
 	//---Insert Intervals---
 	intervalsIns := [][]int{{1,2},{3,5},{6,7},{8,10},{12,16}}
@@ -53,11 +51,10 @@ func RunPattern() {
 	fmt.Println("Insert Intervals Prac:",InsertIntervalsPrac(intervalsInsPrac,[]int{4,8}))
 
 	//---Non OverLapping Intervals---
-	intervalsRem := [][]int{{1,2},{2,3},{3,4},{1,3}}
+	// intervalsRem := [][]int{{1,2},{2,3},{3,4},{1,3}}
+	intervalsRem := [][]int{{1,2},{1,2},{1,2}}
 	fmt.Println("\nNon OverLapping Intervals:", nonOverLappingIntervals(intervalsRem))
-
-	intervalsRem2 := [][]int{{1,2},{2,3},{3,4},{1,3}}
-	fmt.Println("Non OverLapping Intervals Prac:", nonOverLappingIntervalsPrac(intervalsRem2)) 
+	fmt.Println("Non OverLapping Intervals Prac:", nonOverLappingIntervalsPrac(intervalsRem)) 
 
 	//---Minimum Interval to Include Each Query---
 	// intervalsMin := [][]int{{1,4},{2,4},{3,6},{4,4}} 
@@ -136,7 +133,7 @@ func RunPattern() {
 	//---Binary Search---
 	var binarySearchInput []int = []int{-1,0,3,5,9,12}
 	fmt.Println("\nBinary Search:",binarysearch.BinarySearch(binarySearchInput, 9))
-	fmt.Println("\nBinary Search:",BinarySearch(binarySearchInput, 9))
+	fmt.Println("\nBinary Search Practice:",BinarySearch(binarySearchInput, 9))
 
 	//---Search A 2D Array---
 	var TwoDArray [][]int = [][]int{{1,3,5,7},{10,11,16,20},{23,30,34,60}}

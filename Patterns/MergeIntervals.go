@@ -91,7 +91,6 @@ func InsertIntervals(intervals [][]int, newInterval []int)[][]int{
 func nonOverLappingIntervals(intervals [][]int) int{
 	var ans int = 0
 	var sortedIntervals [][]int = MergeSortIntervalByStart(intervals, 0, len(intervals)-1) //{{1,2},{1,3},{2,3},{3,4},{4,6},{5,6}}
-	fmt.Println(sortedIntervals)
 	var lastInterval []int = sortedIntervals[0] //NOTE: this doesn't need to be interval and we can just keep track of the last good end, as we shrink this.
 	for i := 1; i < len(sortedIntervals); i++{
 		if lastInterval[1] <= sortedIntervals[i][0]{
