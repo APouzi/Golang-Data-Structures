@@ -1,7 +1,6 @@
 package slidingwindow
 
 import (
-	"fmt"
 	"reflect"
 )
 
@@ -13,45 +12,32 @@ import (
 // str1 = "eidboaoo", str2 "eidboaoo"
 
 func PermutationOfString(str1, str2 string) bool{
-	dynamicBank := make(map[string]int)
-	bankStr2 := make(map[string]int)
-
-	for _, v := range str2{
-		bankStr2[string(v)]+=1
+	compareTo := map[byte]int{}
+	var need, have int = 0, 0
+	for i := 0; i <len(str2);i++{
+		compareTo[str2[i]]++
+		have++	
 	}
-	winSize:=0
 
-	for i, v := range str1 {
-		if _,ok := dynamicBank[string(v)];ok{
-			dynamicBank[string(v)] += 1
-			winSize+=1
-		}else{
-			dynamicBank[string(v)]=1
-			winSize+=1
-		}
-		// fmt.Println(dynamicBank, bankStr2)
+	bank := map[byte]int{}
+	left := 0
+	for r := 0; r <len(str1);r++{
+		bank[str1[r]]++
+		need++
+
 		
-		if len(dynamicBank) >= len(bankStr2){
-
-			// This will need the sliding window portion, shouldn't delete if key has above 2
-			if winSize > len(str2){
-				fmt.Println("hit")
-				deleteThis := i-len(str2)
-				if dynamicBank[string(str1[deleteThis])] > 1{
-					dynamicBank[string(str1[deleteThis])] -=1
-					winSize-=1
-					fmt.Println("inside",dynamicBank)
-					
-				}else if dynamicBank[string(str1[deleteThis])] == 1{
-					delete(dynamicBank,string(str1[deleteThis]))
-					winSize-=1
-				}				
-			}
-			if reflect.DeepEqual(dynamicBank, bankStr2){
+		for need == have && left <= r{
+			if reflect.DeepEqual(bank, compareTo){
 				return true
 			}
+			
+			bank[str1[left]]--
+			if bank[str1[left]] == 0{
+				delete(bank, str1[left])
+			}
+			left++
+			need--
 		}
 	}
-
 	return false
 }
