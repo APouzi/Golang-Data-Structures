@@ -22,7 +22,7 @@ func ContainerWithMostWater(height []int) int {
 	for left < right {
 		var volume int = (right - left) * min(height[left], height[right]) //Here we are trying to get the biggest area of a container. We do this by getting the min height since one side being taller doesn't apply since it can't hold anything. The (right - left) is getting the length of the container.
 		ans = max(volume, ans)
-		if height[left] <= height[right] {//Asking if the left height is less than or equal to the right height (doesn't matter which one is equal), if it is, we need to move up the left side.
+		if height[left] <= height[right] {//Asking if the left height is less than or equal to the right height (doesn't matter which one is equal), if it is, we need to move up the left side. If it's smaller we move the left, otherwise right is smaller so we want to continually move that forward. We do this until we have the two pointers cross over, by time we are done, we can find the max volume.
 			left++
 		} else {
 			right--
