@@ -120,10 +120,10 @@ func RunPattern() {
 	fmt.Println("3Sum Prac:", ThreeSum(threeSumPrac))
 
 	//---Container With Most Water---
-	// containerPrac := []int{1,8,6,2,5,4,8,3,7}
+	// containerPrac := []int{1,8,6,2,5,4,8,3,7,9}
 	containerPrac := []int{1,8,6,2,5,4,8,3,7}
 	fmt.Println("\nContainer With Most Water:", twopointers.ContainerWithMostWater(containerPrac))
-	fmt.Println("\nContainer With Most Water:", ContainerWithMostWaterPrac(containerPrac))
+	fmt.Println("Container With Most Water Practice:", ContainerWithMostWaterPrac(containerPrac))
 
 	//---Trapping rain water---
 	var trappingRainWaterInput = []int{0,1,0,2,1,0,1,3,2,1,2,1}
