@@ -33,3 +33,24 @@ func FindDuplicate(nums []int) int {
 	}
 	return fast
 }
+
+func FindDuplicateV2(nums []int)int{
+	var slow,fast int = 0, 0//This one is where we actually do it the "usual way". Set both to zero.
+
+	for {
+		
+		slow = nums[slow]
+		fast = nums[nums[fast]] 
+		if slow == fast{ //We need to be actually do this because if we set it the for loop conditional (for slow != fast), then we are going to be exiting out once we reach equality of integers
+			break
+		}
+	}
+	var beforeCycle int = 0 //Now we need to get the tail before the cycle is found. There is a forumla that explains how many steps this takes before reaching the cycle and once it does arrive at the cycle, it will find the duplicate.
+	for beforeCycle != slow{
+		slow = nums[slow]
+		beforeCycle = nums[beforeCycle]
+		
+	}
+
+	return slow
+}
