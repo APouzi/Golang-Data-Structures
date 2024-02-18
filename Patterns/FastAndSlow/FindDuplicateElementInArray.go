@@ -13,7 +13,8 @@ package fastandslow
 // Output: 3
 
 func FindDuplicate(nums []int) int {
-	var slow, fast int = nums[0], nums[nums[0]]
+	var slow, fast int = nums[0], nums[nums[0]] //We need the fast to be "nums[nums[0]]" or we will be stuck in the second loop as they will never match.
+
 	// These array's are only representing the next index that it goes to, because these are cyclical arrays that basically point to the next index. So calling itself will allow us to infinitely call the array without ever getting out of bounds. Which is why we first must find the "entry point" of the cycle with the cycle detection method.
 
 	for slow != fast { //On the first loop, we are simply following the array's path to get the "cycle's entry point".
