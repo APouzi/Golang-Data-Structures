@@ -20,10 +20,10 @@ func RunPattern() {
 	fmt.Println("PermuStrPrac result",returnpracRes)
 
 	// --- High Sell low
-	returnRes2 := slidingwindow.BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
-	returnRes3 := BuyHighSellLowPrac([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
+	// returnRes2 := slidingwindow.BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
+	returnRes2 := slidingwindow.BuyHighSellLow([]int{7,6,4,3,1})
 	fmt.Println("Buy High Sell Low:",returnRes2)
-	fmt.Println("Buy High Sell Low Prac:", returnRes3)
+	fmt.Println("Buy High Sell Low Prac:", returnRes2)
 
 	//----SubArray Product less than K---
 	maxProdArr := []int{10,5,2,6}
@@ -142,9 +142,10 @@ func RunPattern() {
 	fmt.Println("Search a 2D Array Prac", SearchMatrix(TwoDArray,16))
 
 	//---Koko Eating a Banana---
-	var pilesBanana []int = []int{3,6,7,11}
-	fmt.Println("Koko Eating a Banana:", binarysearch.MinEatingSpeed(pilesBanana, 8))
-	fmt.Println("Koko Eating a Banana Prac:", MinEatingSpeed(pilesBanana, 8))
+	var pilesBanana []int = []int{30,11,23,4,20}
+	var hour int = 5
+	fmt.Println("Koko Eating a Banana:", binarysearch.MinEatingSpeed(pilesBanana, hour))
+	fmt.Println("Koko Eating a Banana Prac:", MinEatingSpeed(pilesBanana, hour))
 
 
 }
