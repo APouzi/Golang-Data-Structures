@@ -28,7 +28,7 @@ func MinEatingSpeed(piles []int, h int) int {
     var result int = right
     var middle int
     var hours float64 = 0
-    h64 := float64(h)
+    hoursfloat := float64(h)
     for left <= right{
         middle = (right + left)/2 //The middle, otherwise known as "k", is the canidate we have to see if this we add up the time, it's less than the hours (h) given. 
         hours = 0
@@ -36,10 +36,10 @@ func MinEatingSpeed(piles []int, h int) int {
             hours += math.Ceil(float64(v)/float64(middle))
         }
 
-        if hours <= h64 { //If the hours are less than the hours we have before gaurds come back, this means we can lessen the possible canidates by half aka larger the middle. We also want to continually see if that's the minimum possible to eat. Because koko wants the least as possible.
+        if hours <= hoursfloat { //If the hours are less than the hours we have before gaurds come back, this means we can lessen the possible canidates by half aka larger the middle. We also want to continually see if that's the minimum possible to eat. Because koko wants the least as possible.
             result = min(result, middle)
             right = middle -1
-        }else if hours >= h64 { // If the hours given is too big, it means we can lessen by half, but starting from the left. This is because of the fact that due to the fact that the eat rate, as in the middle is too small and we need to increase the eat rate!
+        }else if hours >= hoursfloat { // If the hours given is too big, it means we can lessen by half, but starting from the left. This is because of the fact that due to the fact that the eat rate, as in the middle is too small and we need to increase the eat rate!
             left = middle + 1
         }
     }
