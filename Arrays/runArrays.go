@@ -27,6 +27,7 @@ func RunArrays() {
 	fmt.Println("Is Valid Palindrome",IsPalindrome("A man, a plan, a canal: Panama"))
 	fmt.Println("Largest Substring Between Two Equal Characters", maxLengthBetweenEqualCharacters("mgntdygtxrvxjnwksqhxuxtrv"))
 	// fmt.Println("Find Duplicate Element in Array Prac:",FindDuplicate([]int{1,3,4,2,2}))
+	fmt.Println("Majority Element:", MajorityElement([]int{2,2,1,1,1,2,2}))
 
 
 	//Practice Problems
@@ -54,4 +55,5 @@ func RunArrays() {
 	fmt.Println("Is Valid Palindrome",isValidPrac("A man, a plan, a canal: Panama"))
 	fmt.Println("Largest Substring Between Two Equal Characters", maxLengthBetweenEqualCharacters("mgntdygtxrvxjnwksqhxuxtrv"))
 	fmt.Println("Find Duplicate Element in Array Prac:",FindDuplicateInArrayPrac([]int{1,3,4,2,2}))
+	fmt.Println("Majority Element Prac:", MajorityElementPrac([]int{2,2,1,1,1,2,2}))
 }
