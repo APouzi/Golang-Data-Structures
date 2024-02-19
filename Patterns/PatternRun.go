@@ -105,6 +105,10 @@ func RunPattern() {
 	fmt.Println("\nMaximum Sliding Window", slidingwindow.MaxSlidingWindow([]int{1,3,-1,-3,5,3,6,7}, 3))
 	fmt.Println("Maximum Sliding Window Practice", MaxSlidingWindowPrac([]int{1,3,-1,-3,5,3,6,7}, 3))
 
+	//---Maximum Product Subarray---
+	fmt.Println("\nMaximum Product Subarray:",slidingwindow.MaxProduct([]int{7,-2,-4}))
+	fmt.Println("Maximum Product Subarray Prac:",MaxProductPrac([]int{7,-2,-4}))
+
 	//---Longest SubString without Repeating Characters---
 	fmt.Println("\nLongest Substring without Repeating Characters Practice", LengthOfLongestSubstringPrac("pwwkew"))
 

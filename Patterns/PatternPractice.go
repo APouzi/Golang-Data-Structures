@@ -14,7 +14,28 @@ package patterns
 // Input: n = 2
 // Output: false
 func HappyNumberPrac(num int) bool {
-	return false
+	var currSum int
+	var slow, fast int = num , num
+	var currDigit int
+	
+	summinganddumming := func(digit int)int {
+		currSum = 0
+		for digit > 0{
+			currDigit = digit%10
+			currSum += currDigit * currDigit
+			digit /= 10
+		}
+		return currSum
+	}
+	
+	for {
+		slow = summinganddumming(slow)
+		fast = summinganddumming(summinganddumming(fast))
+		if slow == fast{
+			break
+		}
+	}
+	return slow == 1
 }
 
 func cycleHN(num int) int {
@@ -170,7 +191,28 @@ func PermutationOfStringPrac(str1, str2 string) bool{
 // Output: 0
 // Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 func MaxProductPrac(nums []int) int {
-	return -1
+	var currMin, currMax, temp, res int = 1,1,1,maxOne(nums)
+
+	for _, v := range nums{
+		if v == 0{
+			currMin, currMax = 1 ,1
+			continue
+		}
+
+		temp = currMax * v
+		currMax = max(currMax * v, currMin * v, v)
+		currMin = min(currMin * v, temp, v)
+		res = max(res, currMax)
+	}
+	return res
+}
+
+func maxOne(nums []int)int{
+	var ret int = nums[0]
+	for _,v := range nums{
+		ret =max(ret, v)
+	}
+	return ret
 }
 
 //Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.
