@@ -29,14 +29,15 @@ package binarysearch
 func findMinInSortedArray(nums []int) int {
 	var left, right int = 0, len(nums) - 1
 	var mid int
-
+	//4,5,6,7,0,1,2
 	for left < right {
-		mid = (right + left) / 2
+		mid = (right + left) / 2 // 7, 1, 0
 		if nums[mid] > nums[right] {
-			left = mid + 1
+			left = mid + 1 //[0,1,2]
 		} else {
-			right = mid
+			right = mid // [0,1], [0]
 		}
+		//In other binary searches, we are using the middle to find the target, in this specific problem, what we are doing is we are using the edges/guardrails/left&right to get the answer. Because we are looking for a maxima/minima.
 	}
-	return nums[left]
+	return nums[left] //both right and left can be used. By time we are done, both left and right will be left over!
 }
