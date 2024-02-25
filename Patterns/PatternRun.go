@@ -152,4 +152,10 @@ func RunPattern() {
 	fmt.Println("Koko Eating a Banana Prac:", MinEatingSpeed(pilesBanana, hour))
 
 
+	//---Find Minimum In Rotated Array---
+	var rotateArr []int = []int{4,5,6,7,0,1,2}
+	fmt.Println("Find Minimum In Rotated Array:",binarysearch.FindMinInRotatedArray(rotateArr))
+	fmt.Println("Find Minimum In Rotated Array Prac:",findMinInRotatedArrayPrac(rotateArr))
+
+
 }
