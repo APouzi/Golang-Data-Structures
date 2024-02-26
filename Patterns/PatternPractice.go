@@ -558,3 +558,16 @@ func IntervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 func findMinInRotatedArrayPrac(nums []int) int {
 	return -1
 }
+
+
+//Given an array of meeting time intervals consisting of start and end times[[s1,e1],[s2,e2],...](si< ei), determine if a person could attend all meetings.
+//Input:[[0,30],[5,10],[15,20]]
+//Output: false
+func MeetingRoomsPrac(meetings [][]int)bool{
+	return false
+}
+
+//Given an array of meeting time intervals consisting of start and end times[[s1,e1],[s2,e2],...](si< ei), find the minimum number of conference rooms required.
+func MeetingRoomsIIPrac(intervals [][]int) int{
+	return -1
+}

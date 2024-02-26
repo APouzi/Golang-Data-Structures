@@ -223,7 +223,6 @@ func MeetingRoomsIIHeap(intervals [][]int)int{
 	active := InitializeHeapPairMin()
 	MergeSortIntervalByStart(intervals,0,len(intervals)-1)
 	for i :=0;i<len(intervals);i++{
-		fmt.Println(active.arr, intervals[i])
 		for len(active.arr) > 0 && active.arr[0][1] <= intervals[i][0]{
 			active.Pop()
 		}
