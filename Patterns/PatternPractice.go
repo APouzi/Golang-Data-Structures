@@ -14,28 +14,7 @@ package patterns
 // Input: n = 2
 // Output: false
 func HappyNumberPrac(num int) bool {
-	var currSum int
-	var slow, fast int = num , num
-	var currDigit int
-	
-	summinganddumming := func(digit int)int {
-		currSum = 0
-		for digit > 0{
-			currDigit = digit%10
-			currSum += currDigit * currDigit
-			digit /= 10
-		}
-		return currSum
-	}
-	
-	for {
-		slow = summinganddumming(slow)
-		fast = summinganddumming(summinganddumming(fast))
-		if slow == fast{
-			break
-		}
-	}
-	return slow == 1
+	return false
 }
 
 func cycleHN(num int) int {
@@ -125,15 +104,7 @@ func MinIntervalPrac(intervals [][]int, queries []int)[]int{
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 func BuyHighSellLowPrac(prices []int) int{
-	var min int = prices[0]
-	var profit int = 0
-	for _, v := range prices{
-		if v < min{
-			min = v
-		}
-		profit = max(profit, v - min)	
-	}
-	return profit
+	return -1
 }
 
 
@@ -163,6 +134,18 @@ func GetSkylinePrac(buildings [][]int)[][]int{
 	return buildings
 }
 
+// You are given a 2D integer array intervals, where intervals[i] = [lefti, righti] describes the ith interval starting at lefti and ending at righti (inclusive). The size of an interval is defined as the number of integers it contains, or more formally righti - lefti + 1. 
+//You are also given an integer array queries. The answer to the jth query is the size of the smallest interval i such that lefti <= queries[j] <= righti. If no such interval exists, the answer is -1.
+
+// Return an array containing the answers to the queries.
+
+// Example 1:
+// Input: intervals = [[1,4],[2,4],[3,6],[4,4]], queries = [2,3,4,5]
+// Output: [3,3,1,4]
+
+func MinIntervalPrac(intervals [][]int, queries []int)[]int{
+	return []int{}
+}
 
 // Given a string(str1), is str2 a permutation of str1?
 // Example str1 = "abcdefg", str2 = "bac". "bac" is a permuatation of "abcdefg" because "abc" of "abcdefg" can be permutated to "bac"
