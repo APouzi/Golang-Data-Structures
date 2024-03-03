@@ -5,19 +5,12 @@ import (
 
 	binarysearch "github.com/APouzi/go-algos/Patterns/BinarySearch"
 	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
-	patterns "github.com/APouzi/go-algos/Patterns/MergeInterval"
-	skyline "github.com/APouzi/go-algos/Patterns/MergeInterval"
 	slidingwindow "github.com/APouzi/go-algos/Patterns/SlidingWindow"
-	twopointers "github.com/APouzi/go-algos/Patterns/TwoPointers"
+	patterns "github.com/APouzi/go-algos/Patterns/mergeintervals"
 )
 
 func RunPattern() {
-	// ---Permutation String---
-	returnRes := slidingwindow.PermutationOfString("eidboaoo", "eidboaoo")
-	fmt.Println("\nPermutationOfString",returnRes)
-	//"eidboaoo", str2 "eidboaoo"
-	returnpracRes := PermutationOfStringPrac("eidboaoo", "ba")
-	fmt.Println("PermuStrPrac result",returnpracRes)
+	
 
 	// --- High Sell low
 	// returnRes2 := slidingwindow.BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
@@ -69,13 +62,13 @@ func RunPattern() {
 	meetings := [][]int{{0,30},{5,10},{15,20}}
 	// meetings := [][]int{{7,10},{2,4}}
 	fmt.Println("\nMeeting Rooms:", MeetingRooms(meetings))
-	fmt.Println("Meeting Rooms Prac:", MeetingRoomsPrac(meetings))
+	fmt.Println("Meeting Rooms Prac:",  patterns.MeetingRoomsPrac(meetings))
 
 	// meetingsII := [][]int{{0, 30},{5, 10},{15, 20}}
 	meetingsII := [][]int{{7,10},{2,4}}
 	fmt.Println("\nMeeting Rooms II:",MeetingRoomsII(meetingsII))
 	fmt.Println("Meeting Roomms II Heap",MeetingRoomsIIHeap(meetingsII))
-	fmt.Println("Meeting Roomms II Prac:",MeetingRoomsIIPrac(meetingsII))
+	fmt.Println("Meeting Roomms II Prac:",patterns.MeetingRoomsIIPrac(meetingsII))
 
 	//---Maximum Year---
 	// Years := [][]int{{1950,1961},{19,60,1971},{1970,1981}}
@@ -84,56 +77,13 @@ func RunPattern() {
 
 	//---SkyLine Problem---
 	buildings := [][]int{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}}
-	fmt.Println("\nSkyLine",skyline.GetSkyline(buildings))
+	fmt.Println("\nSkyLine",patterns.GetSkyline(buildings))
 	fmt.Println("Skyline Practice:",GetSkylinePrac(buildings))
 
 	//---Interval List Intersection---
 	firstList, secondList := [][]int{{0,2},{5,10},{13,23},{24,25}}, [][]int{{1,5},{8,12},{15,24},{25,26}}
 	fmt.Println("\nInterval List Intersection:", patterns.IntervalIntersection(firstList,secondList))
 	fmt.Println("Interval List Intersection Prac:", IntervalIntersection(firstList,secondList))
-
-	//---Fruit Basket---
-	fmt.Println("\nFruit Basket Practice", TotalFruitPrac([]int{1,2,3,2,2}))
-
-	//---Character Replacement---
-	fmt.Println("\nLongest Repeating Characters With Replacement Characters:", slidingwindow.CharacterReplacement("AABABBA",1))
-	fmt.Println("Longest Repeating Characters With Replacement Characters Prac:", CharacterReplacementPrac("AABABBA",1))
-	
-	//---Minimum Window SubString---
-	fmt.Println("\nMinimum Window SubString Practice", MinWindowPrac("ADOBECODEBANC", "ABC"))
-
-	//---Maximum Sliding Window ---
-	fmt.Println("\nMaximum Sliding Window", slidingwindow.MaxSlidingWindow([]int{1,3,-1,-3,5,3,6,7}, 3))
-	fmt.Println("Maximum Sliding Window Practice", MaxSlidingWindowPrac([]int{1,3,-1,-3,5,3,6,7}, 3))
-
-	//---Maximum Product Subarray---
-	fmt.Println("\nMaximum Product Subarray:",slidingwindow.MaxProduct([]int{7,-2,-4}))
-	fmt.Println("Maximum Product Subarray Prac:",MaxProductPrac([]int{7,-2,-4}))
-
-	//---Longest SubString without Repeating Characters---
-	fmt.Println("\nLongest Substring without Repeating Characters Practice", LengthOfLongestSubstringPrac("pwwkew"))
-
-	//---Two Sum II---
-	var twoSumIIPrac []int = []int{2,3,4} // target 6
-	// var twoSumIIPrac []int = []int{2,7,11,15} // target 9
-	fmt.Println("\nTwo Sum II:",twopointers.TwoSumII(twoSumIIPrac,6))
-	fmt.Println("Two Sum II Prac:",TwoSumIIPrac(twoSumIIPrac, 6))
-
-	//---3Sum---
-	var threeSumPrac []int = []int{-1,0,1,2,-1,-4}
-	fmt.Println("\n3Sum:", twopointers.ThreeSum(threeSumPrac))
-	fmt.Println("3Sum Prac:", ThreeSum(threeSumPrac))
-
-	//---Container With Most Water---
-	// containerPrac := []int{1,8,6,2,5,4,8,3,7,9}
-	containerPrac := []int{1,8,6,2,5,4,8,3,7}
-	fmt.Println("\nContainer With Most Water:", twopointers.ContainerWithMostWater(containerPrac))
-	fmt.Println("Container With Most Water Practice:", ContainerWithMostWaterPrac(containerPrac))
-
-	//---Trapping rain water---
-	var trappingRainWaterInput = []int{0,1,0,2,1,0,1,3,2,1,2,1}
-	fmt.Println("\nTrapping Rain Water",twopointers.TrappingRainWater(trappingRainWaterInput))
-	fmt.Println("Trapping Rain Water Practice",TrappingRainWater(trappingRainWaterInput))
 
 	//---Binary Search---
 	var binarySearchInput []int = []int{-1,0,3,5,9,12}
