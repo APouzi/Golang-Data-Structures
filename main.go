@@ -11,7 +11,11 @@ import (
 	"github.com/APouzi/go-algos/LinkedList"
 	matrices "github.com/APouzi/go-algos/Matrices"
 	patterns "github.com/APouzi/go-algos/Patterns"
+	binarysearch "github.com/APouzi/go-algos/Patterns/BinarySearch"
+	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
 	monotonicdeque "github.com/APouzi/go-algos/Patterns/MonotonicDeque"
+	twopointers "github.com/APouzi/go-algos/Patterns/TwoPointers"
+	"github.com/APouzi/go-algos/Patterns/mergeintervals"
 	prbGen "github.com/APouzi/go-algos/ProblemListGeneration"
 	randomlc "github.com/APouzi/go-algos/RandomLC"
 	sorting "github.com/APouzi/go-algos/Sorting"
@@ -132,6 +136,22 @@ func main() {
 
 	if cmnd == "master"{
 		prbGen.MasterGenerationProblemOne()
+	}
+
+	if cmnd =="binary-search"{
+		binarysearch.RunBinarySearch()
+	}
+
+	if cmnd =="fast-slow"{
+		fastandslow.RunFastAndSlow()
+	}
+
+	if cmnd =="merge-interval"{
+		mergeintervals.RunMergeIntervals()
+	}
+
+	if cmnd =="two-pointer"{
+		twopointers.TwoPointersRun()
 	}
 	
 	
