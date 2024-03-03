@@ -20,7 +20,7 @@ fast-slow:
 merge:
 	go build -o algo .; ./algo -command "merge-interval"
 
-two-pointers:
+two-pointer:
 	go build -o algo .; ./algo -command "two-pointer"
 
 sort:
