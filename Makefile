@@ -11,6 +11,18 @@ llrev:
 pattern:
 	go build -o algo .; ./algo -command "pattern"
 
+binary-search:
+	go build -o algo .; ./algo -command "binary-search"
+
+fast-slow:
+	go build -o algo .; ./algo -command "fast-slow"
+
+merge:
+	go build -o algo .; ./algo -command "merge-interval"
+
+two-pointers:
+	go build -o algo .; ./algo -command "two-pointer"
+
 sort:
 	go build -o algo .; ./algo -command "sort"
 
