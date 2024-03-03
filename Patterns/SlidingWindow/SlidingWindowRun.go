@@ -2,7 +2,14 @@ package slidingwindow
 
 import "fmt"
 
-func RunSlidingWindoRun() {
+func RunSlidingWindowRun() {
+	// --- High Sell low
+	returnRes2 := BuyHighSellLow([]int{6, -5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 5, 6, 5, 4, 6, 1, 2, 11})
+	returnRes3 := BuyHighSellLowPrac([]int{7,6,4,3,1})
+	fmt.Println("Buy High Sell Low:",returnRes2)
+	fmt.Println("Buy High Sell Low Prac:", returnRes3)
+
+
 	//---Fruit Basket---
 	fmt.Println("\nFruit Basket Practice", TotalFruitPrac([]int{1, 2, 3, 2, 2}))
 
