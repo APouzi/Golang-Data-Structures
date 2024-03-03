@@ -23,6 +23,9 @@ merge:
 two-pointer:
 	go build -o algo .; ./algo -command "two-pointer"
 
+sliding-window:
+	go build -o algo .; ./algo -command "sliding-window"
+
 sort:
 	go build -o algo .; ./algo -command "sort"
 

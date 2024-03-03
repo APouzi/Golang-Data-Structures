@@ -14,6 +14,7 @@ import (
 	binarysearch "github.com/APouzi/go-algos/Patterns/BinarySearch"
 	fastandslow "github.com/APouzi/go-algos/Patterns/FastAndSlow"
 	monotonicdeque "github.com/APouzi/go-algos/Patterns/MonotonicDeque"
+	slidingwindow "github.com/APouzi/go-algos/Patterns/SlidingWindow"
 	twopointers "github.com/APouzi/go-algos/Patterns/TwoPointers"
 	"github.com/APouzi/go-algos/Patterns/mergeintervals"
 	prbGen "github.com/APouzi/go-algos/ProblemListGeneration"
@@ -152,6 +153,10 @@ func main() {
 
 	if cmnd =="two-pointer"{
 		twopointers.TwoPointersRun()
+	}
+
+	if cmnd =="sliding-window"{
+		slidingwindow.RunSlidingWindowRun()
 	}
 	
 	
