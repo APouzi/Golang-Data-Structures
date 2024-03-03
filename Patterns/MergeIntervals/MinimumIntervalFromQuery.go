@@ -1,4 +1,4 @@
-package patterns
+package mergeintervals
 
 import sorting "github.com/APouzi/go-algos/Sorting"
 

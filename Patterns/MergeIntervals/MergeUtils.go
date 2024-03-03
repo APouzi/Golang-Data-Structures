@@ -1,4 +1,4 @@
-package patterns
+package mergeintervals
 
 //---min and max---
 func min(a, b int) int{
