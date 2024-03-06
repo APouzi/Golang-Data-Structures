@@ -1,7 +1,5 @@
 package mergeintervals
 
-import "fmt"
-
 //Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
 // Example 1:
 // Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
@@ -21,7 +19,6 @@ import "fmt"
 func nonOverLappingIntervals(intervals [][]int) int{
 	var ans int = 0
 	var sortedIntervals [][]int = MergeSortIntervalByStart(intervals, 0, len(intervals)-1) //{{1,2},{1,3},{2,3},{3,4},{4,6},{5,6}}
-	fmt.Println(sortedIntervals)
 	var lastInterval []int = sortedIntervals[0] //NOTE: this doesn't need to be interval and we can just keep track of the last good end, as we shrink this.
 	for i := 1; i < len(sortedIntervals); i++{
 		if lastInterval[1] <= sortedIntervals[i][0]{
