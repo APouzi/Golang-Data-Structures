@@ -102,44 +102,7 @@ func (h *MaxHeap2) Pop() any {
 	return x
 }
 func GetSkylinePrac(buildings [][]int)[][]int{
-	var ans [][]int = [][]int{}
-	var points []int = make([]int, len(buildings)*2)
-	for i,v := range buildings{
-		points[i*2] = v[0]
-		points[i*2+1] = v[1]
-	}
-	sort.Slice(points, func(i, j int) bool {return points[i] < points[j]})
-	var unique []int = []int{points[0]}
-	for i:=1;i<len(points);i++{
-		if points[i-1] != points[i]{
-			unique = append(unique, points[i])
-		}
-	}
-	var building, prevHeight, currHeight int = 0, 0 ,0
-	h := &MaxHeap2{}
-	heap.Init(h)
-	for _,point := range unique{
-		
-		for h.Len() > 0 && point >= (*h)[0][1]{
-			heap.Pop(h)
-		}
-
-		for building < len(buildings) && point >= buildings[building][0]{
-			heap.Push(h, []int{buildings[building][2],buildings[building][1]})
-			building++
-		}
-
-		currHeight = 0
-		if h.Len() >0{
-			currHeight = (*h)[0][0]
-		}
-
-		if currHeight != prevHeight{
-			ans = append(ans, []int{point,currHeight})
-			prevHeight = currHeight
-		}
-	}
-	return ans
+	return [][]int{}
 }
 
 // You are given a 2D integer array intervals, where intervals[i] = [lefti, righti] describes the ith interval starting at lefti and ending at righti (inclusive). The size of an interval is defined as the number of integers it contains, or more formally righti - lefti + 1. 
